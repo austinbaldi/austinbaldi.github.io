@@ -6,7 +6,7 @@
   <title>Austin Baldi — UX Research</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    :root{--bg:#0b0c0f;--surface:#13141a;--surface2:#1a1c24;--surface3:#21232e;--accent:#d4f060;--accent2:#60d4f0;--accent3:#f0a060;--text:#eeeef5;--muted:#7a7a9a;--border:rgba(255,255,255,0.06);--radius:8px;}
+    :root{--bg:#0b0c0f;--surface:#13141a;--surface2:#1a1c24;--accent:#d4f060;--accent2:#60d4f0;--accent3:#f0a060;--text:#eeeef5;--muted:#7a7a9a;--border:rgba(255,255,255,0.06);--radius:8px;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
@@ -135,9 +135,6 @@
     .pc{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:.9rem;text-align:center;}
     .pc-n{font-family:"Fraunces",serif;font-size:1.1rem;font-weight:700;color:var(--text);}
     .pc-i{font-family:"DM Mono",monospace;font-size:.57rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem;}
-    .recs-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.75rem;}
-    .ri{display:flex;gap:.65rem;font-size:.85rem;color:var(--muted);line-height:1.5;}
-    .ra{color:var(--accent2);flex-shrink:0;font-family:"DM Mono",monospace;}
     .phase-tl{display:flex;flex-direction:column;margin-bottom:1.75rem;}
     .ph-item{display:flex;gap:1.25rem;position:relative;padding-bottom:1.25rem;}
     .ph-item:last-child{padding-bottom:0;}
@@ -149,12 +146,13 @@
     #contact .s-div{margin:0 auto 3rem;}
     .contact-sub{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 2rem;line-height:1.75;}
     .contact-sub strong{color:var(--text);}
-    .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
+    .contact-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;}
+    .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
     .cl{display:flex;align-items:center;gap:.6rem;font-family:"DM Mono",monospace;font-size:.73rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:.65rem 1.3rem;border-radius:4px;transition:all .2s;}
     .cl:hover{border-color:var(--accent);color:var(--accent);background:rgba(212,240,96,.04);}
     footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:"DM Mono",monospace;font-size:.68rem;color:var(--muted);letter-spacing:.05em;}
     @media(max-width:1024px){.hero{grid-template-columns:1fr;padding:8rem 2rem 4rem;gap:3rem;}#about{grid-template-columns:1fr;gap:3rem;}.svc-grid{grid-template-columns:1fr 1fr;}.skills-grid{grid-template-columns:1fr 1fr;}.process-steps{grid-template-columns:1fr 1fr;gap:1.5rem;}}
-    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}section{padding:4rem 1.5rem;}.four-qs{grid-template-columns:1fr;}.impact-row{grid-template-columns:1fr 1fr;}.findings-grid{grid-template-columns:1fr 1fr;}.svc-grid{grid-template-columns:1fr;}.skills-grid{grid-template-columns:1fr;}.ptg{grid-template-columns:repeat(3,1fr);}.recs-grid{grid-template-columns:1fr;}footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center;}}
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}section{padding:4rem 1.5rem;}.four-qs{grid-template-columns:1fr;}.impact-row{grid-template-columns:1fr 1fr;}.findings-grid{grid-template-columns:1fr 1fr;}.svc-grid{grid-template-columns:1fr;}.skills-grid{grid-template-columns:1fr;}.ptg{grid-template-columns:repeat(3,1fr);}footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center;}}
     @media(max-width:500px){.impact-row{grid-template-columns:1fr;}.findings-grid{grid-template-columns:1fr;}.ptg{grid-template-columns:1fr 1fr;}}
   </style>
 </head>
@@ -166,8 +164,9 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Work</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank">Resume</a></li>
     <li><a href="https://calendly.com/ajonbaldi" target="_blank">Book a Call</a></li>
-    <li><a href="mailto:ajonbaldi@gmail.com" class="nav-cta">Hire Me</a></li>
+    <li><a href="mailto:ajonbaldiajonbaldi@gmail.com#64;gmail.com" class="nav-cta">Hire Me</a></li>
   </ul>
 </nav>
 
@@ -203,9 +202,10 @@
     <p class="about-p">When I am not embedded with a team, I work as an <strong>independent researcher</strong> -- bringing the same rigor to freelance engagements with studios and startups who need research but are not ready to hire full-time.</p>
     <p class="about-p">B.A. Psychology, NC State University. Based in Raleigh, NC.</p>
     <div class="about-contacts">
-      <a href="mailto:ajonbaldi@gmail.com" class="about-contact">ajonbaldi@gmail.com</a>
+      <a href="mailto:ajonbaldiajonbaldi@gmail.com#64;gmail.com" class="about-contact">ajonbaldiajonbaldi@gmail.com#64;gmail.com</a>
       <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="about-contact">linkedin.com/in/austinbaldi</a>
       <a href="https://calendly.com/ajonbaldi" target="_blank" class="about-contact">Book a call: calendly.com/ajonbaldi</a>
+      <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="about-contact">Download Resume</a>
       <a href="tel:9193689361" class="about-contact">919-368-9361</a>
     </div>
   </div>
@@ -213,22 +213,10 @@
     <div class="exp-card">
       <div class="s-tag" style="margin-bottom:1.25rem;">Experience</div>
       <div class="exp-tl">
-        <div class="exp-item">
-          <div class="exp-dot live"></div>
-          <div><div class="exp-role">Eldritch House &middot; User Researcher &middot; Nov 2025 -- Present</div><div class="exp-desc">Embedded researcher for an indie game studio. Early-stage discovery and usability research on core gameplay and onboarding; 15-20 users per cycle.</div></div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div><div class="exp-role">Dyslexia App &middot; UX Researcher &middot; Jul 2023 -- Jan 2026</div><div class="exp-desc">Multi-phase research for an open-source EdTech app for dyslexic students in West Africa across 3+ phases.</div></div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div><div class="exp-role">Gameloft &middot; User Researcher &middot; Aug 2023 -- Jul 2024</div><div class="exp-desc">Mixed-methods research on Disney Speedstorm. Identified ~60% new-player rewards misunderstanding; validated 30-40% comprehension error reduction.</div></div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-dot"></div>
-          <div><div class="exp-role">Kadena &middot; UX Researcher &middot; Oct 2022 -- May 2024</div><div class="exp-desc">Led developer onboarding research for a blockchain platform. 100+ survey respondents; ~25-30% onboarding comprehension improvement.</div></div>
-        </div>
+        <div class="exp-item"><div class="exp-dot live"></div><div><div class="exp-role">Eldritch House &middot; User Researcher &middot; Nov 2025 -- Present</div><div class="exp-desc">Embedded researcher for an indie game studio. Early-stage discovery and usability research on core gameplay and onboarding; 15-20 users per cycle.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Dyslexia App &middot; UX Researcher &middot; Jul 2023 -- Jan 2026</div><div class="exp-desc">Multi-phase research for an open-source EdTech app for dyslexic students in West Africa across 3+ phases.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Gameloft &middot; User Researcher &middot; Aug 2023 -- Jul 2024</div><div class="exp-desc">Mixed-methods research on Disney Speedstorm. Identified ~60% new-player rewards misunderstanding; validated 30-40% comprehension error reduction.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Kadena &middot; UX Researcher &middot; Oct 2022 -- May 2024</div><div class="exp-desc">Led developer onboarding research for a blockchain platform. 100+ survey respondents; ~25-30% onboarding comprehension improvement.</div></div></div>
       </div>
     </div>
   </div>
@@ -243,74 +231,31 @@
       <div class="svc-icon">&#9654;</div>
       <div class="svc-name">Playtest &amp; Usability Studies</div>
       <div class="svc-desc">End-to-end research on gameplay, onboarding, or feature usability. I handle everything from study design to synthesis and recommendations.</div>
-      <ul class="svc-inc">
-        <li>Study design &amp; discussion guide</li>
-        <li>Participant recruitment &amp; screening</li>
-        <li>5-8 moderated sessions</li>
-        <li>Synthesis &amp; prioritized recommendations</li>
-        <li>Final report &amp; team readout</li>
-      </ul>
-      <div class="svc-price">
-        <div class="svc-price-main">From $4,500</div>
-        <div class="svc-price-sub">Per study &middot; or $110-130/hr</div>
-      </div>
+      <ul class="svc-inc"><li>Study design &amp; discussion guide</li><li>Participant recruitment &amp; screening</li><li>5-8 moderated sessions</li><li>Synthesis &amp; prioritized recommendations</li><li>Final report &amp; team readout</li></ul>
+      <div class="svc-price"><div class="svc-price-main">From $4,500</div><div class="svc-price-sub">Per study &middot; or $110-130/hr</div></div>
     </div>
     <div class="svc-card">
       <div class="svc-icon">&#9632;</div>
       <div class="svc-name">Embedded Sprint Researcher</div>
       <div class="svc-desc">Part-time embedded researcher across your sprint cycles. I join standups, shape research priorities, run studies, and feed findings directly into design and product decisions.</div>
-      <ul class="svc-inc">
-        <li>Weekly research planning</li>
-        <li>Ongoing study execution</li>
-        <li>Synthesis workshops with your team</li>
-        <li>Reusable insight artifacts</li>
-        <li>Direct stakeholder communication</li>
-      </ul>
-      <div class="svc-price">
-        <div class="svc-price-main">$5,500/mo</div>
-        <div class="svc-price-sub">Or $125/hr &middot; client's choice</div>
-      </div>
+      <ul class="svc-inc"><li>Weekly research planning</li><li>Ongoing study execution</li><li>Synthesis workshops with your team</li><li>Reusable insight artifacts</li><li>Direct stakeholder communication</li></ul>
+      <div class="svc-price"><div class="svc-price-main">$5,500/mo</div><div class="svc-price-sub">Or $125/hr &middot; client's choice</div></div>
     </div>
     <div class="svc-card">
       <div class="svc-icon">&#9670;</div>
       <div class="svc-name">Research Strategy Consult</div>
       <div class="svc-desc">For teams that need a research roadmap, not just a single study. I audit what you know, identify the gaps costing you the most, and give you a clear plan for closing them.</div>
-      <ul class="svc-inc">
-        <li>Research audit of existing materials</li>
-        <li>Gap &amp; priority analysis</li>
-        <li>Research roadmap for 1-2 quarters</li>
-        <li>KPI &amp; success criteria definition</li>
-        <li>Optional: ongoing advisory</li>
-      </ul>
-      <div class="svc-price">
-        <div class="svc-price-main">From $2,000</div>
-        <div class="svc-price-sub">Fixed scope &middot; or $110-130/hr</div>
-      </div>
+      <ul class="svc-inc"><li>Research audit of existing materials</li><li>Gap &amp; priority analysis</li><li>Research roadmap for 1-2 quarters</li><li>KPI &amp; success criteria definition</li><li>Optional: ongoing advisory</li></ul>
+      <div class="svc-price"><div class="svc-price-main">From $2,000</div><div class="svc-price-sub">Fixed scope &middot; or $110-130/hr</div></div>
     </div>
   </div>
   <div class="process-box">
     <div class="process-label">How an engagement typically starts</div>
     <div class="process-steps">
-      <div class="pstep">
-        <div class="pstep-n">01</div>
-        <div class="pstep-l">Intro call</div>
-        <div class="pstep-d">30 min about your product, your team, and the decision you need to make. No pitch, just scoping. <a href="https://calendly.com/ajonbaldi" target="_blank">Book it here &rarr;</a></div>
-      </div>
-      <div class="pstep">
-        <div class="pstep-n">02</div>
-        <div class="pstep-l">Proposal</div>
-        <div class="pstep-d">A short proposal: what I will research, what methods I will use, what you will get at the end, and what it costs.</div>
-      </div>
-      <div class="pstep">
-        <div class="pstep-n">03</div>
-        <div class="pstep-l">Research</div>
-        <div class="pstep-d">I run the work. You stay in the loop without being burdened by it -- I will flag decisions that need your input, nothing more.</div>
-      </div>
-      <div class="pstep">
-        <div class="pstep-n">04</div>
-        <div class="pstep-l">Delivery</div>
-        <div class="pstep-d">Findings, prioritized recommendations, and a readout with your team. Built for action, not for filing away.</div>
-      </div>
+      <div><div class="pstep-n">01</div><div class="pstep-l">Intro call</div><div class="pstep-d">30 min about your product, your team, and the decision you need to make. No pitch, just scoping. <a href="https://calendly.com/ajonbaldi" target="_blank">Book it here &rarr;</a></div></div>
+      <div><div class="pstep-n">02</div><div class="pstep-l">Proposal</div><div class="pstep-d">A short proposal: what I will research, what methods I will use, what you will get, and what it costs.</div></div>
+      <div><div class="pstep-n">03</div><div class="pstep-l">Research</div><div class="pstep-d">I run the work. You stay in the loop without being burdened by it -- I will flag decisions that need your input, nothing more.</div></div>
+      <div><div class="pstep-n">04</div><div class="pstep-l">Delivery</div><div class="pstep-d">Findings, prioritized recommendations, and a readout with your team. Built for action, not for filing away.</div></div>
     </div>
   </div>
 </section>
@@ -319,46 +264,9 @@
   <h2 class="s-title">Skills &amp; Methods</h2>
   <div class="s-div"></div>
   <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-title">Research Methods</div>
-      <ul class="skill-list">
-        <li>Moderated &amp; unmoderated usability testing</li>
-        <li>Think-aloud playtesting</li>
-        <li>Discovery interviews &amp; focus groups</li>
-        <li>Diary studies</li>
-        <li>Surveys (design &amp; analysis)</li>
-        <li>Concept validation</li>
-        <li>Card sorting &amp; tree testing</li>
-        <li>Mental model mapping</li>
-        <li>Heuristic evaluation</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Analysis &amp; Synthesis</div>
-      <ul class="skill-list">
-        <li>Mixed-methods synthesis</li>
-        <li>Statistical analysis (R, SQL, SPSS)</li>
-        <li>Behavioral data analysis</li>
-        <li>Correlation &amp; regression (applied)</li>
-        <li>KPI definition &amp; tracking</li>
-        <li>Journey mapping &amp; mental models</li>
-        <li>Cross-functional synthesis workshops</li>
-        <li>Affinity mapping</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Tools &amp; Platforms</div>
-      <ul class="skill-list">
-        <li>Figma &amp; FigJam</li>
-        <li>UserTesting &amp; Dovetail</li>
-        <li>Notion &amp; Zoom</li>
-        <li>Remote research platforms</li>
-        <li>Agile / sprint methodology</li>
-        <li>Stakeholder alignment</li>
-        <li>Reusable research asset development</li>
-        <li>Participant recruitment &amp; screening</li>
-      </ul>
-    </div>
+    <div class="skill-group"><div class="skill-group-title">Research Methods</div><ul class="skill-list"><li>Moderated &amp; unmoderated usability testing</li><li>Think-aloud playtesting</li><li>Discovery interviews &amp; focus groups</li><li>Diary studies</li><li>Surveys (design &amp; analysis)</li><li>Concept validation</li><li>Card sorting &amp; tree testing</li><li>Mental model mapping</li><li>Heuristic evaluation</li></ul></div>
+    <div class="skill-group"><div class="skill-group-title">Analysis &amp; Synthesis</div><ul class="skill-list"><li>Mixed-methods synthesis</li><li>Statistical analysis (R, SQL, SPSS)</li><li>Behavioral data analysis</li><li>Correlation &amp; regression (applied)</li><li>KPI definition &amp; tracking</li><li>Journey mapping &amp; mental models</li><li>Cross-functional synthesis workshops</li><li>Affinity mapping</li></ul></div>
+    <div class="skill-group"><div class="skill-group-title">Tools &amp; Platforms</div><ul class="skill-list"><li>Figma &amp; FigJam</li><li>UserTesting &amp; Dovetail</li><li>Notion &amp; Zoom</li><li>Remote research platforms</li><li>Agile / sprint methodology</li><li>Stakeholder alignment</li><li>Reusable research asset development</li><li>Participant recruitment &amp; screening</li></ul></div>
   </div>
 </section>
 <section id="projects">
@@ -511,16 +419,19 @@
   <h2 class="s-title">Let's talk about<br><em>your users.</em></h2>
   <div class="s-div"></div>
   <p class="contact-sub">The best way to start is a <strong>30-minute intro call</strong> -- no pitch, just a conversation about your product, what decisions you need to make, and whether I am the right fit. Book directly below, or reach out by email if you prefer.</p>
-  <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary" style="font-size:.8rem;margin-bottom:2rem;">Book a Free 30-Min Call</a>
+  <div class="contact-btns">
+    <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary" style="font-size:.8rem;">Book a Free 30-Min Call</a>
+    <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="btn btn-outline" style="font-size:.8rem;">Download Resume</a>
+  </div>
   <div class="contact-links">
-    <a href="mailto:ajonbaldi@gmail.com" class="cl">ajonbaldi@gmail.com</a>
+    <a href="mailto:ajonbaldiajonbaldi@gmail.com#64;gmail.com" class="cl">ajonbaldiajonbaldi@gmail.com#64;gmail.com</a>
     <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="cl">LinkedIn</a>
     <a href="tel:9193689361" class="cl">919-368-9361</a>
   </div>
 </section>
 <footer>
   <span>Austin Baldi &middot; UX Research &middot; Raleigh, NC</span>
-  <span>ajonbaldi@gmail.com</span>
+  <span>ajonbaldiajonbaldi@gmail.com#64;gmail.com</span>
 </footer>
 </body>
 </html>
