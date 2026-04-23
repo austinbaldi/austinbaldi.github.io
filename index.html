@@ -1,175 +1,604 @@
-<!--
-  ============================================================
-  PORTFOLIO UPDATE SNIPPETS — austinbaldi.github.io/index.html
-  Three targeted replacements. Each block is labeled with
-  FIND: (what to search for) and REPLACE WITH: (the new HTML).
-  ============================================================
--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Austin Baldi — UX Research</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── 60-30-10 PALETTE ──────────────────────────────────────────────
+       60% → warm off-white (#f5f4f0) — primary background, light sections
+       30% → deep charcoal (#1a1c24) — hero, section breaks, nav, footer
+       10% → acid green (#d4f060) — CTAs, accents, highlights
+    ─────────────────────────────────────────────────────────────────── */
+    :root {
+      --primary:   #f5f4f0;   /* 60% — warm off-white */
+      --primary2:  #eceae4;   /* 60% — slightly darker for alternating */
+      --secondary: #1a1c24;   /* 30% — deep charcoal */
+      --secondary2:#252836;   /* 30% — lifted charcoal for cards in dark sections */
+      --accent:    #d4f060;   /* 10% — acid green */
+      --accent2:   #60d4f0;   /* supporting cyan */
+      --accent3:   #f0a060;   /* supporting orange */
+      --text-dark: #1a1c24;   /* body text on light bg */
+      --text-mid:  #4a4a5a;   /* secondary text on light bg */
+      --text-light:#eeeef5;   /* text on dark sections */
+      --text-muted:#8a8aaa;   /* muted on dark sections */
+      --border-light: rgba(26,28,36,0.1);
+      --border-dark:  rgba(255,255,255,0.08);
+      --radius: 8px;
+    }
 
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--primary);color:var(--text-dark);font-family:"DM Sans",sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
 
-<!-- ══════════════════════════════════════════════════════════
-     UPDATE 1 OF 3 — Hero stat block
-     FIND the entire <div class="hstats"> … </div> block
-     (lines ~266–272) and replace with this.
-     ══════════════════════════════════════════════════════════ -->
+    /* ── NAV (dark 30%) ──────────────────────────────────────────────── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:var(--secondary);border-bottom:1px solid var(--border-dark);}
+    .nav-logo{font-family:"Fraunces",serif;font-size:1rem;font-weight:700;color:var(--text-light);}
+    .nav-logo span{color:var(--accent);}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+    .nav-links a{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+    .nav-links a:hover{color:var(--text-light);}
+    .nav-cta{background:var(--accent)!important;color:var(--secondary)!important;padding:.5rem 1.1rem;border-radius:2px;font-weight:600!important;}
+    .nav-cta:hover{opacity:.88;color:var(--secondary)!important;}
 
-<div class="hstats">
-  <div class="hstat"><div class="hstat-n">2</div><div class="hstat-l">Research Sessions &middot; Shadow Sacrament</div></div>
-  <div class="hstat"><div class="hstat-n">1,100+</div><div class="hstat-l">Frames Reviewed &middot; Localization Audit</div></div>
-  <div class="hstat"><div class="hstat-n">100+</div><div class="hstat-l">Survey Respondents (Kadena)</div></div>
-  <div class="hstat"><div class="hstat-n">18K+</div><div class="hstat-l">LinkedIn Impressions &middot; Pause Menu Finding</div></div>
-  <div class="hstat wide"><div class="hstat-n">Games &middot; Web3 &middot; EdTech &middot; SaaS</div><div class="hstat-l">Eldritch House &middot; Gameloft &middot; Kadena &middot; Dyslexia App</div></div>
-</div>
+    /* ── HERO (dark 30%) ─────────────────────────────────────────────── */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:9rem 4rem 5rem;background:var(--secondary);position:relative;overflow:hidden;gap:4rem;}
+    .hero::before{content:"";position:absolute;top:-10%;right:-5%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(212,240,96,.07) 0%,transparent 65%);pointer-events:none;}
+    .hero::after{content:"";position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(96,212,240,.04) 0%,transparent 65%);pointer-events:none;}
+    .hero-eyebrow{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
+    .hero-eyebrow::before{content:"";display:block;width:32px;height:1px;background:var(--accent);}
+    .hero-title{font-family:"Fraunces",serif;font-size:clamp(3rem,4.5vw,5.2rem);line-height:1.02;font-weight:700;margin-bottom:1.5rem;letter-spacing:-.02em;color:var(--text-light);}
+    .hero-title em{font-style:italic;color:var(--accent);}
+    .hero-body{font-size:1.05rem;color:var(--text-muted);max-width:480px;margin-bottom:.75rem;line-height:1.75;}
+    .hero-location{font-family:"DM Mono",monospace;font-size:.75rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:2.5rem;}
+    .hero-location span{color:var(--accent2);}
+    .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.8rem;border-radius:2px;transition:all .2s;font-weight:500;}
+    .btn-primary{background:var(--accent);color:var(--secondary);font-weight:600;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,240,96,.3);}
+    .btn-outline-light{border:1px solid rgba(255,255,255,.2);color:var(--text-muted);}
+    .btn-outline-light:hover{border-color:var(--text-muted);color:var(--text-light);}
+    .btn-outline-dark{border:1px solid var(--border-light);color:var(--text-mid);}
+    .btn-outline-dark:hover{border-color:var(--text-dark);color:var(--text-dark);}
 
+    /* Hero stats on dark bg */
+    .hstats{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;position:relative;z-index:1;}
+    .hstat{background:var(--secondary2);border:1px solid var(--border-dark);border-radius:var(--radius);padding:1.4rem;transition:border-color .3s,transform .3s;}
+    .hstat:hover{border-color:rgba(212,240,96,.3);transform:translateY(-3px);}
+    .hstat-n{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.3rem;}
+    .hstat-l{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
+    .hstat.wide{grid-column:span 2;}
+    .hstat.wide .hstat-n{font-size:1.05rem;color:var(--text-light);}
 
-<!-- ══════════════════════════════════════════════════════════
-     UPDATE 2 OF 3 — Shadow Sacrament: methods Q + meta tags
-     FIND this exact block (lines ~376–381):
+    /* ── LIGHT SECTIONS (60%) ────────────────────────────────────────── */
+    section{padding:6rem 4rem;}
+    .section-light{background:var(--primary);}
+    .section-alt{background:var(--primary2);}
+    .section-dark{background:var(--secondary);}
 
-       <div class="meta-row">…Discovery Research…</div>
-       <div class="four-qs">
-         …
-       </div>
+    .s-tag{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:.75rem;}
+    .section-dark .s-tag{color:var(--accent2);}
+    .s-title{font-family:"Fraunces",serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:700;margin-bottom:1.25rem;line-height:1.08;letter-spacing:-.02em;color:var(--text-dark);}
+    .section-dark .s-title{color:var(--text-light);}
+    .s-title em{font-style:italic;color:var(--accent);}
+    .s-div{width:40px;height:3px;background:var(--accent);margin-bottom:3rem;border-radius:2px;}
 
-     REPLACE WITH the block below.
-     ══════════════════════════════════════════════════════════ -->
+    /* ── ABOUT (light) ───────────────────────────────────────────────── */
+    #about{display:grid;grid-template-columns:1fr 1.1fr;gap:6rem;align-items:start;}
+    .about-p{color:var(--text-mid);margin-bottom:1.1rem;font-size:1rem;}
+    .about-p strong{color:var(--text-dark);font-weight:600;}
+    .about-contacts{display:flex;flex-direction:column;gap:.7rem;margin-top:2rem;}
+    .about-contact{font-family:"DM Mono",monospace;font-size:.78rem;color:var(--text-mid);display:flex;align-items:center;gap:.75rem;text-decoration:none;transition:color .2s;}
+    .about-contact:hover{color:var(--text-dark);}
+    .about-contact::before{content:"->";color:var(--accent2);}
 
-<div class="meta-row">
-  <span class="mt">Discovery Research</span>
-  <span class="mt">Moderated Playtests</span>
-  <span class="mt">Hypothesis Testing</span>
-  <span class="mt">Localization Audit</span>
-  <span class="mt">Frame-by-Frame Analysis</span>
-  <span class="mt">Prioritization</span>
-  <span class="mt">Embedded Researcher</span>
-  <span class="mt">Indie / Resource-Constrained</span>
-</div>
+    /* Experience card on light bg */
+    .exp-card{background:white;border:1px solid var(--border-light);border-radius:var(--radius);padding:2rem;box-shadow:0 2px 20px rgba(26,28,36,.06);}
+    .exp-tl{display:flex;flex-direction:column;}
+    .exp-item{display:flex;gap:1.25rem;position:relative;padding-bottom:1.5rem;}
+    .exp-item:last-child{padding-bottom:0;}
+    .exp-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:.5rem;flex-shrink:0;z-index:1;}
+    .exp-dot.live{background:var(--accent2);box-shadow:0 0 0 3px rgba(96,212,240,.2);}
+    .exp-item:not(:last-child)::before{content:"";position:absolute;left:4px;top:14px;width:1px;height:calc(100% - 8px);background:var(--border-light);}
+    .exp-role{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.15rem;}
+    .exp-desc{font-size:.88rem;color:var(--text-mid);line-height:1.55;}
 
-<div class="four-qs">
-  <div class="fq">
-    <div class="fq-q">What problem were you solving?</div>
-    <div class="fq-a">Indie studios cannot afford to build the wrong thing. The core challenge was validating core gameplay mechanics and onboarding before those systems became too expensive to change — with each test anchored to a specific, high-stakes design decision rather than generating general observations. Session 2 extended this into localization: for a Brazilian studio shipping to a PT-BR primary audience, untranslated UI is a credibility and retention risk, not a polish item.</div>
+    /* ── SERVICES (dark 30%) ─────────────────────────────────────────── */
+    #services .s-title{color:var(--text-light);}
+    .svc-intro{font-size:1.05rem;color:var(--text-muted);max-width:560px;margin-bottom:3rem;line-height:1.75;}
+    .svc-intro strong{color:var(--text-light);}
+    .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:3rem;}
+    .svc-card{background:var(--secondary2);border:1px solid var(--border-dark);border-radius:var(--radius);padding:2rem;display:flex;flex-direction:column;transition:border-color .3s,transform .3s;}
+    .svc-card:hover{border-color:rgba(212,240,96,.35);transform:translateY(-4px);}
+    .svc-icon{font-size:1.4rem;margin-bottom:1.25rem;color:var(--accent);}
+    .svc-name{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:700;margin-bottom:.5rem;line-height:1.2;color:var(--text-light);}
+    .svc-desc{font-size:.9rem;color:var(--text-muted);margin-bottom:1.5rem;flex:1;line-height:1.6;}
+    .svc-inc{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.4rem;}
+    .svc-inc li{font-size:.82rem;color:var(--text-muted);display:flex;gap:.6rem;align-items:flex-start;}
+    .svc-inc li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent2);flex-shrink:0;margin-top:.55rem;}
+    .svc-price{margin-top:auto;padding-top:1.25rem;border-top:1px solid var(--border-dark);}
+    .svc-price-main{font-family:"Fraunces",serif;font-size:1.55rem;font-weight:700;color:var(--accent);line-height:1;}
+    .svc-price-sub{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-top:.25rem;}
+    .process-box{background:var(--secondary2);border:1px solid var(--border-dark);border-radius:var(--radius);padding:2.5rem;}
+    .process-label{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.5rem;}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+    .pstep-n{font-family:"Fraunces",serif;font-size:2rem;font-weight:700;color:rgba(212,240,96,.2);line-height:1;}
+    .pstep-l{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:.3rem 0;}
+    .pstep-d{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+    .pstep-d a{color:var(--accent);text-decoration:none;}
+    .pstep-d a:hover{text-decoration:underline;}
+
+    /* ── SKILLS (light alt) ──────────────────────────────────────────── */
+    #skills .s-title{color:var(--text-dark);}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+    .skill-group{background:white;border:1px solid var(--border-light);border-radius:var(--radius);padding:1.75rem;box-shadow:0 2px 16px rgba(26,28,36,.05);}
+    .skill-group-title{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.1rem;}
+    .skill-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+    .skill-list li{font-size:.9rem;color:var(--text-mid);display:flex;align-items:center;gap:.6rem;}
+    .skill-list li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+
+    /* ── PROJECTS (light) ────────────────────────────────────────────── */
+    #projects .s-title{color:var(--text-dark);}
+    .project-card{background:white;border:1px solid var(--border-light);border-radius:12px;overflow:hidden;margin-bottom:1.5rem;transition:border-color .3s,box-shadow .3s,transform .3s;box-shadow:0 2px 20px rgba(26,28,36,.05);}
+    .project-card:hover{border-color:rgba(212,240,96,.5);transform:translateY(-3px);box-shadow:0 8px 40px rgba(26,28,36,.1);}
+    .proj-header{padding:2.25rem 2.25rem 0;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border-light);padding-bottom:1rem;margin-bottom:0;}
+    .proj-num{font-family:"DM Mono",monospace;font-size:.68rem;color:var(--accent2);letter-spacing:.1em;}
+    .proj-badge{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;}
+    .bg{background:rgba(212,240,96,.12);color:#5a7200;border:1px solid rgba(212,240,96,.3);}
+    .bb{background:rgba(96,212,240,.1);color:#006080;border:1px solid rgba(96,212,240,.25);}
+    .bo{background:rgba(240,160,96,.1);color:#804000;border:1px solid rgba(240,160,96,.25);}
+    .proj-body{padding:1.5rem 2.25rem 2.25rem;}
+    .proj-title{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:700;margin-bottom:.6rem;line-height:1.15;letter-spacing:-.01em;color:var(--text-dark);}
+    .proj-desc{color:var(--text-mid);font-size:.93rem;margin-bottom:1.75rem;max-width:700px;line-height:1.7;}
+    .proj-desc strong{color:var(--text-dark);font-weight:600;}
+    .meta-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem;}
+    .mt{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);background:var(--primary);border:1px solid var(--border-light);padding:.2rem .65rem;border-radius:2px;}
+    .four-qs{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1.75rem;}
+    .fq{background:var(--primary);border:1px solid var(--border-light);border-left:2px solid var(--accent);border-radius:0 6px 6px 0;padding:1.1rem;}
+    .fq-q{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.45rem;}
+    .fq-a{font-size:.85rem;color:var(--text-mid);line-height:1.6;}
+    .fq-a strong{color:var(--text-dark);font-weight:600;}
+    .impact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-bottom:1.75rem;}
+    .ic{background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;padding:1.1rem;}
+    .ic-n{font-family:"Fraunces",serif;font-size:1.65rem;font-weight:700;color:var(--secondary);line-height:1;margin-bottom:.3rem;}
+    .ic-d{font-size:.82rem;color:var(--text-mid);line-height:1.5;}
+    .ic-d strong{color:var(--text-dark);font-weight:600;}
+    .findings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-bottom:1.75rem;}
+    .fc{background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;padding:1.1rem;}
+    .fl{display:inline-block;font-family:"DM Mono",monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .45rem;border-radius:2px;margin-bottom:.5rem;}
+    .ls{background:rgba(212,240,96,.15);color:#5a7200;}
+    .lp{background:rgba(248,112,96,.1);color:#a03020;}
+    .li{background:rgba(96,212,240,.1);color:#006080;}
+    .lr{background:rgba(212,240,96,.08);color:#5a7200;}
+    .fc-t{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-dark);margin-bottom:.35rem;font-weight:600;}
+    .fc-d{font-size:.82rem;color:var(--text-mid);line-height:1.5;}
+    .stat-row{display:flex;gap:2rem;padding-top:1.25rem;border-top:1px solid var(--border-light);flex-wrap:wrap;}
+    .sn{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:700;color:var(--secondary);line-height:1;}
+    .sl{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-mid);margin-top:.25rem;}
+    .ptg{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin-bottom:1.75rem;}
+    .pc{background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;padding:.9rem;text-align:center;}
+    .pc-n{font-family:"Fraunces",serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);}
+    .pc-i{font-family:"DM Mono",monospace;font-size:.57rem;color:var(--text-mid);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem;}
+    .phase-tl{display:flex;flex-direction:column;margin-bottom:1.75rem;}
+    .ph-item{display:flex;gap:1.25rem;position:relative;padding-bottom:1.25rem;}
+    .ph-item:last-child{padding-bottom:0;}
+    .ph-dot{width:9px;height:9px;border-radius:50%;background:var(--accent2);margin-top:.45rem;flex-shrink:0;z-index:1;}
+    .ph-item:not(:last-child)::before{content:"";position:absolute;left:4px;top:13px;width:1px;height:calc(100% - 8px);background:var(--border-light);}
+    .ph-l{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.15rem;}
+    .ph-d{font-size:.87rem;color:var(--text-mid);line-height:1.55;}
+
+    /* Artifact cards on light bg */
+    .artifact-card{background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:1.25rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:1.75rem;}
+    .artifact-label{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;}
+    .artifact-title{font-family:"Fraunces",serif;font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;line-height:1.2;}
+    .artifact-desc{font-size:.85rem;color:var(--text-mid);line-height:1.6;margin:0;}
+
+    /* ── CONTACT (dark 30%) ──────────────────────────────────────────── */
+    #contact{text-align:center;}
+    #contact .s-title{color:var(--text-light);}
+    #contact .s-div{margin:0 auto 3rem;}
+    .contact-sub{color:var(--text-muted);font-size:1rem;max-width:520px;margin:0 auto 2rem;line-height:1.75;}
+    .contact-sub strong{color:var(--text-light);}
+    .contact-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;}
+    .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .cl{display:flex;align-items:center;gap:.6rem;font-family:"DM Mono",monospace;font-size:.73rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;border:1px solid var(--border-dark);padding:.65rem 1.3rem;border-radius:4px;transition:all .2s;}
+    .cl:hover{border-color:var(--accent);color:var(--accent);background:rgba(212,240,96,.05);}
+
+    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    footer{padding:2rem 4rem;border-top:1px solid var(--border-dark);display:flex;justify-content:space-between;align-items:center;font-family:"DM Mono",monospace;font-size:.68rem;color:var(--text-muted);letter-spacing:.05em;background:var(--secondary);}
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+    @media(max-width:1024px){
+      .hero{grid-template-columns:1fr;padding:8rem 2rem 4rem;gap:3rem;}
+      #about{grid-template-columns:1fr;gap:3rem;}
+      .svc-grid{grid-template-columns:1fr 1fr;}
+      .skills-grid{grid-template-columns:1fr 1fr;}
+      .process-steps{grid-template-columns:1fr 1fr;gap:1.5rem;}
+    }
+    @media(max-width:768px){
+      nav{padding:1rem 1.5rem;}
+      .nav-links{display:none;}
+      section{padding:4rem 1.5rem;}
+      .four-qs{grid-template-columns:1fr;}
+      .impact-row{grid-template-columns:1fr 1fr;}
+      .findings-grid{grid-template-columns:1fr 1fr;}
+      .svc-grid{grid-template-columns:1fr;}
+      .skills-grid{grid-template-columns:1fr;}
+      .ptg{grid-template-columns:repeat(3,1fr);}
+      footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center;}
+    }
+    @media(max-width:500px){
+      .impact-row{grid-template-columns:1fr;}
+      .findings-grid{grid-template-columns:1fr;}
+      .ptg{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Austin <span>Baldi</span></span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank">Resume</a></li>
+    <li><a href="https://calendly.com/ajonbaldi" target="_blank">Book a Call</a></li>
+    <li><a href="/cdn-cgi/l/email-protection#18797277767a79747c71587f75797174367b7775" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO: dark 30% -->
+<section class="hero">
+  <div style="position:relative;z-index:1;">
+    <div class="hero-eyebrow">Senior UX Researcher &amp; Freelance Consultant</div>
+    <h1 class="hero-title">Your team is<br>building on<br><em>assumptions.</em><br>I fix that.</h1>
+    <p class="hero-body">I help game studios, startups, and technical platforms understand their users before the cost of being wrong gets too high. 3+ years conducting research across games, blockchain, and EdTech.</p>
+    <p class="hero-location">Raleigh, NC &nbsp;&middot;&nbsp; <span>Available for freelance &amp; contract</span></p>
+    <div class="hero-ctas">
+      <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary">Book a Free 30-Min Call</a>
+      <a href="#projects" class="btn btn-outline-light">View Case Studies</a>
+    </div>
   </div>
-  <div class="fq">
-    <div class="fq-q">What methods did you use and why?</div>
-    <div class="fq-a"><strong>Session 1 — Moderated playtests</strong> with 15-20 representative users per cycle: structured enough to test specific hypotheses, flexible enough to surface unexpected behavior. Paired with targeted <strong>hypothesis testing</strong> to keep each session anchored to a real decision the team needed to make.<br><br><strong>Session 2 — Frame-by-frame localization audit</strong> of a 94-minute PT-BR native speaker playthrough. 1,100+ extracted frames reviewed systematically to document untranslated UI surfaces with timestamps and reproduction steps — a different method for a different research question.</div>
+  <div style="position:relative;z-index:1;">
+    <div class="hstats">
+      <div class="hstat"><div class="hstat-n">3+</div><div class="hstat-l">Years Research Experience</div></div>
+      <div class="hstat"><div class="hstat-n">5</div><div class="hstat-l">Moderated Playtests &middot; Disney Speedstorm</div></div>
+      <div class="hstat"><div class="hstat-n">100+</div><div class="hstat-l">Survey Respondents (Kadena)</div></div>
+      <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l">Countries &middot; Disney Speedstorm Study</div></div>
+      <div class="hstat wide"><div class="hstat-n">Games &middot; Web3 &middot; EdTech &middot; SaaS</div><div class="hstat-l">Eldritch House &middot; Gameloft &middot; Kadena &middot; Dyslexia App</div></div>
+    </div>
   </div>
-  <div class="fq">
-    <div class="fq-q">How did you balance business needs with user needs?</div>
-    <div class="fq-a">In an indie context, every wrong sprint is a real cost. I consistently synthesized findings into the <strong>top 3-5 high-impact changes</strong> rather than exhaustive lists. For the localization audit, findings were ranked by player-facing impact — not just presence — so the studio could triage a fix list rather than treat all gaps as equal.</div>
+</section>
+
+<!-- ABOUT: light 60% -->
+<section id="about" class="section-light">
+  <div>
+    <div class="s-tag">About</div>
+    <h2 class="s-title">Research that<br><em>moves teams</em> forward.</h2>
+    <div class="s-div"></div>
+    <p class="about-p">I am a <strong>UX Researcher</strong> with 3+ years conducting research across games, blockchain, and EdTech. I specialize in finding the signal in ambiguous user behavior and turning it into decisions teams can actually execute on.</p>
+    <p class="about-p">I have been an embedded research partner to <strong>Product, Design, Engineering, and Analytics</strong> teams -- reducing decision risk, aligning stakeholders, and influencing roadmaps without slowing delivery timelines.</p>
+    <p class="about-p">When I am not embedded with a team, I work as an <strong>independent researcher</strong> -- bringing the same rigor to freelance engagements with studios and startups who need research but are not ready to hire full-time.</p>
+    <p class="about-p">B.A. Psychology, NC State University. Based in Raleigh, NC.</p>
+    <p class="about-p" style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border-light);"><strong>Currently seeking</strong> a Senior UX Researcher or Player Experience role at a games studio or research-forward product team — embedded, full-time or contract, open to remote or relocation.</p>
+    <div class="about-contacts">
+      <a href="/cdn-cgi/l/email-protection#7a1b101514181b161e133a1d171b131654191517" class="about-contact"><span class="__cf_email__" data-cfemail="5332393c3d31323f373a13343e323a3f7d303c3e">[email&#160;protected]</span></a>
+      <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="about-contact">linkedin.com/in/austinbaldi</a>
+      <a href="https://austinbaldi.github.io" target="_blank" class="about-contact">austinbaldi.github.io</a>
+      <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="about-contact">Download Resume</a>
+      <a href="tel:9193689361" class="about-contact">919-368-9361</a>
+    </div>
   </div>
-  <div class="fq">
-    <div class="fq-q">What would you do differently?</div>
-    <div class="fq-a">I would invest earlier in building a lightweight longitudinal panel — a small group of players who could be re-tested as the game evolved — rather than recruiting fresh each cycle. For localization specifically, I would establish a string-tracking protocol from session one so gaps can be cross-referenced against the loc pipeline rather than surfaced only in playthrough review.</div>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════════
-     UPDATE 3 OF 3 — Reflection, impact row, stat row, and artifact block
-     FIND from the opening of the reflection div (line ~383):
-
-       <div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);…Reflection…
-
-     All the way through to the closing </div> of the artifact block (line ~412),
-     i.e. through the line:
-
-       <a href="…Indie_Game_Hypothesis_Framework.pdf"…>View Artifact →</a>
-         </div>
-       </div>
-
-     REPLACE WITH the block below.
-     ══════════════════════════════════════════════════════════ -->
-
-<div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;">
-  <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;">Reflection</div>
-  <p style="font-size:.88rem;color:var(--text-mid);line-height:1.65;">Working as the sole researcher in an early-stage indie context sharpened my instinct for prioritization — when every sprint costs real development time, you learn quickly which research questions are worth asking and which can wait. The constraint forced a level of clarity in study design I hadn't needed to be as deliberate about in larger team contexts. One finding from this engagement — a pause menu default cursor issue — was reviewed and escalated by the dev team the same day it was delivered, and a post analyzing the methodology behind that finding reached 18,000+ impressions on LinkedIn, surfacing broader interest in pause menu UX from the games research community. Session 2 expanded the scope into localization: a different method, a different question, and a different kind of deliverable — but the same principle. Research has to be immediately actionable, or it doesn't belong in the sprint.</p>
-</div>
-
-<!-- Phase timeline -->
-<div style="margin-bottom:1.75rem;">
-  <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:.85rem;">Engagement Phases</div>
-  <div class="phase-tl">
-    <div class="ph-item">
-      <div class="ph-dot"></div>
-      <div>
-        <div class="ph-l">Phase 1 — Moderated Playtesting (Nov 2025)</div>
-        <div class="ph-d">15-20 players per cycle. Hypothesis-anchored sessions testing core gameplay and onboarding assumptions. Delivered prioritized findings including the pause menu cursor issue — escalated by the dev team same day.</div>
+  <div>
+    <div class="exp-card">
+      <div class="s-tag" style="margin-bottom:1.25rem;">Experience</div>
+      <div class="exp-tl">
+        <div class="exp-item"><div class="exp-dot live"></div><div><div class="exp-role">Eldritch House &middot; User Researcher &middot; Nov 2025 -- Present</div><div class="exp-desc">Embedded researcher for an indie game studio. Early-stage discovery and usability research on <em>Shadow Sacrament: The Roots of Evil</em>; 15-20 users per cycle. Completed Act 1 synthesis report.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Dyslexia App &middot; UX Researcher (Volunteer) &middot; Jul 2023 -- Jan 2026</div><div class="exp-desc">Multi-phase research for an open-source EdTech app for dyslexic students in West Africa across 3+ phases.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Disney Speedstorm &middot; Independent Study &middot; May 2024</div><div class="exp-desc">Independent observational study via PlaytestCloud. 5 moderated think-aloud sessions across 4 countries, identifying systemic onboarding gaps in currency and reward systems.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Kadena &middot; UX Researcher (Volunteer) &middot; Oct 2022 -- May 2024</div><div class="exp-desc">Volunteer contributor on developer onboarding research for a blockchain platform. 100+ survey respondents; contributed to follow-up research measuring ~25-30% onboarding comprehension improvement.</div></div></div>
       </div>
     </div>
-    <div class="ph-item">
-      <div class="ph-dot" style="background:var(--accent2);box-shadow:0 0 0 3px rgba(96,212,240,.2);"></div>
-      <div>
-        <div class="ph-l" style="color:var(--accent2);">Phase 2 — PT-BR Localization Audit (Feb 2026)</div>
-        <div class="ph-d">94-minute PT-BR native speaker playthrough. 1,100+ frames extracted and reviewed. 7 findings documented with timestamps and reproduction steps — including 11 untranslated map room labels (HIGH priority) and a fully English Act completion screen (MEDIUM).</div>
+  </div>
+</section>
+
+<!-- SERVICES: dark 30% -->
+<section id="services" class="section-dark">
+  <div class="s-tag">Freelance Services</div>
+  <h2 class="s-title">Research built for<br><em>your constraints.</em></h2>
+  <div class="s-div"></div>
+  <p class="svc-intro">I work with <strong>game studios, startups, and technical platforms</strong> that need senior research without the overhead of a full-time hire. Every engagement is scoped to answer a specific question your team needs answered -- not to generate research for research's sake.</p>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-icon">&#9654;</div>
+      <div class="svc-name">Playtest &amp; Usability Studies</div>
+      <div class="svc-desc">End-to-end research on gameplay, onboarding, or feature usability. I handle everything from study design to synthesis and recommendations.</div>
+      <ul class="svc-inc"><li>Study design &amp; discussion guide</li><li>Participant recruitment &amp; screening</li><li>5-8 moderated sessions</li><li>Synthesis &amp; prioritized recommendations</li><li>Final report &amp; team readout</li></ul>
+      <div class="svc-price"><div class="svc-price-main">From $4,500</div><div class="svc-price-sub">Per study &middot; or $110-130/hr</div></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">&#9632;</div>
+      <div class="svc-name">Embedded Sprint Researcher</div>
+      <div class="svc-desc">Part-time embedded researcher across your sprint cycles. I join standups, shape research priorities, run studies, and feed findings directly into design and product decisions.</div>
+      <ul class="svc-inc"><li>Weekly research planning</li><li>Ongoing study execution</li><li>Synthesis workshops with your team</li><li>Reusable insight artifacts</li><li>Direct stakeholder communication</li></ul>
+      <div class="svc-price"><div class="svc-price-main">$5,500/mo</div><div class="svc-price-sub">Or $125/hr &middot; client's choice</div></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">&#9670;</div>
+      <div class="svc-name">Research Strategy Consult</div>
+      <div class="svc-desc">For teams that need a research roadmap, not just a single study. I audit what you know, identify the gaps costing you the most, and give you a clear plan for closing them.</div>
+      <ul class="svc-inc"><li>Research audit of existing materials</li><li>Gap &amp; priority analysis</li><li>Research roadmap for 1-2 quarters</li><li>KPI &amp; success criteria definition</li><li>Optional: ongoing advisory</li></ul>
+      <div class="svc-price"><div class="svc-price-main">From $2,000</div><div class="svc-price-sub">Fixed scope &middot; or $110-130/hr</div></div>
+    </div>
+  </div>
+  <div class="process-box">
+    <div class="process-label">How an engagement typically starts</div>
+    <div class="process-steps">
+      <div><div class="pstep-n">01</div><div class="pstep-l">Intro call</div><div class="pstep-d">30 min about your product, your team, and the decision you need to make. No pitch, just scoping. <a href="https://calendly.com/ajonbaldi" target="_blank">Book it here &rarr;</a></div></div>
+      <div><div class="pstep-n">02</div><div class="pstep-l">Proposal</div><div class="pstep-d">A short proposal: what I will research, what methods I will use, what you will get, and what it costs.</div></div>
+      <div><div class="pstep-n">03</div><div class="pstep-l">Research</div><div class="pstep-d">I run the work. You stay in the loop without being burdened by it -- I will flag decisions that need your input, nothing more.</div></div>
+      <div><div class="pstep-n">04</div><div class="pstep-l">Delivery</div><div class="pstep-d">Findings, prioritized recommendations, and a readout with your team. Built for action, not for filing away.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS: light alt 60% -->
+<section id="skills" class="section-alt">
+  <div class="s-tag">Capabilities</div>
+  <h2 class="s-title">Skills &amp; Methods</h2>
+  <div class="s-div"></div>
+  <div class="skills-grid">
+    <div class="skill-group"><div class="skill-group-title">Research Methods</div><ul class="skill-list"><li>Moderated &amp; unmoderated usability testing</li><li>Think-aloud playtesting</li><li>Discovery interviews &amp; focus groups</li><li>Diary studies</li><li>Surveys (design &amp; analysis)</li><li>Concept validation</li><li>Card sorting &amp; tree testing</li><li>Mental model mapping</li><li>Heuristic evaluation</li></ul></div>
+    <div class="skill-group"><div class="skill-group-title">Analysis &amp; Synthesis</div><ul class="skill-list"><li>Mixed-methods synthesis</li><li>Statistical analysis (R, SQL, SPSS)</li><li>Behavioral data analysis</li><li>Correlation &amp; regression (applied)</li><li>KPI definition &amp; tracking</li><li>Journey mapping &amp; mental models</li><li>Cross-functional synthesis workshops</li><li>Affinity mapping</li></ul></div>
+    <div class="skill-group"><div class="skill-group-title">Tools &amp; Platforms</div><ul class="skill-list"><li>Figma &amp; FigJam</li><li>UserTesting &amp; Dovetail</li><li>Notion &amp; Zoom</li><li>Remote research platforms</li><li>Agile / sprint methodology</li><li>Stakeholder alignment</li><li>Reusable research asset development</li><li>Participant recruitment &amp; screening</li></ul></div>
+  </div>
+</section>
+
+<!-- PROJECTS: light 60% -->
+<section id="projects" class="section-light">
+  <div class="s-tag">Selected Work</div>
+  <h2 class="s-title">Case Studies</h2>
+  <div class="s-div"></div>
+
+  <!-- 01 Eldritch House -->
+  <div class="project-card">
+    <div class="proj-header"><span class="proj-num">01</span><span class="proj-badge bo">Indie Games &middot; Eldritch House &middot; Nov 2025 -- Present</span></div>
+    <div class="proj-body">
+      <h3 class="proj-title">Shadow Sacrament: The Roots of Evil -- Early-Stage Indie Game Research</h3>
+      <div style="background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">My Role</span><div style="font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;">Sole embedded researcher — full ownership from study design through delivery</div></div>
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Team Context</span><div style="font-size:.88rem;color:var(--text-mid);margin-top:.2rem;">Small indie studio (~5 people), Eldritch House (Brazil); published by DANGEN Entertainment. No prior research function.</div></div>
+      </div>
+      <p class="proj-desc">Embedded researcher for <strong>Eldritch House</strong>, a small indie studio in Brazil (remote), on <em>Shadow Sacrament: The Roots of Evil</em> — a 19th-century survival horror game published by DANGEN Entertainment with an active public demo on Steam. Conducting early-stage discovery and usability research on core gameplay and onboarding, validating design assumptions and focusing limited resources on the highest-impact UX changes before they become too costly to reverse.</p>
+      <div class="meta-row"><span class="mt">Discovery Research</span><span class="mt">Moderated Playtests</span><span class="mt">Hypothesis Testing</span><span class="mt">Prioritization</span><span class="mt">Embedded Researcher</span><span class="mt">Indie / Resource-Constrained</span></div>
+      <div class="four-qs">
+        <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">Indie studios cannot afford to build the wrong thing. The core challenge was validating core gameplay mechanics and onboarding before those systems became too expensive to change -- with each test anchored to a specific, high-stakes design decision rather than generating general observations.</div></div>
+        <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a"><strong>Moderated playtests</strong> with 15-20 representative users per cycle were the primary method -- structured enough to test specific hypotheses, flexible enough to surface unexpected behavior. I paired these with targeted <strong>hypothesis testing</strong> to keep each session anchored to a real decision the team needed to make.</div></div>
+        <div class="fq"><div class="fq-q">How did you balance business needs with user needs?</div><div class="fq-a">In an indie context, every wrong sprint is a real cost. I consistently synthesized findings into the <strong>top 3-5 high-impact changes</strong> rather than exhaustive lists. I also advised directly on scope and development-cost trade-offs -- research was informing what was worth building at all, not just how to build it.</div></div>
+        <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">I would invest earlier in building a lightweight longitudinal panel — a small group of players who could be re-tested as the game evolved — rather than recruiting fresh each cycle. That continuity would give much better signal on whether changes actually landed over time.</div></div>
+      </div>
+      <div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;">Reflection</div>
+        <p style="font-size:.88rem;color:var(--text-mid);line-height:1.65;">Working as the sole researcher in an early-stage indie context sharpened my instinct for prioritization — when every sprint costs real development time, you learn quickly which research questions are worth asking and which can wait. The constraint forced a level of clarity in study design I hadn't needed to be as deliberate about in larger team contexts. One finding from this engagement — a pause menu default cursor issue — was reviewed and escalated by the dev team the same day it was delivered, and a post analyzing the methodology behind that finding reached 18,000+ impressions on LinkedIn, surfacing broader interest in pause menu UX from the games research community. That loop — finding, team action, public signal — is what embedded research is supposed to look like.</p>
+      </div>
+      <div class="impact-row">
+        <div class="ic"><div class="ic-n">Same day</div><div class="ic-d"><strong>Dev team reviewed and escalated findings</strong> within hours of delivery — high-priority pause menu issue flagged for immediate action.</div></div>
+        <div class="ic"><div class="ic-n">Iterated</div><div class="ic-d"><strong>Report revised in real time</strong> based on team technical feedback, treating research as a live dialogue rather than a static handoff.</div></div>
+        <div class="ic"><div class="ic-n">18K+</div><div class="ic-d"><strong>LinkedIn impressions</strong> on a post analyzing the methodology behind a single pause menu finding — surfacing broader community interest in the research.</div></div>
+      </div>
+      <div class="stat-row">
+        <div><div class="sn">Nov 2025</div><div class="sl">Start Date</div></div>
+        <div><div class="sn">15-20</div><div class="sl">Users Per Cycle</div></div>
+        <div><div class="sn">10+</div><div class="sl">Hypotheses Tested</div></div>
+        <div><div class="sn">Embedded</div><div class="sl">Research Model</div></div>
+      </div>
+      <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border-light);">
+        <div class="s-tag" style="margin-bottom:.5rem;">Live Product</div>
+        <a href="https://store.steampowered.com/search/?developer=Eldritch+House" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;">View on Steam &rarr;</a>
+      </div>
+      <div style="padding-top:1.5rem;border-top:1px solid var(--border-light);">
+        <div class="s-tag" style="margin-bottom:.75rem;">Research Artifact</div>
+        <div class="artifact-card">
+          <div style="flex:1;min-width:240px;">
+            <div class="artifact-label">Hypothesis Testing Framework &middot; Sample Artifact</div>
+            <div class="artifact-title">Indie Game UX Research: Hypothesis Testing Framework &amp; Session Template</div>
+            <p class="artifact-desc">A sprint-based hypothesis testing framework for early-stage indie game research, including scoping template, sample hypothesis set, live observation log, and post-session verdict structure. Demonstrates how embedded research is structured to answer specific design decisions rather than generate general observations.</p>
+          </div>
+          <a href="https://austinbaldi.github.io/Indie_Game_Hypothesis_Framework.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Artifact &rarr;</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="impact-row">
-  <div class="ic"><div class="ic-n">Same day</div><div class="ic-d"><strong>Dev team reviewed and escalated findings</strong> within hours of delivery — high-priority pause menu issue flagged for immediate action.</div></div>
-  <div class="ic"><div class="ic-n">1,100+</div><div class="ic-d"><strong>Frames extracted and reviewed</strong> for the Session 2 localization audit — 11 untranslated map labels, 2 inventory gaps, 1 fully English completion screen surfaced.</div></div>
-  <div class="ic"><div class="ic-n">18K+</div><div class="ic-d"><strong>LinkedIn impressions</strong> on a post analyzing the methodology behind a single pause menu finding — surfacing broader community interest in the research.</div></div>
-</div>
-
-<div class="stat-row">
-  <div><div class="sn">Nov 2025</div><div class="sl">Start Date</div></div>
-  <div><div class="sn">2</div><div class="sl">Research Sessions</div></div>
-  <div><div class="sn">7</div><div class="sl">Localization Findings</div></div>
-  <div><div class="sn">Embedded</div><div class="sl">Research Model</div></div>
-</div>
-
-<div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border-light);">
-  <div class="s-tag" style="margin-bottom:.5rem;">Live Product</div>
-  <a href="https://store.steampowered.com/search/?developer=Eldritch+House" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;">View on Steam &rarr;</a>
-</div>
-
-<div style="padding-top:1.5rem;border-top:1px solid var(--border-light);">
-  <div class="s-tag" style="margin-bottom:.75rem;">Research Artifacts</div>
-
-  <div class="artifact-card" style="margin-bottom:.85rem;">
-    <div style="flex:1;min-width:240px;">
-      <div class="artifact-label">Session 2 Report &middot; Localization Audit</div>
-      <div class="artifact-title">Shadow Sacrament: PT-BR Localization Audit Report</div>
-      <p class="artifact-desc">Full findings report from a 94-minute PT-BR native speaker playthrough — 1,100+ frames reviewed, 7 findings documented with timestamps and reproduction steps, priority-ranked for studio triage. Demonstrates localization research methodology in a resource-constrained indie context.</p>
+  <!-- 02 Disney Speedstorm -->
+  <div class="project-card">
+    <div class="proj-header"><span class="proj-num">02</span><span class="proj-badge bg">Independent Study &middot; Disney Speedstorm &middot; May 2024</span></div>
+    <div class="proj-body">
+      <h3 class="proj-title">Disney Speedstorm -- Independent UX Research Study</h3>
+      <div style="background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">My Role</span><div style="font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;">Independent researcher — study design, participant recruitment, facilitation, and synthesis</div></div>
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Context</span><div style="font-size:.88rem;color:var(--text-mid);margin-top:.2rem;">Independent observational study conducted via PlaytestCloud credits received upon completing Steve Bromley's Games User Research Fundamentals course (gamesuserresearch.com)</div></div>
+      </div>
+      <p class="proj-desc">An independent observational study on <strong>Disney Speedstorm</strong>, a live-service mobile racing game by Gameloft, conducted as a practical application of the Games User Research Fundamentals course. Five moderated think-aloud sessions across 4 countries, focused on new player onboarding, progression comprehension, and early-game friction.</p>
+      <div class="meta-row"><span class="mt">Think-Aloud Playtesting</span><span class="mt">Observational Research</span><span class="mt">Cross-Session Synthesis</span><span class="mt">Behavioral Annotation</span><span class="mt">Mental Model Analysis</span><span class="mt">Live-Service Games</span><span class="mt">New Player Onboarding</span></div>
+      <div class="four-qs">
+        <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">As a practical exercise from the Games User Research Fundamentals course, I wanted to apply end-to-end research methodology to a real live-service game. Disney Speedstorm offered a rich onboarding context -- a game with strong brand appeal but a complex progression economy that new players would need to navigate from session one.</div></div>
+        <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a"><strong>Moderated think-aloud sessions</strong> via PlaytestCloud let me observe real new-player behavior without studio access. Five sessions across a diverse participant pool (ages 17-36, 4 countries) gave enough signal to identify cross-participant patterns. I developed a <strong>behavioral annotation system</strong> using tags (#Usability, #Frustration, #GameDesign, #Monetization) to structure cross-session synthesis.</div></div>
+        <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a">The most consistent cross-participant finding was confusion around <strong>in-game currency and reward systems</strong> -- flagged independently by 4 of 5 participants regardless of age or gaming experience. Onboarding clarity split clearly by player archetype: experienced kart-racing players found it sufficient; genre-unfamiliar players did not. Controls and visuals received consistent praise across all sessions.</div></div>
+        <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">With more time I would have recruited specifically for Disney-primary players (drawn to the game by the brand rather than the genre) to better understand the experience gap for that audience. I would also have designed a second evaluative round to test whether specific changes addressed the currency confusion finding -- closing the loop between observation and recommendation.</div></div>
+      </div>
+      <div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;">Reflection</div>
+        <p style="font-size:.88rem;color:var(--text-mid);line-height:1.65;">Running an independent study on a live production game — without studio access, without internal data, without a team — sharpened my ability to extract signal from purely observational methods. The constraint forced me to be precise about what I could and couldn't claim from the data. The most valuable outcome wasn't any single finding but the realization that cross-participant pattern recognition is where the real research judgment lives: one player struggling with currency is noise; four players independently flagging the same system is a finding worth acting on.</p>
+      </div>
+      <div class="impact-row">
+        <div class="ic"><div class="ic-n">5</div><div class="ic-d"><strong>Moderated think-aloud sessions</strong> across 4 countries, ranging in age and gaming experience.</div></div>
+        <div class="ic"><div class="ic-n">4 of 5</div><div class="ic-d"><strong>Participants independently flagged</strong> currency and reward system confusion — a systemic onboarding gap, not individual variance.</div></div>
+        <div class="ic"><div class="ic-n">7</div><div class="ic-d"><strong>Distinct findings</strong> synthesized across sessions, with 5 prioritized design recommendations.</div></div>
+      </div>
+      <div class="s-tag" style="margin-bottom:.75rem;">Playtest Participants &middot; Ages 17-36 &middot; 4 Countries</div>
+      <div class="ptg">
+        <div class="pc"><div class="pc-n">Brandon</div><div class="pc-i">17 &middot; US &middot; 14h+/wk</div></div>
+        <div class="pc"><div class="pc-n">Naman</div><div class="pc-i">24 &middot; CA &middot; 8h/wk</div></div>
+        <div class="pc"><div class="pc-n">Shea</div><div class="pc-i">27 &middot; UK &middot; 14h+/wk</div></div>
+        <div class="pc"><div class="pc-n">Mathias</div><div class="pc-i">28 &middot; UK &middot; 14h+/wk</div></div>
+        <div class="pc"><div class="pc-n">Meagan</div><div class="pc-i">36 &middot; US &middot; 14h+/wk</div></div>
+      </div>
+      <div class="findings-grid">
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Currency System Confusion</div><div class="fc-d">4 of 5 participants independently flagged confusion around in-game currencies, shards, and reward systems — the most consistent cross-session finding.</div></div>
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Onboarding Splits by Archetype</div><div class="fc-d">Experienced kart-racing players found onboarding sufficient. Genre-unfamiliar players were still 'winging it' after 30+ minutes — a systemic gap for Disney-primary audiences.</div></div>
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Special Skill Clarity</div><div class="fc-d">2 of 5 participants struggled to understand the special skill mechanic despite the tutorial covering it — function was introduced but not demonstrated in context.</div></div>
+        <div class="fc"><div class="fl ls">Strength</div><div class="fc-t">Controls &amp; Visuals</div><div class="fc-d">All 5 participants praised responsive controls and high-quality visuals. Audio and animations received consistent praise across all player profiles.</div></div>
+        <div class="fc"><div class="fl ls">Strength</div><div class="fc-t">Progression Hooks</div><div class="fc-d">Character upgrades, ranking rewards, and the Golden Pass were cited as strong motivators once understood — the retention foundation was sound.</div></div>
+        <div class="fc"><div class="fl li">Opportunity</div><div class="fc-t">Disney Identity Gap</div><div class="fc-d">2 participants felt the experience was less distinctively Disney than expected. Franchise-specific power-ups would strengthen brand promise for Disney-primary players.</div></div>
+      </div>
+      <div class="stat-row">
+        <div><div class="sn">5</div><div class="sl">Participants</div></div>
+        <div><div class="sn">4</div><div class="sl">Countries</div></div>
+        <div><div class="sn">7</div><div class="sl">Findings</div></div>
+        <div><div class="sn">~3.5hrs</div><div class="sl">Session Footage</div></div>
+      </div>
+      <div style="padding-top:1.5rem;border-top:1px solid var(--border-light);">
+        <div class="s-tag" style="margin-bottom:.75rem;">Research Artifact</div>
+        <div class="artifact-card">
+          <div style="flex:1;min-width:240px;">
+            <div class="artifact-label">Synthesis Report &middot; Full Artifact</div>
+            <div class="artifact-title">Disney Speedstorm UX Research Synthesis Report</div>
+            <p class="artifact-desc">Cross-session synthesis report from 5 moderated think-aloud sessions (ages 17-36, 4 countries). Covers 7 prioritized findings, 5 design recommendations, a participant overview, methodology, and behavioral annotation tag summary. Demonstrates end-to-end independent research from session design through synthesis.</p>
+          </div>
+          <a href="https://austinbaldi.github.io/Disney_Speedstorm_UX_Research_Synthesis.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Report &rarr;</a>
+        </div>
+      </div>
     </div>
-    <a href="https://austinbaldi.github.io/Shadow_Sacrament_Session2_Localization_Audit.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Report &rarr;</a>
   </div>
 
-  <div class="artifact-card">
-    <div style="flex:1;min-width:240px;">
-      <div class="artifact-label">Hypothesis Testing Framework &middot; Session 1 Artifact</div>
-      <div class="artifact-title">Indie Game UX Research: Hypothesis Testing Framework &amp; Session Template</div>
-      <p class="artifact-desc">A sprint-based hypothesis testing framework for early-stage indie game research, including scoping template, sample hypothesis set, live observation log, and post-session verdict structure. Demonstrates how embedded research is structured to answer specific design decisions rather than generate general observations.</p>
+  <!-- 03 Kadena -->
+  <div class="project-card">
+    <div class="proj-header"><span class="proj-num">03</span><span class="proj-badge bg">Web3 / Developer UX &middot; Kadena &middot; Oct 2022 -- May 2024</span></div>
+    <div class="proj-body">
+      <h3 class="proj-title">Kadena (K-Block) -- Blockchain Developer Onboarding</h3>
+      <div style="background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">My Role</span><div style="font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;">Volunteer UX research contributor — participated in study design, survey research, workflow mapping, and synthesis workshops</div></div>
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Team Context</span><div style="font-size:.88rem;color:var(--text-mid);margin-top:.2rem;">Collaborative volunteer research team; cross-functional partners across product, engineering, and design</div></div>
+      </div>
+      <p class="proj-desc">Volunteer UX researcher contributing to developer onboarding research for <strong>Kadena</strong>, a blockchain platform. Worked as part of a collaborative research team to identify where the platform's architecture conflicted with user mental models, causing comprehension gaps and early drop-off for developers new to the Kadena ecosystem. The product is live at <a href="https://explorer.chainweb-community.org/mainnet" target="_blank" style="color:var(--accent2);">explorer.chainweb-community.org</a>.</p>
+      <div class="meta-row"><span class="mt">Developer UX</span><span class="mt">Usability Testing</span><span class="mt">Survey Research</span><span class="mt">Workflow Mapping</span><span class="mt">Synthesis Workshops</span><span class="mt">Onboarding Research</span><span class="mt">Blockchain / Web3</span><span class="mt">Team Leadership</span></div>
+      <div class="four-qs">
+        <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">The platform's own architecture -- how it modeled blocks, transactions, and addresses -- conflicted with how users expected a block explorer to work. The research team's goal was pinpointing exactly where those mental model mismatches occurred and surfacing evidence-based recommendations for the onboarding redesign.</div></div>
+        <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a">The team used a <strong>mixed-methods approach</strong>: a large-scale survey study with 100+ respondents to quantify confidence and comprehension gaps at scale, <strong>moderated usability testing</strong> across experience segments to understand how the same interface created different experiences, and <strong>workflow mapping</strong> to give teams a structural view of where to restructure onboarding.</div></div>
+        <div class="fq"><div class="fq-q">How did findings translate into impact?</div><div class="fq-a">The team contributed to follow-up evaluative research that measured a <strong>~25-30% improvement in onboarding comprehension</strong> after recommendations were implemented. Cross-functional synthesis workshops helped ensure findings didn't get lost between teams with different priorities.</div></div>
+        <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">I would push earlier for building reusable research assets as an explicit deliverable from the first sprint. I would also advocate for closer integration with analytics data to validate qualitative findings against actual usage patterns -- closing the loop between observed behavior and measured outcomes.</div></div>
+      </div>
+      <div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;">Reflection</div>
+        <p style="font-size:.88rem;color:var(--text-mid);line-height:1.65;">Researching a technically complex platform where the product's internal architecture actively conflicts with user mental models was one of the most intellectually demanding challenges I've worked through. It forced me to develop a clearer vocabulary for the gap between system logic and user logic — a distinction I now carry into every engagement. Working as part of a research team on a long-running engagement also taught me how critical cross-phase documentation is: the phases where we had the clearest shared artifacts were the ones where findings actually compounded.</p>
+      </div>
+      <div class="impact-row">
+        <div class="ic"><div class="ic-n">~25-30%</div><div class="ic-d"><strong>Onboarding comprehension improvement</strong> measured in follow-up evaluative research after recommendations were implemented.</div></div>
+        <div class="ic"><div class="ic-n">100+</div><div class="ic-d"><strong>Survey respondents</strong> in large-scale quantitative study quantifying confidence and comprehension gaps.</div></div>
+        <div class="ic"><div class="ic-n">Live</div><div class="ic-d"><strong>Product shipped</strong> — the K-Block blockchain explorer is publicly accessible at explorer.chainweb-community.org.</div></div>
+      </div>
+      <div class="findings-grid">
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Architecture Mismatch</div><div class="fc-d">The platform's internal data model conflicted with user mental models across all experience levels -- novices and experts alike misread the same UI elements differently.</div></div>
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Terminology Barriers</div><div class="fc-d">Web3-specific terminology created comprehension gaps for developers new to the Kadena ecosystem, with unfamiliar terms encountered before any contextual explanation.</div></div>
+        <div class="fc"><div class="fl li">Insight</div><div class="fc-t">Tooltips Over Docs</div><div class="fc-d">Experienced users consistently preferred contextual tooltips over external documentation to learn unfamiliar terminology -- inline help over separate resources.</div></div>
+        <div class="fc"><div class="fl lr">Recommendation</div><div class="fc-t">Progressive Disclosure</div><div class="fc-d">Foreground the search bar, use accordions for dense data, trim long hash strings -- reducing cognitive load without removing depth for power users.</div></div>
+        <div class="fc"><div class="fl lr">Recommendation</div><div class="fc-t">Resources Page</div><div class="fc-d">Build a Resources page with a glossary, FAQs, and video tutorials to address the lack of beginner support and trust signals in the crypto space.</div></div>
+        <div class="fc"><div class="fl lr">Recommendation</div><div class="fc-t">Trust Signals</div><div class="fc-d">Add community forums and an About section. Novice users are extremely trust-sensitive and need reassurance before investing time in a new platform.</div></div>
+      </div>
+      <div class="stat-row">
+        <div><div class="sn">19mo</div><div class="sl">Duration</div></div>
+        <div><div class="sn">100+</div><div class="sl">Survey Respondents</div></div>
+        <div><div class="sn">4</div><div class="sl">Research Sprints</div></div>
+        <div><div class="sn">Live</div><div class="sl">Product Shipped</div></div>
+      </div>
+      <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border-light);">
+        <div class="s-tag" style="margin-bottom:.5rem;">Live Product</div>
+        <a href="https://explorer.chainweb-community.org/mainnet" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;">View Kadena Block Explorer &rarr;</a>
+      </div>
+      <div style="padding-top:1.5rem;border-top:1px solid var(--border-light);">
+        <div class="s-tag" style="margin-bottom:.75rem;">Research Artifact</div>
+        <div class="artifact-card">
+          <div style="flex:1;min-width:240px;">
+            <div class="artifact-label">Discussion Guide &middot; Sample Artifact</div>
+            <div class="artifact-title">Blockchain Explorer UX Research Discussion Guide</div>
+            <p class="artifact-desc">A combined discovery and evaluative session guide (60-75 min) demonstrating how I structure research to surface both mental model gaps and specific usability failures within a single session. Includes facilitator notes, 10 questions with probes, 5 structured tasks, observation log, and synthesis tag reference.</p>
+          </div>
+          <a href="https://austinbaldi.github.io/Blockchain_Explorer_Discussion_Guide.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Artifact &rarr;</a>
+        </div>
+      </div>
     </div>
-    <a href="https://austinbaldi.github.io/Indie_Game_Hypothesis_Framework.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Artifact &rarr;</a>
   </div>
-</div>
 
-<!--
-  ══════════════════════════════════════════════════════════
-  ALSO UPDATE: About section experience blurb (line ~299)
+  <!-- 04 Dyslexia App -->
+  <div class="project-card">
+    <div class="proj-header"><span class="proj-num">04</span><span class="proj-badge bb">EdTech / Accessibility &middot; Jul 2023 -- Jan 2026</span></div>
+    <div class="proj-body">
+      <h3 class="proj-title">Children's Dyslexia Reading App -- West Africa EdTech Platform</h3>
+      <div style="background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">My Role</span><div style="font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;">Sole researcher across all phases — owned every study from competitive analysis through Phase 3 strategic synthesis</div></div>
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Team Context</span><div style="font-size:.88rem;color:var(--text-mid);margin-top:.2rem;">Embedded with a distributed open-source development team and nonprofit stakeholders across Nigeria and the UK</div></div>
+      </div>
+      <p class="proj-desc">Multi-phase UX research supporting the design of an open-source educational app for dyslexic students in West Africa (focus: Nigeria), targeting students, educators, and parents. The project addressed the gap between dyslexia prevalence (~20-33% in Nigeria) and available resources, while combating deep-rooted stigma. The product has not yet launched.</p>
+      <div class="meta-row"><span class="mt">Competitive Analysis</span><span class="mt">Literature Review</span><span class="mt">User Interviews</span><span class="mt">Focus Groups</span><span class="mt">Surveys</span><span class="mt">Usability Testing</span><span class="mt">Proto-Personas</span><span class="mt">Journey Mapping</span><span class="mt">Card Sorting</span><span class="mt">Accessibility Research</span></div>
+      <div class="four-qs">
+        <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">Over 20% of Nigerians are estimated to have dyslexia, yet 90%+ of teachers lack awareness of it and affordable, culturally relevant tools are virtually nonexistent. The challenge was understanding how dyslexia manifests in a stigma-heavy context, what educators and students actually need, and how to make a product that works within real constraints -- limited internet, Android-only devices, low tech literacy.</div></div>
+        <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a">The multi-phase scope required a mixed-methods approach where each method answered a specific gap. <strong>Literature review and competitive analysis</strong> established the problem space first. <strong>Interviews and focus groups</strong> with DFN trainers accessed a hard-to-reach educator population. <strong>Surveys, card sorting, and lo-fi usability testing</strong> each addressed distinct unknowns rather than being applied generically.</div></div>
+        <div class="fq"><div class="fq-q">How did you balance business needs with user needs?</div><div class="fq-a">The client needed a scalable, low-cost tool -- open-source, offline-capable, Android-first. When findings pointed to features users wanted (richer animations, voice acting), I helped prioritize which were MVP-critical versus out of scope, keeping the build feasible. Every recommendation was filtered through both lenses: does this serve the child, and can it actually be built?</div></div>
+        <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">Recruiting dyslexic children and parents proved consistently difficult due to stigma. Earlier community partnerships -- NGOs, schools, parent groups on the ground -- would have unlocked richer primary data sooner. I would also establish a dedicated child-testing protocol from day one, and build more structured phase-to-phase knowledge transfer across a 2.5-year project.</div></div>
+      </div>
+      <div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;">Reflection</div>
+        <p style="font-size:.88rem;color:var(--text-mid);line-height:1.65;">This project tested my ability to do meaningful research under conditions that don't exist in most professional contexts — hard-to-reach populations, deep cultural stigma, tight resource constraints, and a 2.5-year timeline that outlasted multiple team changes. What I learned is that longitudinal research is as much a documentation and knowledge management problem as it is a methods problem. The phases where I had the clearest cross-phase artifacts were the ones where findings actually compounded. The phases where I didn't were where we repeated questions we'd already partially answered. I carry that lesson into every engagement now.</p>
+      </div>
+      <div class="phase-tl">
+        <div class="ph-item"><div class="ph-dot"></div><div><div class="ph-l">Phase 0 -- Discovery</div><div class="ph-d">Literature review, competitive analysis of 8+ apps, SWOT analysis identifying 17 design considerations.</div></div></div>
+        <div class="ph-item"><div class="ph-dot"></div><div><div class="ph-l">Phase 1 -- Problem Definition &amp; Personas</div><div class="ph-d">Refined problem statement. Developed proto-personas (Kelechi, Ema, Sade) with user stories. Defined product vision, key features, and IA sitemap.</div></div></div>
+        <div class="ph-item"><div class="ph-dot"></div><div><div class="ph-l">Phase 1 (Cont.) -- Educator Research</div><div class="ph-d">3 individual educator interviews, 1 DFN trainer focus group, 15+ survey responses. Card sorting pilot. Content style guide with tone of voice framework.</div></div></div>
+        <div class="ph-item"><div class="ph-dot"></div><div><div class="ph-l">Phase 2 -- Usability Testing</div><div class="ph-d">Student prototype usability guide across 3 core tasks. Nigeria device research confirming Android-first approach. Expert interviews on cognitive training methods.</div></div></div>
+        <div class="ph-item"><div class="ph-dot" style="background:var(--accent2);"></div><div><div class="ph-l" style="color:var(--accent2);">Phase 3 -- Completed Jan 2026</div><div class="ph-d">Research strategy realignment, global dyslexia literature review, CX strategy workshops. Recommended 6-10 age range focus and US bridge market strategy.</div></div></div>
+      </div>
+      <div class="findings-grid">
+        <div class="fc"><div class="fl li">Insight</div><div class="fc-t">Awareness Gap</div><div class="fc-d">90%+ of Nigerian teachers unaware of dyslexia. EU places Nigeria's prevalence at 33% globally -- yet stigma suppresses diagnosis and data collection.</div></div>
+        <div class="fc"><div class="fl li">Insight</div><div class="fc-t">Device Reality</div><div class="fc-d">97.3% of Nigerian internet users access via Android smartphone (360x800px). Mobile-first and offline-capable design is non-negotiable.</div></div>
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Recruitment Barriers</div><div class="fc-d">Cultural stigma made recruiting dyslexic children and families significantly harder than anticipated, limiting sample sizes throughout the project.</div></div>
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Educator Challenges</div><div class="fc-d">DFN trainers cited difficulty tracking progress, managing parental cooperation, balancing student frustration. Need for IEP-style progress structures.</div></div>
+        <div class="fc"><div class="fl lr">Recommendation</div><div class="fc-t">Age Range Focus</div><div class="fc-d">Prioritize ages 6-10: 25% of diagnoses fall here with 45-65% structured literacy success rates in this range.</div></div>
+        <div class="fc"><div class="fl lr">Recommendation</div><div class="fc-t">Bridge Market</div><div class="fc-d">US lower-income communities share key pain points with West African users and offer more accessible research infrastructure for validation.</div></div>
+      </div>
+      <div class="stat-row">
+        <div><div class="sn">2.5yr</div><div class="sl">Duration</div></div>
+        <div><div class="sn">3+</div><div class="sl">Research Phases</div></div>
+        <div><div class="sn">8+</div><div class="sl">Competitors Analyzed</div></div>
+        <div><div class="sn">3</div><div class="sl">User Groups</div></div>
+        <div><div class="sn">15+</div><div class="sl">Survey Responses</div></div>
+      </div>
+      <div style="padding-top:1.5rem;border-top:1px solid var(--border-light);">
+        <div class="s-tag" style="margin-bottom:.75rem;">Research Artifact</div>
+        <div class="artifact-card">
+          <div style="flex:1;min-width:240px;">
+            <div class="artifact-label">Competitive Analysis &amp; SWOT &middot; Sample Artifact</div>
+            <div class="artifact-title">Children's Dyslexia App: Competitive Analysis &amp; SWOT</div>
+            <p class="artifact-desc">Sprint 1 discovery phase research covering 8+ direct and indirect competitors, a four-quadrant SWOT analysis, and 17 design considerations carried forward into Phase 1 persona and IA work. Demonstrates structured discovery research and how competitive insights are translated into concrete product design implications.</p>
+          </div>
+          <a href="https://austinbaldi.github.io/Dyslexia_App_Competitive_Analysis.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Artifact &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  FIND:
-    Embedded researcher for an indie game studio. Early-stage discovery
-    and usability research on Shadow Sacrament: The Roots of Evil;
-    15-20 users per cycle. Completed Act 1 synthesis report.
-
-  REPLACE WITH:
-    Embedded researcher for an indie game studio. Two research sessions
-    to date: moderated playtests (15-20 players per cycle) and a
-    PT-BR localization audit reviewing 1,100+ frames across a 94-minute
-    playthrough. 7 localization findings delivered with timestamps and
-    reproduction steps.
-  ══════════════════════════════════════════════════════════
-
-  ALSO FIX: Broken Calendly CTA at the bottom of the page (line ~601)
-
-  FIND:
-    <a href="https://austinbaldi.github.io" target="_blank" class="btn btn-primary"…>Book a Free 30-Min Call</a>
-
-  REPLACE WITH:
-    <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary"…>Book a Free 30-Min Call</a>
-  ══════════════════════════════════════════════════════════
--->
+<!-- CONTACT: dark 30% -->
+<section id="contact" class="section-dark">
+  <div class="s-tag">Work With Me</div>
+  <h2 class="s-title">Let's talk about<br><em>your users.</em></h2>
+  <div class="s-div"></div>
+  <p class="contact-sub">The best way to start is a <strong>30-minute intro call</strong> -- no pitch, just a conversation about your product, what decisions you need to make, and whether I am the right fit. Book directly below, or reach out by email if you prefer.</p>
+  <div class="contact-btns">
+    <a href="https://austinbaldi.github.io" target="_blank" class="btn btn-primary" style="font-size:.8rem;">Book a Free 30-Min Call</a>
+    <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="btn btn-outline-light" style="font-size:.8rem;">Download Resume</a>
+  </div>
+  <div class="contact-links
