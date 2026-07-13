@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Baldi Research — Portfolio &amp; Case Studies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary:   #f5f4f0;
+      --primary2:  #eceae4;
+      --secondary: #1a1c24;
+      --secondary2:#252836;
+      --accent:    #d4f060;
+      --accent2:   #60d4f0;
+      --accent3:   #f0a060;
+      --text-dark: #1a1c24;
+      --text-mid:  #4a4a5a;
+      --text-light:#eeeef5;
+      --text-muted:#8a8aaa;
+      --border-light: rgba(26,28,36,0.1);
+      --border-dark:  rgba(255,255,255,0.08);
+      --radius: 8px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--primary);color:var(--text-dark);font-family:"DM Sans",sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:var(--secondary);border-bottom:1px solid var(--border-dark);}
+    .nav-logo{font-family:"Fraunces",serif;font-size:1rem;font-weight:700;color:var(--text-light);}
+    .nav-logo span{color:var(--accent);}
+    .nav-logo sub{font-size:.6rem;font-weight:300;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;margin-left:.3rem;font-family:"DM Mono",monospace;font-style:normal;vertical-align:middle;}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+    .nav-links a{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+    .nav-links a:hover{color:var(--text-light);}
+    .nav-cta{background:var(--accent)!important;color:var(--secondary)!important;padding:.5rem 1.1rem;border-radius:2px;font-weight:600!important;}
+    .nav-cta:hover{opacity:.88;color:var(--secondary)!important;}
+
+    /* HERO */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:9rem 4rem 5rem;background:var(--secondary);position:relative;overflow:hidden;gap:4rem;}
+    .hero::before{content:"";position:absolute;top:-10%;right:-5%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(212,240,96,.07) 0%,transparent 65%);pointer-events:none;}
+    .hero-eyebrow{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
+    .hero-eyebrow::before{content:"";display:block;width:32px;height:1px;background:var(--accent);}
+    .hero-title{font-family:"Fraunces",serif;font-size:clamp(3rem,4.5vw,5.2rem);line-height:1.02;font-weight:700;margin-bottom:1.5rem;letter-spacing:-.02em;color:var(--text-light);}
+    .hero-title em{font-style:italic;color:var(--accent);}
+    .hero-body{font-size:1.05rem;color:var(--text-muted);max-width:480px;margin-bottom:.75rem;line-height:1.75;}
+    .hero-location{font-family:"DM Mono",monospace;font-size:.75rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:2.5rem;}
+    .hero-location span{color:var(--accent2);}
+    .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.8rem;border-radius:2px;transition:all .2s;font-weight:500;}
+    .btn-primary{background:var(--accent);color:var(--secondary);font-weight:600;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,240,96,.3);}
+    .btn-outline-light{border:1px solid rgba(255,255,255,.2);color:var(--text-muted);}
+    .btn-outline-light:hover{border-color:var(--text-muted);color:var(--text-light);}
+    .btn-outline-dark{border:1px solid var(--border-light);color:var(--text-mid);}
+    .btn-outline-dark:hover{border-color:var(--text-dark);color:var(--text-dark);}
+
+    .hstats{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;position:relative;z-index:1;}
+    .hstat{background:var(--secondary2);border:1px solid var(--border-dark);border-radius:var(--radius);padding:1.4rem;transition:border-color .3s,transform .3s;}
+    .hstat:hover{border-color:rgba(212,240,96,.3);transform:translateY(-3px);}
+    .hstat-n{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.3rem;}
+    .hstat-l{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
+    .hstat.wide{grid-column:span 2;}
+    .hstat.wide .hstat-n{font-size:1.05rem;color:var(--text-light);}
+
+    /* SECTIONS */
+    section{padding:6rem 4rem;}
+    .section-light{background:var(--primary);}
+    .section-dark{background:var(--secondary);}
+    .s-tag{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:.75rem;}
+    .section-dark .s-tag{color:var(--accent2);}
+    .s-title{font-family:"Fraunces",serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:700;margin-bottom:1.25rem;line-height:1.08;letter-spacing:-.02em;color:var(--text-dark);}
+    .section-dark .s-title{color:var(--text-light);}
+    .s-title em{font-style:italic;color:var(--accent);}
+    .s-div{width:40px;height:3px;background:var(--accent);margin-bottom:3rem;border-radius:2px;}
+    .projects-intro{font-size:1.02rem;color:var(--text-mid);max-width:640px;margin-bottom:3rem;line-height:1.75;}
+
+    /* PROJECT CARDS */
+    .project-card{background:white;border:1px solid var(--border-light);border-radius:12px;overflow:hidden;margin-bottom:1.5rem;transition:border-color .3s,box-shadow .3s,transform .3s;box-shadow:0 2px 20px rgba(26,28,36,.05);scroll-margin-top:90px;}
+    .project-card:hover{border-color:rgba(212,240,96,.5);box-shadow:0 8px 40px rgba(26,28,36,.1);}
+    .proj-header{display:flex;align-items:center;gap:1rem;padding:1.5rem 2.5rem 0;flex-wrap:wrap;}
+    .proj-num{font-family:"DM Mono",monospace;font-size:.68rem;color:var(--accent2);letter-spacing:.1em;}
+    .proj-badge{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;padding:.25rem .7rem;border-radius:2px;}
+    .bb{background:rgba(96,212,240,.1);color:#006080;border:1px solid rgba(96,212,240,.25);}
+    .bo{background:rgba(240,160,96,.1);color:#804000;border:1px solid rgba(240,160,96,.25);}
+    .bg{background:rgba(212,240,96,.12);color:#5a7200;border:1px solid rgba(212,240,96,.3);}
+    .proj-body{padding:1.5rem 2.5rem 2.5rem;}
+    .proj-title{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:700;margin-bottom:.6rem;line-height:1.15;letter-spacing:-.01em;color:var(--text-dark);}
+    .proj-desc{font-size:.93rem;color:var(--text-mid);line-height:1.75;margin-bottom:1.1rem;max-width:760px;}
+    .proj-desc strong{color:var(--text-dark);font-weight:600;}
+    .meta-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem;}
+    .mt{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);background:var(--primary);border:1px solid var(--border-light);padding:.2rem .65rem;border-radius:2px;}
+
+    .four-qs{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem;}
+    .fq{background:var(--primary2);border-radius:6px;padding:1.25rem 1.4rem;}
+    .fq-q{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;}
+    .fq-a{font-size:.87rem;color:var(--text-mid);line-height:1.65;}
+    .fq-a strong{color:var(--text-dark);}
+
+    .impact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;}
+    .ic{background:var(--secondary);border-radius:6px;padding:1.4rem;}
+    .ic-n{font-family:"Fraunces",serif;font-size:1.7rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.5rem;}
+    .ic-d{font-size:.82rem;color:var(--text-muted);line-height:1.55;}
+    .ic-d strong{color:var(--text-light);}
+
+    .ptg{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin-bottom:1.75rem;}
+    .pc{background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;padding:.9rem;text-align:center;}
+    .pc-n{font-family:"Fraunces",serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);}
+    .pc-i{font-family:"DM Mono",monospace;font-size:.57rem;color:var(--text-mid);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem;}
+
+    .findings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;}
+    .fc{background:var(--primary2);border-radius:6px;padding:1.25rem;}
+    .fl{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.5rem;display:inline-block;padding:.15rem .55rem;border-radius:2px;}
+    .lp{background:rgba(240,160,96,.15);color:#804000;}
+    .ls{background:rgba(212,240,96,.18);color:#5a7200;}
+    .li{background:rgba(96,212,240,.15);color:#006080;}
+    .fc-t{font-family:"Fraunces",serif;font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem;}
+    .fc-d{font-size:.82rem;color:var(--text-mid);line-height:1.55;}
+
+    .stat-row{display:flex;gap:2rem;padding-top:1.25rem;border-top:1px solid var(--border-light);flex-wrap:wrap;}
+    .sn{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:700;color:var(--secondary);line-height:1;}
+    .sl{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-mid);margin-top:.25rem;}
+
+    .artifact-card{background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:1.25rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:1.75rem;}
+    .artifact-label{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;}
+    .artifact-title{font-family:"Fraunces",serif;font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;line-height:1.2;}
+    .artifact-desc{font-size:.85rem;color:var(--text-mid);line-height:1.6;margin:0;}
+
+    /* CONTACT */
+    #contact{text-align:center;}
+    #contact .s-title{color:var(--text-light);}
+    #contact .s-div{margin:0 auto 3rem;}
+    .contact-sub{color:var(--text-muted);font-size:1rem;max-width:520px;margin:0 auto 2rem;line-height:1.75;}
+    .contact-sub strong{color:var(--text-light);}
+    .contact-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;}
+    .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .cl{display:flex;align-items:center;gap:.6rem;font-family:"DM Mono",monospace;font-size:.73rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;border:1px solid var(--border-dark);padding:.65rem 1.3rem;border-radius:4px;transition:all .2s;}
+    .cl:hover{border-color:var(--accent);color:var(--accent);background:rgba(212,240,96,.05);}
+
+    /* FOOTER */
+    footer{padding:2rem 4rem;border-top:1px solid var(--border-dark);display:flex;justify-content:space-between;align-items:center;font-family:"DM Mono",monospace;font-size:.68rem;color:var(--text-muted);letter-spacing:.05em;background:var(--secondary);}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .hero{grid-template-columns:1fr;padding:8rem 2rem 4rem;gap:3rem;}
+      .four-qs{grid-template-columns:1fr;}
+      .impact-row{grid-template-columns:1fr 1fr;}
+      .findings-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:768px){
+      nav{padding:1rem 1.5rem;}
+      .nav-links{display:none;}
+      section{padding:4rem 1.5rem;}
+      .proj-header,.proj-body{padding-left:1.5rem;padding-right:1.5rem;}
+      .four-qs{grid-template-columns:1fr;}
+      .impact-row{grid-template-columns:1fr 1fr;}
+      .findings-grid{grid-template-columns:1fr 1fr;}
+      .ptg{grid-template-columns:repeat(3,1fr);}
+      footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center;}
+    }
+    @media(max-width:500px){
+      .impact-row{grid-template-columns:1fr;}
+      .findings-grid{grid-template-columns:1fr;}
+      .ptg{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Baldi <span>Research</span><sub>Portfolio &amp; Case Studies</sub></span>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#projects">Case Studies</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank">Resume</a></li>
+    <li><a href="https://calendly.com/ajonbaldi" target="_blank">Book a Call</a></li>
+    <li><a href="mailto:ajonbaldi@gmail.com" class="nav-cta">Work With Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div style="position:relative;z-index:1;">
+    <div class="hero-eyebrow">Baldi Research &mdash; Portfolio</div>
+    <h1 class="hero-title">The research<br>behind the<br><em>findings.</em></h1>
+    <p class="hero-body">Full case studies from embedded and independent research engagements &mdash; methods, findings, and what I would do differently. For the broader practice, head back to the <a href="index.html" style="color:var(--accent2);">home page</a>.</p>
+    <p class="hero-location">Raleigh, NC &nbsp;&middot;&nbsp; <span>Open to full-time, contract, and freelance roles</span></p>
+    <div class="hero-ctas">
+      <a href="index.html" class="btn btn-outline-light">&larr; Back to Home</a>
+      <a href="#projects" class="btn btn-primary">View Case Studies</a>
+    </div>
+  </div>
+  <div style="position:relative;z-index:1;">
+    <div class="hstats">
+      <div class="hstat"><div class="hstat-n">15</div><div class="hstat-l">Research Sessions &middot; Shadow Sacrament</div></div>
+      <div class="hstat"><div class="hstat-n">1,100+</div><div class="hstat-l">Frames Reviewed &middot; Localization Audit</div></div>
+      <div class="hstat"><div class="hstat-n">100+</div><div class="hstat-l">Survey Respondents (Kadena)</div></div>
+      <div class="hstat"><div class="hstat-n">18K+</div><div class="hstat-l">LinkedIn Impressions &middot; Pause Menu Finding</div></div>
+      <div class="hstat wide"><div class="hstat-n">Games &middot; Web3 &middot; EdTech</div><div class="hstat-l">Eldritch House &middot; Kadena &middot; DFN</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section-light">
+  <div class="s-tag">Case Studies</div>
+  <h2 class="s-title">Three engagements,<br><em>three contexts.</em></h2>
+  <div class="s-div"></div>
+  <p class="projects-intro">Indie games, an independent playtesting study, and a Web3 developer platform &mdash; each written up the way I'd hand it to a team: what the problem was, what the data showed, and what I'd do differently next time.</p>
+
+  <div class="project-card" id="shadow-sacrament">
+    <div class="proj-header"><span class="proj-num">01</span><span class="proj-badge bo">Indie Games &middot; Eldritch House &middot; Nov 2025 &ndash; Present</span></div>
+    <div class="proj-body">
+      <h3 class="proj-title">Shadow Sacrament: The Roots of Evil &mdash; Early-Stage Indie Game Research</h3>
+      <div style="background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Role</span><div style="font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;">Embedded UX Researcher &mdash; moderated playtests, localization audit, and cross-session synthesis</div></div>
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Context</span><div style="font-size:.88rem;color:var(--text-mid);margin-top:.2rem;">Embedded research partner to a Brazil-based indie studio (published by DANGEN Entertainment)</div></div>
+      </div>
+      <p class="proj-desc">Ongoing embedded research on <strong>Shadow Sacrament</strong>, a survival horror indie game. Work spans moderated playtests routed by a performance-based participant framework, a frame-by-frame PT-BR localization audit, and same-day escalation of critical bugs to the dev team &mdash; including a keybind remapping issue that decoupled animation from function and PT-BR text bleeding into the English locale.</p>
+      <div class="meta-row"><span class="mt">Moderated Playtesting</span><span class="mt">Localization Audit</span><span class="mt">Participant Routing Frameworks</span><span class="mt">Session Reporting</span><span class="mt">Bug Escalation</span><span class="mt">Indie Games</span></div>
+      <div class="four-qs">
+        <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">Shadow Sacrament needed structured playtest data early enough to inform design decisions rather than validate them after the fact &mdash; and needed it delivered with enough care that a small, resource-constrained team could act on it without feeling attacked.</div></div>
+        <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a">A <strong>performance-based participant routing framework</strong> used non-boss death count to route players into the right test track. A five-version testing framework, moderated session scripts, and continuation session scripts kept sessions consistent across a growing participant pool spanning multiple countries and input methods.</div></div>
+        <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a">The localization audit surfaced <strong>7 findings</strong> including untranslated map room labels, inventory tab labels, and a completion screen. A pause menu cursor finding and two technical bugs were escalated directly to developers &mdash; one reviewed and confirmed the same day it was delivered.</div></div>
+        <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">I'd formalize the recurring-findings rule earlier &mdash; flagging an issue once until the team responds, then moving it to an appendix rather than repeating it prominently in every report, so priority signal doesn't get diluted as the study continues across Acts.</div></div>
+      </div>
+      <div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;">Reflection</div>
+        <p style="font-size:.88rem;color:var(--text-mid);line-height:1.65;">Working with a small studio taught me that the delivery of a finding matters as much as the finding itself. Framing research as serving the game &mdash; before testing even begins &mdash; and acknowledging design intent before describing where it broke down for players kept the relationship collaborative rather than adversarial, even when the news wasn't good.</p>
+      </div>
+      <div class="impact-row">
+        <div class="ic"><div class="ic-n">7</div><div class="ic-d"><strong>Localization findings</strong> from a single-playthrough frame-by-frame audit, each with timestamps and reproduction steps.</div></div>
+        <div class="ic"><div class="ic-n">Same-Day</div><div class="ic-d"><strong>Developer escalation</strong> and review of a critical pause-menu finding.</div></div>
+        <div class="ic"><div class="ic-n">18K+</div><div class="ic-d"><strong>LinkedIn impressions</strong> on a post about the pause menu cursor finding, with engagement from AAA researchers.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" id="disney-speedstorm">
+    <div class="proj-header"><span class="proj-num">02</span><span class="proj-badge bg">Independent Study &middot; Disney Speedstorm &middot; May 2024</span></div>
+    <div class="proj-body">
+      <h3 class="proj-title">Disney Speedstorm &mdash; Independent UX Research Study</h3>
+      <div style="background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Role</span><div style="font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;">Independent researcher &mdash; study design, participant recruitment, facilitation, and synthesis</div></div>
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Context</span><div style="font-size:.88rem;color:var(--text-mid);margin-top:.2rem;">Independent observational study conducted via PlaytestCloud credits received upon completing Steve Bromley's Games User Research Fundamentals course</div></div>
+      </div>
+      <p class="proj-desc">An independent observational study on <strong>Disney Speedstorm</strong>, a live-service mobile racing game by Gameloft, conducted as a practical application of the Games User Research Fundamentals course. Five moderated think-aloud sessions across 4 countries, focused on new player onboarding, progression comprehension, and early-game friction.</p>
+      <div class="meta-row"><span class="mt">Think-Aloud Playtesting</span><span class="mt">Observational Research</span><span class="mt">Cross-Session Synthesis</span><span class="mt">Behavioral Annotation</span><span class="mt">Mental Model Analysis</span><span class="mt">Live-Service Games</span><span class="mt">New Player Onboarding</span></div>
+      <div class="four-qs">
+        <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">As a practical exercise from the Games User Research Fundamentals course, I wanted to apply end-to-end research methodology to a real live-service game. Disney Speedstorm offered a rich onboarding context &mdash; a game with strong brand appeal but a complex progression economy that new players would need to navigate from session one.</div></div>
+        <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a"><strong>Moderated think-aloud sessions</strong> via PlaytestCloud let me observe real new-player behavior without studio access. Five sessions across a diverse participant pool (ages 17-36, 4 countries) gave enough signal to identify cross-participant patterns. I developed a <strong>behavioral annotation system</strong> using tags to structure cross-session synthesis.</div></div>
+        <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a">The most consistent cross-participant finding was confusion around <strong>in-game currency and reward systems</strong> &mdash; flagged independently by 4 of 5 participants regardless of age or gaming experience. Onboarding clarity split clearly by player archetype: experienced kart-racing players found it sufficient; genre-unfamiliar players did not.</div></div>
+        <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">With more time I would have recruited specifically for Disney-primary players to better understand the experience gap for that audience, and designed a second evaluative round to test whether specific changes addressed the currency confusion finding.</div></div>
+      </div>
+      <div style="margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;">
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;">Reflection</div>
+        <p style="font-size:.88rem;color:var(--text-mid);line-height:1.65;">Running an independent study on a live production game without studio access sharpened my ability to extract signal from purely observational methods. The most valuable outcome wasn't any single finding but the realization that cross-participant pattern recognition is where the real research judgment lives: one player struggling with currency is noise; four players independently flagging the same system is a finding worth acting on.</p>
+      </div>
+      <div class="impact-row">
+        <div class="ic"><div class="ic-n">5</div><div class="ic-d"><strong>Moderated think-aloud sessions</strong> across 4 countries, ranging in age and gaming experience.</div></div>
+        <div class="ic"><div class="ic-n">4 of 5</div><div class="ic-d"><strong>Participants independently flagged</strong> currency and reward system confusion &mdash; a systemic onboarding gap, not individual variance.</div></div>
+        <div class="ic"><div class="ic-n">7</div><div class="ic-d"><strong>Distinct findings</strong> synthesized across sessions, with 5 prioritized design recommendations.</div></div>
+      </div>
+      <div class="s-tag" style="margin-bottom:.75rem;">Playtest Participants &middot; Ages 17-36 &middot; 4 Countries</div>
+      <div class="ptg">
+        <div class="pc"><div class="pc-n">Brandon</div><div class="pc-i">17 &middot; US &middot; 14h+/wk</div></div>
+        <div class="pc"><div class="pc-n">Naman</div><div class="pc-i">24 &middot; CA &middot; 8h/wk</div></div>
+        <div class="pc"><div class="pc-n">Shea</div><div class="pc-i">27 &middot; UK &middot; 14h+/wk</div></div>
+        <div class="pc"><div class="pc-n">Mathias</div><div class="pc-i">28 &middot; UK &middot; 14h+/wk</div></div>
+        <div class="pc"><div class="pc-n">Meagan</div><div class="pc-i">36 &middot; US &middot; 14h+/wk</div></div>
+      </div>
+      <div class="findings-grid">
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Currency System Confusion</div><div class="fc-d">4 of 5 participants independently flagged confusion around in-game currencies, shards, and reward systems &mdash; the most consistent cross-session finding.</div></div>
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Onboarding Splits by Archetype</div><div class="fc-d">Experienced kart-racing players found onboarding sufficient. Genre-unfamiliar players were still 'winging it' after 30+ minutes.</div></div>
+        <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Special Skill Clarity</div><div class="fc-d">2 of 5 participants struggled to understand the special skill mechanic despite the tutorial covering it.</div></div>
+        <div class="fc"><div class="fl ls">Strength</div><div class="fc-t">Controls &amp; Visuals</div><div class="fc-d">All 5 participants praised responsive controls and high-quality visuals across all player profiles.</div></div>
+        <div class="fc"><div class="fl ls">Strength</div><div class="fc-t">Progression Hooks</div><div class="fc-d">Character upgrades, ranking rewards, and the Golden Pass were cited as strong motivators once understood.</div></div>
+        <div class="fc"><div class="fl li">Opportunity</div><div class="fc-t">Disney Identity Gap</div><div class="fc-d">2 participants felt the experience was less distinctively Disney than expected.</div></div>
+      </div>
+      <div class="stat-row">
+        <div><div class="sn">5</div><div class="sl">Participants</div></div>
+        <div><div class="sn">4</div><div class="sl">Countries</div></div>
+        <div><div class="sn">7</div><div class="sl">Findings</div></div>
+        <div><div class="sn">~3.5hrs</div><div class="sl">Session Footage</div></div>
+      </div>
+      <div style="padding-top:1.5rem;border-top:1px solid var(--border-light);margin-top:1.5rem;">
+        <div class="s-tag" style="margin-bottom:.75rem;">Research Artifact</div>
+        <div class="artifact-card">
+          <div style="flex:1;min-width:240px;">
+            <div class="artifact-label">Synthesis Report &middot; Full Artifact</div>
+            <div class="artifact-title">Disney Speedstorm UX Research Synthesis Report</div>
+            <p class="artifact-desc">Cross-session synthesis report from 5 moderated think-aloud sessions (ages 17-36, 4 countries). Covers 7 prioritized findings, 5 design recommendations, a participant overview, methodology, and behavioral annotation tag summary.</p>
+          </div>
+          <a href="https://austinbaldi.github.io/Disney_Speedstorm_UX_Research_Synthesis.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Report &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" id="kadena">
+    <div class="proj-header"><span class="proj-num">03</span><span class="proj-badge bg">Web3 / Developer UX &middot; Kadena &middot; Oct 2022 &ndash; May 2024</span></div>
+    <div class="proj-body">
+      <h3 class="proj-title">Kadena (K-Block) &mdash; Blockchain Developer Onboarding</h3>
+      <div style="background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Role</span><div style="font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;">Volunteer UX research contributor (Associate, then Lead) &mdash; survey research, workflow mapping, and synthesis workshops</div></div>
+        <div><span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);">Team Context</span><div style="font-size:.88rem;color:var(--text-mid);margin-top:.2rem;">Collaborative volunteer research team via Tech Fleet; cross-functional partners across product, engineering, and design</div></div>
+      </div>
+      <p class="proj-desc">Kadena's blockchain platform had a structural problem: its multi-chain architecture was genuinely novel, but <strong>the onboarding documentation assumed mental models developers didn't have</strong>. New contributors were encountering the platform's chain indexing and Pact smart contract language without the conceptual scaffolding to make sense of either. The result was early drop-off that looked like a motivation problem but was actually a communication failure.</p>
+      <p class="proj-desc">Working as part of a volunteer research team across product, engineering, and design, we ran a large-scale survey (100+ respondents) to map where developer confidence collapsed during onboarding. The survey wasn't a satisfaction instrument &mdash; it was designed to locate the specific moments where the platform's architecture conflicted with user mental models.</p>
+      <div class="meta-row"><span class="mt">Survey Research</span><span class="mt">Usability Testing</span><span class="mt">Workflow Mapping</span><span class="mt">Synthesis Workshops</span><span class="mt">Developer UX</span><span class="mt">Mental Model Analysis</span><span class="mt">Blockchain / Web3</span></div>
+      <div class="four-qs">
+        <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">Kadena needed to understand why developer drop-off during onboarding was high despite strong platform capabilities. The hypothesis was documentation quality; the reality was more specific &mdash; the documentation was technically accurate but written for someone who already understood what made Kadena different.</div></div>
+        <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a"><strong>Chain count as cognitive anchor:</strong> developers consistently anchored on Kadena's 20-chain architecture as the first point of confusion. <strong>Confidence gap at Pact introduction:</strong> developer confidence dropped most sharply where Pact (Kadena's smart contract language) was introduced without a bridge from familiar paradigms.</div></div>
+        <div class="fq"><div class="fq-q">What was the impact?</div><div class="fq-a">Follow-up evaluative research after recommendations were implemented measured a <strong>28% reduction in user confusion</strong> and an <strong>18% decrease in task completion time</strong> for beginner users. The K-Block blockchain explorer shipped and is publicly accessible.</div></div>
+        <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">I would push earlier for a longitudinal component: tracking the same cohort of developers through their first 30 days rather than measuring comprehension at a single point, since a snapshot survey misses the compounding friction that causes drop-off weeks later.</div></div>
+      </div>
+      <div class="impact-row">
+        <div class="ic"><div class="ic-n">100+</div><div class="ic-d"><strong>Survey respondents</strong> mapping where developer confidence collapsed during onboarding.</div></div>
+        <div class="ic"><div class="ic-n">28%</div><div class="ic-d"><strong>Reduction in user confusion</strong> measured in follow-up evaluative research.</div></div>
+        <div class="ic"><div class="ic-n">18%</div><div class="ic-d"><strong>Decrease in task completion time</strong> for beginner users after changes shipped.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-dark">
+  <div class="s-tag">Work With Us</div>
+  <h2 class="s-title">Let's talk about<br><em>your next study.</em></h2>
+  <div class="s-div"></div>
+  <p class="contact-sub">If one of these engagements looks like the kind of problem your team is facing, a <strong>30-minute intro call</strong> is the easiest next step &mdash; no pitch, just a conversation.</p>
+  <div class="contact-btns">
+    <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary" style="font-size:.8rem;">Book a Free 30-Min Call</a>
+    <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="btn btn-outline-light" style="font-size:.8rem;">Download Resume</a>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:ajonbaldi@gmail.com" class="cl">Email</a>
+    <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="cl">LinkedIn</a>
+    <a href="https://calendly.com/ajonbaldi" target="_blank" class="cl">Calendly</a>
+    <a href="index.html" class="cl">Home</a>
+  </div>
+</section>
+
+<footer>
+  <span>Baldi Research &mdash; Portfolio &amp; Case Studies &middot; Raleigh, NC</span>
+  <span>Austin Baldi &middot; ajonbaldi@gmail.com</span>
+</footer>
+
+</body>
+</html>
