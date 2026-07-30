@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Baldi Research — Research Operations &amp; UX Coordination</title>
+  <title>Baldi Research — Games UX Research &amp; Operations</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -115,9 +115,64 @@
     .work-cta{flex-shrink:0;align-self:flex-start;}
     .work-intro{font-size:1.02rem;color:var(--text-mid);max-width:640px;margin-bottom:2.5rem;line-height:1.75;}
 
+    /* EMBEDDED CASE STUDY DETAIL */
+    .work-card.has-case{grid-template-columns:1fr;}
+    .case-toggle{margin-top:1.5rem;border-top:1px solid var(--border-light);padding-top:1.25rem;}
+    .case-summary{cursor:pointer;list-style:none;font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);display:flex;align-items:center;gap:.6rem;transition:color .2s;}
+    .case-summary:hover{color:var(--text-dark);}
+    .case-summary::-webkit-details-marker{display:none;}
+    .case-summary::before{content:"+";color:var(--accent2);font-size:1rem;font-weight:600;width:1em;}
+    details[open] .case-summary::before{content:"\2013";}
+    .case-content{margin-top:1.75rem;}
+    .case-role-row{background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;}
+    .case-role-label{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);}
+    .case-role-val{font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;}
+    .case-context-val{font-size:.88rem;color:var(--text-mid);margin-top:.2rem;}
+    .case-desc{font-size:.93rem;color:var(--text-mid);line-height:1.75;margin-bottom:1.1rem;max-width:760px;}
+    .case-desc strong{color:var(--text-dark);font-weight:600;}
+
+    .four-qs{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem;}
+    .fq{background:var(--primary2);border-radius:6px;padding:1.25rem 1.4rem;}
+    .fq-q{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;}
+    .fq-a{font-size:.87rem;color:var(--text-mid);line-height:1.65;}
+    .fq-a strong{color:var(--text-dark);}
+
+    .case-reflection{margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;}
+    .case-reflection-label{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;}
+    .case-reflection p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+
+    .impact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;}
+    .ic{background:var(--secondary);border-radius:6px;padding:1.4rem;}
+    .ic-n{font-family:"Fraunces",serif;font-size:1.7rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.5rem;}
+    .ic-d{font-size:.82rem;color:var(--text-muted);line-height:1.55;}
+    .ic-d strong{color:var(--text-light);}
+
+    .ptg{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin-bottom:1.75rem;}
+    .pc{background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;padding:.9rem;text-align:center;}
+    .pc-n{font-family:"Fraunces",serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);}
+    .pc-i{font-family:"DM Mono",monospace;font-size:.57rem;color:var(--text-mid);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem;}
+
+    .findings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;}
+    .fc{background:var(--primary2);border-radius:6px;padding:1.25rem;}
+    .fl{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.5rem;display:inline-block;padding:.15rem .55rem;border-radius:2px;}
+    .lp{background:rgba(240,160,96,.15);color:#804000;}
+    .ls{background:rgba(212,240,96,.18);color:#5a7200;}
+    .li{background:rgba(96,212,240,.15);color:#006080;}
+    .fc-t{font-family:"Fraunces",serif;font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem;}
+    .fc-d{font-size:.82rem;color:var(--text-mid);line-height:1.55;}
+
+    .stat-row{display:flex;gap:2rem;padding-top:1.25rem;border-top:1px solid var(--border-light);flex-wrap:wrap;margin-bottom:1.75rem;}
+    .sn{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:700;color:var(--secondary);line-height:1;}
+    .sl{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-mid);margin-top:.25rem;}
+
+    .artifact-card{background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:1.25rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+    .artifact-label{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;}
+    .artifact-title{font-family:"Fraunces",serif;font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;line-height:1.2;}
+    .artifact-desc{font-size:.85rem;color:var(--text-mid);line-height:1.6;margin:0;}
+
     /* SKILLS */
     #skills .s-title{color:var(--text-dark);}
-    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
     .skill-group{background:white;border:1px solid var(--border-light);border-radius:var(--radius);padding:1.75rem;box-shadow:0 2px 16px rgba(26,28,36,.05);}
     .skill-group-title{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.1rem;}
     .skill-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
@@ -142,7 +197,10 @@
     @media(max-width:1024px){
       .hero{grid-template-columns:1fr;padding:8rem 2rem 4rem;gap:3rem;}
       #about{grid-template-columns:1fr;gap:3rem;}
-      .skills-grid{grid-template-columns:1fr 1fr;}
+      .skills-grid{grid-template-columns:repeat(2,1fr);}
+      .four-qs{grid-template-columns:1fr;}
+      .impact-row{grid-template-columns:1fr 1fr;}
+      .findings-grid{grid-template-columns:1fr 1fr;}
     }
     @media(max-width:768px){
       nav{padding:1rem 1.5rem;}
@@ -150,19 +208,27 @@
       section{padding:4rem 1.5rem;}
       .skills-grid{grid-template-columns:1fr;}
       .work-card{grid-template-columns:1fr;}
+      .four-qs{grid-template-columns:1fr;}
+      .impact-row{grid-template-columns:1fr 1fr;}
+      .findings-grid{grid-template-columns:1fr 1fr;}
+      .ptg{grid-template-columns:repeat(3,1fr);}
       footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center;}
+    }
+    @media(max-width:500px){
+      .impact-row{grid-template-columns:1fr;}
+      .findings-grid{grid-template-columns:1fr;}
+      .ptg{grid-template-columns:1fr 1fr;}
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-logo">Baldi <span>Research</span><sub>Research Ops &amp; UX Coordination</sub></span>
+  <span class="nav-logo">Baldi <span>Research</span><sub>Games UX Research &amp; Operations</sub></span>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank">Resume</a></li>
     <li><a href="https://calendly.com/ajonbaldi" target="_blank">Book a Call</a></li>
@@ -173,9 +239,9 @@
 <!-- HERO -->
 <section class="hero">
   <div style="position:relative;z-index:1;">
-    <div class="hero-eyebrow">Baldi Research &mdash; Research Ops &amp; UX Coordination</div>
+    <div class="hero-eyebrow">Baldi Research &mdash; Games UX Research &amp; Operations</div>
     <h1 class="hero-title">Your team is<br>building on<br><em>assumptions.</em><br>We fix that.</h1>
-    <p class="hero-body">A research and operations practice for teams that need evidence before they build. Study coordination, participant management, findings synthesis, and the documentation infrastructure that keeps research programs consistent.</p>
+    <p class="hero-body">A UX research and operations practice for game teams that need evidence before they ship. Playtest coordination, participant management, findings synthesis, and the documentation infrastructure that keeps research programs consistent, plus experience extending the same approach into web3 and EdTech.</p>
     <p class="hero-location">Raleigh, NC &nbsp;&middot;&nbsp; <span>Available for freelance, contract, and full-time roles</span></p>
     <div class="hero-ctas">
       <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary">Book a Free 30-Min Call</a>
@@ -201,7 +267,7 @@
     <div class="s-div"></div>
     <p class="about-p"><strong>Baldi Research</strong> is an independent research and operations practice founded by Austin Baldi. We work as embedded partners to product, design, and operations teams, coordinating research studies, managing participant records, synthesizing findings into structured reports, and building the documentation infrastructure that keeps research programs consistent across projects and stakeholders.</p>
     <p class="about-p">Austin holds a B.A. in Psychology from NC State University and has 3+ years of embedded research and coordination experience. Based in Raleigh, NC.</p>
-    <p class="about-seeking"><strong>Currently seeking</strong> research coordination, operations, and adjacent roles where structured thinking and clear documentation drive better decisions. Open to full-time, contract, and freelance engagements — remote or Raleigh-area.</p>
+    <p class="about-seeking"><strong>Currently engaged</strong> with Eldritch House and other recurring studio partners on upcoming titles, and <strong>open to</strong> research coordination, operations, and adjacent roles in games, healthcare, or technology where structured thinking and clear documentation drive better decisions. Available for full-time, contract, and freelance engagements — remote or Raleigh-area.</p>
     <div class="about-contacts">
       <a href="mailto:ajonbaldi@gmail.com" class="about-contact">ajonbaldi@gmail.com</a>
       <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="about-contact">linkedin.com/in/austinbaldi</a>
@@ -228,9 +294,9 @@
   <div class="s-tag">Selected Work</div>
   <h2 class="s-title">Research in practice.</h2>
   <div class="s-div"></div>
-  <p class="work-intro">A sample of embedded and independent research engagements. Full case studies — methods, findings, and reflections — live on the <a href="portfolio.html" style="color:var(--text-dark);font-weight:600;">portfolio page</a>.</p>
+  <p class="work-intro">A sample of embedded and independent research engagements. Expand any card below for the full case study &mdash; methods, findings, and what I'd do differently.</p>
   <div class="work-grid">
-    <div class="work-card">
+    <div class="work-card has-case">
       <div>
         <span class="work-badge bo">Indie Games &middot; Eldritch House</span>
         <h3 class="work-title">Shadow Sacrament: The Roots of Evil</h3>
@@ -242,9 +308,33 @@
         </div>
         <div class="work-tags"><span class="mt">Discovery Research</span><span class="mt">Localization Audit</span><span class="mt">Embedded Researcher</span></div>
       </div>
-      <div class="work-cta"><a href="portfolio.html#shadow-sacrament" class="btn btn-outline-dark" style="font-size:.7rem;">View Case Study &rarr;</a></div>
+      <details class="case-toggle">
+        <summary class="case-summary">View Full Case Study</summary>
+        <div class="case-content">
+          <div class="case-role-row">
+            <div><span class="case-role-label">Role</span><div class="case-role-val">Embedded UX Researcher &mdash; moderated playtests, localization audit, and cross-session synthesis</div></div>
+            <div><span class="case-role-label">Context</span><div class="case-context-val">Embedded research partner to a Brazil-based indie studio (published by DANGEN Entertainment)</div></div>
+          </div>
+          <p class="case-desc">Ongoing embedded research on <strong>Shadow Sacrament</strong>, a survival horror indie game. Work spans moderated playtests routed by a performance-based participant framework, a frame-by-frame PT-BR localization audit, and same-day escalation of critical bugs to the dev team &mdash; including a keybind remapping issue that decoupled animation from function and PT-BR text bleeding into the English locale.</p>
+          <div class="four-qs">
+            <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">Shadow Sacrament needed structured playtest data early enough to inform design decisions rather than validate them after the fact &mdash; and needed it delivered with enough care that a small, resource-constrained team could act on it without feeling attacked.</div></div>
+            <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a">A <strong>performance-based participant routing framework</strong> used non-boss death count to route players into the right test track. A five-version testing framework, moderated session scripts, and continuation session scripts kept sessions consistent across a growing participant pool spanning multiple countries and input methods.</div></div>
+            <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a">The localization audit surfaced <strong>7 findings</strong> including untranslated map room labels, inventory tab labels, and a completion screen. A pause menu cursor finding and two technical bugs were escalated directly to developers &mdash; one reviewed and confirmed the same day it was delivered.</div></div>
+            <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">I'd formalize the recurring-findings rule earlier &mdash; flagging an issue once until the team responds, then moving it to an appendix rather than repeating it prominently in every report, so priority signal doesn't get diluted as the study continues across Acts.</div></div>
+          </div>
+          <div class="case-reflection">
+            <div class="case-reflection-label">Reflection</div>
+            <p>Working with a small studio taught me that the delivery of a finding matters as much as the finding itself. Framing research as serving the game &mdash; before testing even begins &mdash; and acknowledging design intent before describing where it broke down for players kept the relationship collaborative rather than adversarial, even when the news wasn't good.</p>
+          </div>
+          <div class="impact-row">
+            <div class="ic"><div class="ic-n">7</div><div class="ic-d"><strong>Localization findings</strong> from a single-playthrough frame-by-frame audit, each with timestamps and reproduction steps.</div></div>
+            <div class="ic"><div class="ic-n">Same-Day</div><div class="ic-d"><strong>Developer escalation</strong> and review of a critical pause-menu finding.</div></div>
+            <div class="ic"><div class="ic-n">18K+</div><div class="ic-d"><strong>LinkedIn impressions</strong> on a post about the pause menu cursor finding, with engagement from AAA researchers.</div></div>
+          </div>
+        </div>
+      </details>
     </div>
-    <div class="work-card">
+    <div class="work-card has-case">
       <div>
         <span class="work-badge bg">Web3 / Developer UX &middot; Kadena</span>
         <h3 class="work-title">Kadena (K-Block) Developer Onboarding</h3>
@@ -256,9 +346,30 @@
         </div>
         <div class="work-tags"><span class="mt">Survey Research</span><span class="mt">Synthesis Workshops</span><span class="mt">Developer UX</span></div>
       </div>
-      <div class="work-cta"><a href="portfolio.html#kadena" class="btn btn-outline-dark" style="font-size:.7rem;">View Case Study &rarr;</a></div>
+      <details class="case-toggle">
+        <summary class="case-summary">View Full Case Study</summary>
+        <div class="case-content">
+          <div class="case-role-row">
+            <div><span class="case-role-label">Role</span><div class="case-role-val">Volunteer UX research contributor (Associate, then Lead) &mdash; survey research, workflow mapping, and synthesis workshops</div></div>
+            <div><span class="case-role-label">Team Context</span><div class="case-context-val">Collaborative volunteer research team via Tech Fleet; cross-functional partners across product, engineering, and design</div></div>
+          </div>
+          <p class="case-desc">Kadena's blockchain platform had a structural problem: its multi-chain architecture was genuinely novel, but <strong>the onboarding documentation assumed mental models developers didn't have</strong>. New contributors were encountering the platform's chain indexing and Pact smart contract language without the conceptual scaffolding to make sense of either. The result was early drop-off that looked like a motivation problem but was actually a communication failure.</p>
+          <p class="case-desc">Working as part of a volunteer research team across product, engineering, and design, we ran a large-scale survey (100+ respondents) to map where developer confidence collapsed during onboarding. The survey wasn't a satisfaction instrument &mdash; it was designed to locate the specific moments where the platform's architecture conflicted with user mental models.</p>
+          <div class="four-qs">
+            <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">Kadena needed to understand why developer drop-off during onboarding was high despite strong platform capabilities. The hypothesis was documentation quality; the reality was more specific &mdash; the documentation was technically accurate but written for someone who already understood what made Kadena different.</div></div>
+            <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a"><strong>Chain count as cognitive anchor:</strong> developers consistently anchored on Kadena's 20-chain architecture as the first point of confusion. <strong>Confidence gap at Pact introduction:</strong> developer confidence dropped most sharply where Pact (Kadena's smart contract language) was introduced without a bridge from familiar paradigms.</div></div>
+            <div class="fq"><div class="fq-q">What was the impact?</div><div class="fq-a">Follow-up evaluative research after recommendations were implemented measured a <strong>28% reduction in user confusion</strong> and an <strong>18% decrease in task completion time</strong> for beginner users. The K-Block blockchain explorer shipped and is publicly accessible.</div></div>
+            <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">I would push earlier for a longitudinal component: tracking the same cohort of developers through their first 30 days rather than measuring comprehension at a single point, since a snapshot survey misses the compounding friction that causes drop-off weeks later.</div></div>
+          </div>
+          <div class="impact-row">
+            <div class="ic"><div class="ic-n">100+</div><div class="ic-d"><strong>Survey respondents</strong> mapping where developer confidence collapsed during onboarding.</div></div>
+            <div class="ic"><div class="ic-n">28%</div><div class="ic-d"><strong>Reduction in user confusion</strong> measured in follow-up evaluative research.</div></div>
+            <div class="ic"><div class="ic-n">18%</div><div class="ic-d"><strong>Decrease in task completion time</strong> for beginner users after changes shipped.</div></div>
+          </div>
+        </div>
+      </details>
     </div>
-    <div class="work-card">
+    <div class="work-card has-case">
       <div>
         <span class="work-badge bg">Independent Study &middot; Disney Speedstorm</span>
         <h3 class="work-title">Disney Speedstorm UX Research Study</h3>
@@ -270,7 +381,62 @@
         </div>
         <div class="work-tags"><span class="mt">Think-Aloud Playtesting</span><span class="mt">Cross-Session Synthesis</span></div>
       </div>
-      <div class="work-cta"><a href="portfolio.html#disney-speedstorm" class="btn btn-outline-dark" style="font-size:.7rem;">View Case Study &rarr;</a></div>
+      <details class="case-toggle">
+        <summary class="case-summary">View Full Case Study</summary>
+        <div class="case-content">
+          <div class="case-role-row">
+            <div><span class="case-role-label">Role</span><div class="case-role-val">Independent researcher &mdash; study design, participant recruitment, facilitation, and synthesis</div></div>
+            <div><span class="case-role-label">Context</span><div class="case-context-val">Independent observational study conducted via PlaytestCloud credits received upon completing Steve Bromley's Games User Research Fundamentals course</div></div>
+          </div>
+          <p class="case-desc">An independent observational study on <strong>Disney Speedstorm</strong>, a live-service mobile racing game by Gameloft, conducted as a practical application of the Games User Research Fundamentals course. Five moderated think-aloud sessions across 4 countries, focused on new player onboarding, progression comprehension, and early-game friction.</p>
+          <div class="four-qs">
+            <div class="fq"><div class="fq-q">What problem were you solving?</div><div class="fq-a">As a practical exercise from the Games User Research Fundamentals course, I wanted to apply end-to-end research methodology to a real live-service game. Disney Speedstorm offered a rich onboarding context &mdash; a game with strong brand appeal but a complex progression economy that new players would need to navigate from session one.</div></div>
+            <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a"><strong>Moderated think-aloud sessions</strong> via PlaytestCloud let me observe real new-player behavior without studio access. Five sessions across a diverse participant pool (ages 17-36, 4 countries) gave enough signal to identify cross-participant patterns. I developed a <strong>behavioral annotation system</strong> using tags to structure cross-session synthesis.</div></div>
+            <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a">The most consistent cross-participant finding was confusion around <strong>in-game currency and reward systems</strong> &mdash; flagged independently by 4 of 5 participants regardless of age or gaming experience. Onboarding clarity split clearly by player archetype: experienced kart-racing players found it sufficient; genre-unfamiliar players did not.</div></div>
+            <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">With more time I would have recruited specifically for Disney-primary players to better understand the experience gap for that audience, and designed a second evaluative round to test whether specific changes addressed the currency confusion finding.</div></div>
+          </div>
+          <div class="case-reflection">
+            <div class="case-reflection-label">Reflection</div>
+            <p>Running an independent study on a live production game without studio access sharpened my ability to extract signal from purely observational methods. The most valuable outcome wasn't any single finding but the realization that cross-participant pattern recognition is where the real research judgment lives: one player struggling with currency is noise; four players independently flagging the same system is a finding worth acting on.</p>
+          </div>
+          <div class="impact-row">
+            <div class="ic"><div class="ic-n">5</div><div class="ic-d"><strong>Moderated think-aloud sessions</strong> across 4 countries, ranging in age and gaming experience.</div></div>
+            <div class="ic"><div class="ic-n">4 of 5</div><div class="ic-d"><strong>Participants independently flagged</strong> currency and reward system confusion &mdash; a systemic onboarding gap, not individual variance.</div></div>
+            <div class="ic"><div class="ic-n">7</div><div class="ic-d"><strong>Distinct findings</strong> synthesized across sessions, with 5 prioritized design recommendations.</div></div>
+          </div>
+          <div class="s-tag" style="margin-bottom:.75rem;">Playtest Participants &middot; Ages 17-36 &middot; 4 Countries</div>
+          <div class="ptg">
+            <div class="pc"><div class="pc-n">Brandon</div><div class="pc-i">17 &middot; US &middot; 14h+/wk</div></div>
+            <div class="pc"><div class="pc-n">Naman</div><div class="pc-i">24 &middot; CA &middot; 8h/wk</div></div>
+            <div class="pc"><div class="pc-n">Shea</div><div class="pc-i">27 &middot; UK &middot; 14h+/wk</div></div>
+            <div class="pc"><div class="pc-n">Mathias</div><div class="pc-i">28 &middot; UK &middot; 14h+/wk</div></div>
+            <div class="pc"><div class="pc-n">Meagan</div><div class="pc-i">36 &middot; US &middot; 14h+/wk</div></div>
+          </div>
+          <div class="findings-grid">
+            <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Currency System Confusion</div><div class="fc-d">4 of 5 participants independently flagged confusion around in-game currencies, shards, and reward systems &mdash; the most consistent cross-session finding.</div></div>
+            <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Onboarding Splits by Archetype</div><div class="fc-d">Experienced kart-racing players found onboarding sufficient. Genre-unfamiliar players were still 'winging it' after 30+ minutes.</div></div>
+            <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Special Skill Clarity</div><div class="fc-d">2 of 5 participants struggled to understand the special skill mechanic despite the tutorial covering it.</div></div>
+            <div class="fc"><div class="fl ls">Strength</div><div class="fc-t">Controls &amp; Visuals</div><div class="fc-d">All 5 participants praised responsive controls and high-quality visuals across all player profiles.</div></div>
+            <div class="fc"><div class="fl ls">Strength</div><div class="fc-t">Progression Hooks</div><div class="fc-d">Character upgrades, ranking rewards, and the Golden Pass were cited as strong motivators once understood.</div></div>
+            <div class="fc"><div class="fl li">Opportunity</div><div class="fc-t">Disney Identity Gap</div><div class="fc-d">2 participants felt the experience was less distinctively Disney than expected.</div></div>
+          </div>
+          <div class="stat-row">
+            <div><div class="sn">5</div><div class="sl">Participants</div></div>
+            <div><div class="sn">4</div><div class="sl">Countries</div></div>
+            <div><div class="sn">7</div><div class="sl">Findings</div></div>
+            <div><div class="sn">~3.5hrs</div><div class="sl">Session Footage</div></div>
+          </div>
+          <div class="s-tag" style="margin-bottom:.75rem;">Research Artifact</div>
+          <div class="artifact-card">
+            <div style="flex:1;min-width:240px;">
+              <div class="artifact-label">Synthesis Report &middot; Full Artifact</div>
+              <div class="artifact-title">Disney Speedstorm UX Research Synthesis Report</div>
+              <p class="artifact-desc">Cross-session synthesis report from 5 moderated think-aloud sessions (ages 17-36, 4 countries). Covers 7 prioritized findings, 5 design recommendations, a participant overview, methodology, and behavioral annotation tag summary.</p>
+            </div>
+            <a href="https://austinbaldi.github.io/Disney_Speedstorm_UX_Research_Synthesis.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Report &rarr;</a>
+          </div>
+        </div>
+      </details>
     </div>
     <div class="work-card">
       <div>
@@ -293,7 +459,8 @@
   <h2 class="s-title">Skills &amp; Methods</h2>
   <div class="s-div"></div>
   <div class="skills-grid">
-    <div class="skill-group"><div class="skill-group-title">Research Coordination</div><ul class="skill-list"><li>End-to-end study design and execution</li><li>Participant recruitment and screening</li><li>Moderated and unmoderated sessions</li><li>Session scripting and facilitation</li><li>Cross-session pattern recognition</li><li>Survey design and statistical analysis</li><li>Mixed-methods synthesis</li></ul></div>
+    <div class="skill-group"><div class="skill-group-title">Playtesting &amp; Games UX</div><ul class="skill-list"><li>Moderated and unmoderated playtests</li><li>Think-aloud facilitation</li><li>Frame-by-frame localization audits</li><li>New player onboarding research</li><li>Genre-unfamiliar participant testing</li></ul></div>
+    <div class="skill-group"><div class="skill-group-title">Research Coordination</div><ul class="skill-list"><li>End-to-end study design and execution</li><li>Participant recruitment and screening</li><li>Session scripting and facilitation</li><li>Cross-session pattern recognition</li><li>Survey design and statistical analysis</li><li>Mixed-methods synthesis</li></ul></div>
     <div class="skill-group"><div class="skill-group-title">Operations and Documentation</div><ul class="skill-list"><li>Participant tracking systems</li><li>Session and findings reports</li><li>Status dashboards and planning artifacts</li><li>Cross-study consistency protocols</li><li>Process documentation and templates</li><li>Risk escalation and bug reporting</li><li>Stakeholder communication</li></ul></div>
     <div class="skill-group"><div class="skill-group-title">Tools and Platforms</div><ul class="skill-list"><li>Notion and Google Workspace</li><li>Microsoft Office (Excel, Word, PowerPoint)</li><li>Dovetail and UserTesting</li><li>PlaytestCloud and Figma</li><li>Zoom and remote research platforms</li><li>ffmpeg, ReportLab, Python</li><li>Agile / sprint methodology</li></ul></div>
   </div>
@@ -313,12 +480,12 @@
     <a href="mailto:ajonbaldi@gmail.com" class="cl">Email</a>
     <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="cl">LinkedIn</a>
     <a href="https://calendly.com/ajonbaldi" target="_blank" class="cl">Calendly</a>
-    <a href="portfolio.html" class="cl">Portfolio</a>
+    <a href="#work" class="cl">Case Studies</a>
   </div>
 </section>
 
 <footer>
-  <span>Baldi Research &mdash; Research Ops &amp; UX Coordination &middot; Raleigh, NC</span>
+  <span>Baldi Research &mdash; Games UX Research &amp; Operations &middot; Raleigh, NC</span>
   <span>Austin Baldi &middot; ajonbaldi@gmail.com</span>
 </footer>
 
