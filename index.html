@@ -17,22 +17,25 @@
       --text-dark: #1a1c24;
       --text-mid:  #4a4a5a;
       --text-light:#eeeef5;
-      --text-muted:#8a8aaa;
+      --accent-ink:#0b6a86;
+      --lime-ink:#4a6000;
+      --text-muted:#a8a8c4;
       --border-light: rgba(26,28,36,0.1);
       --border-dark:  rgba(255,255,255,0.08);
       --radius: 8px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
+    a:focus-visible,summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;}
     body{background:var(--primary);color:var(--text-dark);font-family:"DM Sans",sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
 
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:var(--secondary);border-bottom:1px solid var(--border-dark);}
     .nav-logo{font-family:"Fraunces",serif;font-size:1rem;font-weight:700;color:var(--text-light);}
     .nav-logo span{color:var(--accent);}
-    .nav-logo sub{font-size:.6rem;font-weight:300;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;margin-left:.3rem;font-family:"DM Mono",monospace;font-style:normal;vertical-align:middle;}
+    .nav-logo sub{font-size:.8rem;font-weight:300;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;margin-left:.3rem;font-family:"DM Mono",monospace;font-style:normal;vertical-align:middle;}
     .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-    .nav-links a{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+    .nav-links a{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.08em;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
     .nav-links a:hover{color:var(--text-light);}
     .nav-cta{background:var(--accent)!important;color:var(--secondary)!important;padding:.5rem 1.1rem;border-radius:2px;font-weight:600!important;}
     .nav-cta:hover{opacity:.88;color:var(--secondary)!important;}
@@ -40,15 +43,15 @@
     /* HERO */
     .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:9rem 4rem 5rem;background:var(--secondary);position:relative;overflow:hidden;gap:4rem;}
     .hero::before{content:"";position:absolute;top:-10%;right:-5%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(212,240,96,.07) 0%,transparent 65%);pointer-events:none;}
-    .hero-eyebrow{font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
+    .hero-eyebrow{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
     .hero-eyebrow::before{content:"";display:block;width:32px;height:1px;background:var(--accent);}
     .hero-title{font-family:"Fraunces",serif;font-size:clamp(3rem,4.5vw,5.2rem);line-height:1.02;font-weight:700;margin-bottom:1.5rem;letter-spacing:-.02em;color:var(--text-light);}
     .hero-title em{font-style:italic;color:var(--accent);}
     .hero-body{font-size:1.05rem;color:var(--text-muted);max-width:480px;margin-bottom:.75rem;line-height:1.75;}
-    .hero-location{font-family:"DM Mono",monospace;font-size:.75rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:2.5rem;}
+    .hero-location{font-family:"DM Mono",monospace;font-size:.8rem;color:var(--text-muted);letter-spacing:.06em;margin-bottom:2.5rem;}
     .hero-location span{color:var(--accent2);}
     .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.8rem;border-radius:2px;transition:all .2s;font-weight:500;}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.8rem;border-radius:2px;transition:all .2s;font-weight:500;}
     .btn-primary{background:var(--accent);color:var(--secondary);font-weight:600;}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,240,96,.3);}
     .btn-outline-light{border:1px solid rgba(255,255,255,.2);color:var(--text-muted);}
@@ -60,7 +63,7 @@
     .hstat{background:var(--secondary2);border:1px solid var(--border-dark);border-radius:var(--radius);padding:1.4rem;transition:border-color .3s,transform .3s;}
     .hstat:hover{border-color:rgba(212,240,96,.3);transform:translateY(-3px);}
     .hstat-n{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.3rem;}
-    .hstat-l{font-family:"DM Mono",monospace;font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
+    .hstat-l{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}
     .hstat.wide{grid-column:span 2;}
     .hstat.wide .hstat-n{font-size:1.05rem;color:var(--text-light);}
 
@@ -69,11 +72,11 @@
     .section-light{background:var(--primary);}
     .section-alt{background:var(--primary2);}
     .section-dark{background:var(--secondary);}
-    .s-tag{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:.75rem;}
+    .s-tag{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.75rem;}
     .section-dark .s-tag{color:var(--accent2);}
     .s-title{font-family:"Fraunces",serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:700;margin-bottom:1.25rem;line-height:1.08;letter-spacing:-.02em;color:var(--text-dark);}
     .section-dark .s-title{color:var(--text-light);}
-    .s-title em{font-style:italic;color:var(--accent);}
+    .s-title em{font-style:italic;color:var(--lime-ink);}
     .s-div{width:40px;height:3px;background:var(--accent);margin-bottom:3rem;border-radius:2px;}
 
     /* ABOUT */
@@ -83,7 +86,7 @@
     .about-seeking{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border-light);color:var(--text-mid);font-size:1rem;}
     .about-seeking strong{color:var(--text-dark);font-weight:600;}
     .about-contacts{display:flex;flex-direction:column;gap:.7rem;margin-top:2rem;}
-    .about-contact{font-family:"DM Mono",monospace;font-size:.78rem;color:var(--text-mid);display:flex;align-items:center;gap:.75rem;text-decoration:none;transition:color .2s;}
+    .about-contact{font-family:"DM Mono",monospace;font-size:.8rem;color:var(--text-mid);display:flex;align-items:center;gap:.75rem;text-decoration:none;transition:color .2s;}
     .about-contact:hover{color:var(--text-dark);}
     .about-contact::before{content:"->";color:var(--accent2);}
 
@@ -94,87 +97,98 @@
     .exp-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:.5rem;flex-shrink:0;z-index:1;}
     .exp-dot.live{background:var(--accent2);box-shadow:0 0 0 3px rgba(96,212,240,.2);}
     .exp-item:not(:last-child)::before{content:"";position:absolute;left:4px;top:14px;width:1px;height:calc(100% - 8px);background:var(--border-light);}
-    .exp-role{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.15rem;}
-    .exp-desc{font-size:.88rem;color:var(--text-mid);line-height:1.55;}
+    .exp-role{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.15rem;}
+    .exp-desc{font-size:.9rem;color:var(--text-mid);line-height:1.55;}
 
     /* WORK */
     .work-grid{display:flex;flex-direction:column;gap:1.5rem;}
     .work-card{background:white;border:1px solid var(--border-light);border-radius:var(--radius);padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;transition:border-color .3s,box-shadow .3s;}
     .work-card:hover{border-color:rgba(212,240,96,.4);box-shadow:0 4px 24px rgba(26,28,36,.08);}
-    .work-badge{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;margin-bottom:.75rem;display:inline-block;}
+    .work-badge{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;margin-bottom:.75rem;display:inline-block;}
     .bb{background:rgba(96,212,240,.1);color:#006080;border:1px solid rgba(96,212,240,.25);}
     .bo{background:rgba(240,160,96,.1);color:#804000;border:1px solid rgba(240,160,96,.25);}
-    .bg{background:rgba(212,240,96,.12);color:#5a7200;border:1px solid rgba(212,240,96,.3);}
+    .bg{background:rgba(212,240,96,.12);color:#4a6000;border:1px solid rgba(212,240,96,.3);}
     .work-title{font-family:"Fraunces",serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;line-height:1.2;}
     .work-desc{font-size:.93rem;color:var(--text-mid);line-height:1.7;margin-bottom:1.25rem;max-width:580px;}
     .work-outcomes{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.25rem;}
-    .work-outcome{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);}
-    .work-outcome strong{color:var(--text-dark);font-size:.8rem;font-family:"Fraunces",serif;letter-spacing:0;text-transform:none;display:block;margin-bottom:.15rem;}
+    .work-outcome{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);}
+    .work-outcome strong{color:var(--text-dark);font-size:.9rem;font-family:"Fraunces",serif;letter-spacing:0;text-transform:none;display:block;margin-bottom:.15rem;}
     .work-tags{display:flex;gap:.5rem;flex-wrap:wrap;}
-    .mt{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);background:var(--primary);border:1px solid var(--border-light);padding:.2rem .65rem;border-radius:2px;}
+    .mt{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);background:var(--primary);border:1px solid var(--border-light);padding:.2rem .65rem;border-radius:2px;}
     .work-cta{flex-shrink:0;align-self:flex-start;}
     .work-intro{font-size:1.02rem;color:var(--text-mid);max-width:640px;margin-bottom:2.5rem;line-height:1.75;}
 
     /* EMBEDDED CASE STUDY DETAIL */
     .work-card.has-case{grid-template-columns:1fr;}
     .case-toggle{margin-top:1.5rem;border-top:1px solid var(--border-light);padding-top:1.25rem;}
-    .case-summary{cursor:pointer;list-style:none;font-family:"DM Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);display:flex;align-items:center;gap:.6rem;transition:color .2s;}
+    .case-summary{cursor:pointer;list-style:none;font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);display:flex;align-items:center;gap:.6rem;transition:color .2s;}
     .case-summary:hover{color:var(--text-dark);}
     .case-summary::-webkit-details-marker{display:none;}
     .case-summary::before{content:"+";color:var(--accent2);font-size:1rem;font-weight:600;width:1em;}
     details[open] .case-summary::before{content:"\2013";}
     .case-content{margin-top:1.75rem;}
     .case-role-row{background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent2);border-radius:0 6px 6px 0;padding:.9rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:2rem;flex-wrap:wrap;}
-    .case-role-label{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);}
-    .case-role-val{font-size:.88rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;}
-    .case-context-val{font-size:.88rem;color:var(--text-mid);margin-top:.2rem;}
+    .case-role-label{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);}
+    .case-role-val{font-size:.9rem;color:var(--text-dark);margin-top:.2rem;font-weight:500;}
+    .case-context-val{font-size:.9rem;color:var(--text-mid);margin-top:.2rem;}
     .case-desc{font-size:.93rem;color:var(--text-mid);line-height:1.75;margin-bottom:1.1rem;max-width:760px;}
     .case-desc strong{color:var(--text-dark);font-weight:600;}
 
+
+    .cs-glance{background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent-ink);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin-bottom:2rem;display:grid;gap:.9rem;}
+    .cs-glance dt{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.15rem;}
+    .cs-glance dd{font-size:1rem;color:var(--text-dark);line-height:1.6;font-weight:400;margin:0;}
+    .cs-story{max-width:46rem;margin-bottom:2rem;}
+    .cs-story h4{font-family:"Fraunces",serif;font-size:1.35rem;font-weight:700;color:var(--text-dark);margin:2rem 0 .6rem;line-height:1.2;}
+    .cs-story h4 span{color:var(--accent-ink);font-family:"DM Mono",monospace;font-size:.9rem;margin-right:.6rem;font-weight:500;}
+    .cs-story p{font-size:1rem;color:var(--text-mid);line-height:1.7;margin-bottom:.8rem;}
+    .cs-story ul{margin:0 0 .9rem 1.2rem;padding:0;}
+    .cs-story li{font-size:1rem;color:var(--text-mid);line-height:1.65;margin-bottom:.45rem;}
+    .cs-story strong{color:var(--text-dark);font-weight:600;}
     .four-qs{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem;}
     .fq{background:var(--primary2);border-radius:6px;padding:1.25rem 1.4rem;}
-    .fq-q{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;}
-    .fq-a{font-size:.87rem;color:var(--text-mid);line-height:1.65;}
+    .fq-q{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.6rem;}
+    .fq-a{font-size:.9rem;color:var(--text-mid);line-height:1.65;}
     .fq-a strong{color:var(--text-dark);}
 
     .case-reflection{margin-bottom:1.75rem;padding:1.25rem;background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;}
-    .case-reflection-label{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.6rem;}
-    .case-reflection p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+    .case-reflection-label{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.6rem;}
+    .case-reflection p{font-size:.9rem;color:var(--text-mid);line-height:1.65;}
 
     .impact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;}
     .ic{background:var(--secondary);border-radius:6px;padding:1.4rem;}
     .ic-n{font-family:"Fraunces",serif;font-size:1.7rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.5rem;}
-    .ic-d{font-size:.82rem;color:var(--text-muted);line-height:1.55;}
+    .ic-d{font-size:.9rem;color:var(--text-muted);line-height:1.55;}
     .ic-d strong{color:var(--text-light);}
 
     .ptg{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin-bottom:1.75rem;}
     .pc{background:var(--primary2);border:1px solid var(--border-light);border-radius:6px;padding:.9rem;text-align:center;}
     .pc-n{font-family:"Fraunces",serif;font-size:1.1rem;font-weight:700;color:var(--text-dark);}
-    .pc-i{font-family:"DM Mono",monospace;font-size:.57rem;color:var(--text-mid);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem;}
+    .pc-i{font-family:"DM Mono",monospace;font-size:.8rem;color:var(--text-mid);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem;}
 
     .findings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;}
     .fc{background:var(--primary2);border-radius:6px;padding:1.25rem;}
-    .fl{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.5rem;display:inline-block;padding:.15rem .55rem;border-radius:2px;}
+    .fl{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.5rem;display:inline-block;padding:.15rem .55rem;border-radius:2px;}
     .lp{background:rgba(240,160,96,.15);color:#804000;}
-    .ls{background:rgba(212,240,96,.18);color:#5a7200;}
+    .ls{background:rgba(212,240,96,.18);color:#4a6000;}
     .li{background:rgba(96,212,240,.15);color:#006080;}
     .fc-t{font-family:"Fraunces",serif;font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem;}
-    .fc-d{font-size:.82rem;color:var(--text-mid);line-height:1.55;}
+    .fc-d{font-size:.9rem;color:var(--text-mid);line-height:1.55;}
 
     .stat-row{display:flex;gap:2rem;padding-top:1.25rem;border-top:1px solid var(--border-light);flex-wrap:wrap;margin-bottom:1.75rem;}
     .sn{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:700;color:var(--secondary);line-height:1;}
-    .sl{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-mid);margin-top:.25rem;}
+    .sl{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-mid);margin-top:.25rem;}
 
     .artifact-card{background:var(--primary2);border:1px solid var(--border-light);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:1.25rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
-    .artifact-label{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;}
+    .artifact-label{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.4rem;}
     .artifact-title{font-family:"Fraunces",serif;font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;line-height:1.2;}
-    .artifact-desc{font-size:.85rem;color:var(--text-mid);line-height:1.6;margin:0;}
+    .artifact-desc{font-size:.9rem;color:var(--text-mid);line-height:1.6;margin:0;}
 
     /* SKILLS */
     #skills .s-title{color:var(--text-dark);}
     .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
     .skill-group{background:white;border:1px solid var(--border-light);border-radius:var(--radius);padding:1.75rem;box-shadow:0 2px 16px rgba(26,28,36,.05);}
-    .skill-group-title{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.1rem;}
+    .skill-group-title{font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:1.1rem;}
     .skill-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
     .skill-list li{font-size:.9rem;color:var(--text-mid);display:flex;align-items:center;gap:.6rem;}
     .skill-list li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -187,11 +201,11 @@
     .contact-sub strong{color:var(--text-light);}
     .contact-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;}
     .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-    .cl{display:flex;align-items:center;gap:.6rem;font-family:"DM Mono",monospace;font-size:.73rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;border:1px solid var(--border-dark);padding:.65rem 1.3rem;border-radius:4px;transition:all .2s;}
+    .cl{display:flex;align-items:center;gap:.6rem;font-family:"DM Mono",monospace;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;border:1px solid var(--border-dark);padding:.65rem 1.3rem;border-radius:4px;transition:all .2s;}
     .cl:hover{border-color:var(--accent);color:var(--accent);background:rgba(212,240,96,.05);}
 
     /* FOOTER */
-    footer{padding:2rem 4rem;border-top:1px solid var(--border-dark);display:flex;justify-content:space-between;align-items:center;font-family:"DM Mono",monospace;font-size:.68rem;color:var(--text-muted);letter-spacing:.05em;background:var(--secondary);}
+    footer{padding:2rem 4rem;border-top:1px solid var(--border-dark);display:flex;justify-content:space-between;align-items:center;font-family:"DM Mono",monospace;font-size:.8rem;color:var(--text-muted);letter-spacing:.05em;background:var(--secondary);}
 
     /* RESPONSIVE */
     @media(max-width:1024px){
@@ -232,7 +246,7 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank">Resume</a></li>
     <li><a href="https://calendly.com/ajonbaldi" target="_blank">Book a Call</a></li>
-    <li><a href="mailto:ajonbaldi@gmail.com" class="nav-cta">Get in Touch</a></li>
+    <li><a href="mailto:austinbaldi@outlook.com" class="nav-cta">Get in Touch</a></li>
   </ul>
 </nav>
 
@@ -269,7 +283,7 @@
     <p class="about-p">I hold a B.A. in Psychology from NC State University and have 3+ years of research experience, all of it volunteer or self-directed. That includes an embedded role with an indie studio, a Web3 study, an accessibility EdTech project, and independent studies of my own. Based in Raleigh, NC.</p>
     <p class="about-seeking"><strong>Currently</strong> embedded with an indie studio on an upcoming survival horror game. <strong>Looking for</strong> games user research roles, full-time or contract, remote or in the Raleigh area. I am also open to research operations and adjacent roles in other industries.</p>
     <div class="about-contacts">
-      <a href="mailto:ajonbaldi@gmail.com" class="about-contact">ajonbaldi@gmail.com</a>
+      <a href="mailto:austinbaldi@outlook.com" class="about-contact">austinbaldi@outlook.com</a>
       <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="about-contact">linkedin.com/in/austinbaldi</a>
       <a href="https://austinbaldi.github.io" target="_blank" class="about-contact">austinbaldi.github.io</a>
       <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="about-contact">Download Resume</a>
@@ -280,10 +294,10 @@
     <div class="exp-card">
       <div class="s-tag" style="margin-bottom:1.25rem;">Experience</div>
       <div class="exp-tl">
-        <div class="exp-item"><div class="exp-dot live"></div><div><div class="exp-role">Eldritch House &middot; UX Researcher &middot; Nov 2025 &ndash; Present</div><div class="exp-desc">Embedded researcher for an indie game studio. 19 moderated and unmoderated playtest sessions and a PT-BR localization audit reviewing 1,100+ frames across a 94-minute playthrough. 7 localization findings delivered with timestamps and reproduction steps.</div></div></div>
-        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Feather's Edge &middot; Independent Study (Volunteer) &middot; Oct 2026</div><div class="exp-desc">Self-initiated new player study of an indie platformer demo, approved by the studio. 11 survey responses recruited through Reddit and Discord; 7 of 11 said the jump did not behave as expected. Findings report delivered to the studio.</div></div></div>
-        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">DFN (Dyslexia Foundation Nigeria) &middot; Lead UX Researcher (Volunteer) &middot; via Tech Fleet</div><div class="exp-desc">Multi-phase research for an open-source EdTech accessibility app supporting dyslexic students in West Africa, across 3+ research phases.</div></div></div>
-        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Disney Speedstorm &middot; Independent Study &middot; May 2024</div><div class="exp-desc">Independent observational study via PlaytestCloud. 5 moderated think-aloud sessions across 4 countries, identifying systemic onboarding gaps in currency and reward systems.</div></div></div>
+        <div class="exp-item"><div class="exp-dot live"></div><div><div class="exp-role">Eldritch House &middot; UX Researcher &middot; Jan 2026 &ndash; Present</div><div class="exp-desc">Embedded researcher for an indie game studio. 19 moderated and unmoderated playtest sessions and a PT-BR localization audit reviewing 1,100+ frames across a 94-minute playthrough. 7 localization findings delivered with timestamps and reproduction steps.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Feather's Edge &middot; Independent Study (Volunteer) &middot; Sep &ndash; Oct 2026</div><div class="exp-desc">Self-initiated new player study of an indie platformer demo, approved by the studio. 11 survey responses recruited through Reddit and Discord; 7 of 11 said the jump did not behave as expected. Findings report delivered to the studio.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">DFN (Dyslexia Foundation Nigeria) &middot; Co-Lead UX Researcher, Phase 2 (Volunteer) &middot; Sep &ndash; Nov 2024 &middot; via Tech Fleet</div><div class="exp-desc">Co-led a six-person research team on an open-source dyslexia app for students in West Africa: usability test guide, screener survey, and recruitment flow.</div></div></div>
+        <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Disney Speedstorm &middot; Independent Study &middot; May 2024</div><div class="exp-desc">Independent observational study via PlaytestCloud. 5 unmoderated think-aloud sessions across 3 countries, identifying systemic onboarding gaps in currency and reward systems.</div></div></div>
         <div class="exp-item"><div class="exp-dot"></div><div><div class="exp-role">Kadena &middot; Apprentice, then Co-Lead UX Researcher (Volunteer) &middot; via Tech Fleet &middot; Oct 2022 &ndash; May 2023</div><div class="exp-desc">Co-led Phase 2 research on the K-Block blockchain explorer as one of 3 co-leads on an 8-person team. 9 interviews and 2 rounds of usability testing; the NFT Analytics Tool scored 6.7 of 7 on the Single Ease Question.</div></div></div>
       </div>
     </div>
@@ -313,27 +327,72 @@
         <summary class="case-summary">View Full Case Study</summary>
         <div class="case-content">
           <div class="case-role-row">
-            <div><span class="case-role-label">Role</span><div class="case-role-val">Embedded UX Researcher: moderated playtests, localization audit, and cross-session synthesis</div></div>
+            <div><span class="case-role-label">Role</span><div class="case-role-val">Embedded UX Researcher: owned the research end to end, from plan to readout, including 7 live-moderated sessions, a localization audit, and cross-session synthesis</div></div>
             <div><span class="case-role-label">Context</span><div class="case-context-val">Embedded research partner to a Brazil-based indie studio</div></div>
           </div>
-          <p class="case-desc">Ongoing embedded research on <strong>Shadow Sacrament</strong>, a survival horror indie game, now at 19 playtest sessions. Work spans moderated playtests routed by a performance-based participant framework, a frame-by-frame PT-BR localization audit, and same-day escalation of critical bugs to the dev team, including a keybind remapping issue that decoupled animation from function and PT-BR text bleeding into the English locale.</p>
-          <div class="four-qs">
-<div class="fq"><div class="fq-q">What decision was the study meant to inform?</div><div class="fq-a">Whether players struggle because a puzzle is hard or because the game is not giving clear cues and feedback, and whether the map helps them find their place in the world. The developers approved a two-week plan built on four questions: do players understand what a puzzle wants, do they notice the feedback, can they use the map to know where they are and where to go, and does the map feel like part of the world.</div></div>
-<div class="fq"><div class="fq-q">What was in and out of scope?</div><div class="fq-a"><strong>In scope:</strong> puzzles, menus such as inventory and files, and the map, tested with players who match the game's audience: fans of Resident Evil style games in 2D. <strong>Out of scope:</strong> combat balance, boss tuning, difficulty settings, and story. Players raised those anyway. I recorded their comments and passed them on when the developers' per-act questions asked for them, but I did not study them. A survey was deferred until a wider demo, and the localization audit was not in the original plan.</div></div>
-<div class="fq"><div class="fq-q">What data did you collect and why?</div><div class="fq-a"><strong>Think-aloud playtests</strong>, because hesitation and misreading show up in what players say while they are stuck. <strong>Short interviews right after each session</strong>, while players still remember what confused them. The plan began with a heuristic review of the early build to pick which puzzles and map views to test. Recordings were reviewed frame by frame, which is how the pause menu cursor finding surfaced and how a 94-minute PT-BR playthrough (1,100+ frames) became 7 timestamped localization findings.</div></div>
-<div class="fq"><div class="fq-q">Why route players by non-boss death count?</div><div class="fq-a">Acts could only be started one at a time, so each player had to be sent to the act that fit them. Counting deaths outside boss fights gave a rough read on comfort with moment-to-moment play without scripted boss spikes skewing it, so puzzle and map clarity could be tested on players who were not fighting the game. <strong>The weakness:</strong> deaths can come from confusing feedback as well as low skill. One tester lost most of his runs to axe parry timing, and some enemies showed no stealth indicator.</div></div>
-<div class="fq"><div class="fq-q">What did you find about puzzles and feedback?</div><div class="fq-a">Players singled out the Carbine file puzzle and tap-to-enter safe codes as things that worked. In Acts 3 to 5, one tester skipped story content because doors and key items were not gated in that build, which he put down to its work-in-progress state. Feedback was the weaker side. The pause menu defaulted the cursor to Load Game, a destructive action, instead of Resume Game. Some enemies showed no stealth indicator, and players got little signal when they were spotted. A 12-minute gap separated picking up the lantern from learning how to activate it. In Act 3, an item used at the next spot produced no visual change, sound, or response, so players could not tell whether they had the right place or the right item.</div></div>
-<div class="fq"><div class="fq-q">What did you find about the map?</div><div class="fq-a">Act 3 sessions with two players showed navigation confusion, which the developers confirmed as a known issue: the Act 3 map did not show the Exit Door puzzle room. The current build now shows it with a [?] marker for unfinished business. A later tester found the map clear overall but harder to read in Acts 4 and 5, where fewer landmarks gave him less to orient by. I have the least evidence on the fourth question, whether the map feels like part of the world, so I do not claim an answer to it.</div></div>
-<div class="fq"><div class="fq-q">What happened next?</div><div class="fq-a">The developers fixed the Act 3 map gap, so the missing room now shows on the map with a [?] marker. The latest build's pause menu now starts on Resume Game. The developers could not say whether my report prompted that, but agreed that Load Game as the first option invites accidental presses. Three confirmed bugs went to the developers: PT-BR text in the English UI, keybind remapping that decoupled animation from door function, and reversed enemy audio spatialization. A crash I reported in Act 1 was acknowledged and is being fixed, and the developers now ask for the build version in every report so they know which iteration a finding refers to. On puzzle feedback, the developers called the missing response to an item used in Act 3 fair feedback. They also said the safe combination, statue, and lock puzzles are solvable from the in-game notes and have brute-force fallbacks so players cannot get locked out, which leaves the open question of whether players find and read those notes.</div></div>
-<div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">Two things. I would formalize the recurring-findings rule earlier: flag an issue once, and if the team does not respond, move it to an appendix so the priority signal stays clear across Acts. I would also pair death-count routing with a short self-reported experience question, so routing does not end up sorting players by how much the game confused them.</div></div>
-      </div>
+          <dl class="cs-glance">
+<div><dt>The game</dt><dd>Shadow Sacrament: The Roots of Evil is a 2D survival horror game in the style of classic Resident Evil, made by Eldritch House, a small studio in Brazil. It has five acts. Testers get each act as a separate build on Steam.</dd></div>
+<div><dt>The question</dt><dd>When players got stuck, was it because the puzzles were hard, or because the game was not telling them what to do?</dd></div>
+<div><dt>My role</dt><dd>The studio's only researcher. I ran the study from plan to readout: 25 playtesters, 19 sessions (7 moderated live), 23 written reports.</dd></div>
+<div><dt>What changed</dt><dd>The developers fixed 3 issues I reported: a missing room on the Act 3 map, a collider that trapped a player in an Act 2 cave, and a Steam launch error. Three more confirmed bugs went to them before release.</dd></div>
+</dl>
+<div class="cs-story">
+<h4><span>1</span>The problem</h4>
+<p>The studio was building toward release with a small team and builds that changed act by act. They approved a two-week research plan built on four questions:</p>
+<ul>
+<li>Do players understand what a puzzle wants from them?</li>
+<li>Do they notice the game's feedback when they act?</li>
+<li>Can they use the map to know where they are and where to go?</li>
+<li>Does the map feel like part of the game's world?</li>
+</ul>
+<p><strong>In scope:</strong> puzzles, menus such as inventory and files, and the map. <strong>Out of scope:</strong> combat balance, boss tuning, difficulty and story. Players raised those anyway. I recorded their comments and passed them on when the developers' per-act questions asked for them, but I did not study them. The localization audit below was added later and was not in the original plan.</p>
+<h4><span>2</span>How I ran it</h4>
+<p>I recruited and screened playtesters in several countries, including volunteers from the game's Discord server. A session meant one person playing one act and giving feedback on it. I call them playtests because that is the studio's word, but the method is closer to a small, longer usability study: I was watching for where players hesitated or misread something, not measuring how much they enjoyed the game. There were two formats:</p>
+<ul>
+<li><strong>Moderated, live (7 sessions).</strong> I watched on a call while the player thought aloud, then asked short follow-up questions while they still remembered what confused them.</li>
+<li><strong>Unmoderated (the other 12).</strong> Players played on their own, then sent written feedback, usually with screen recordings or phone clips.</li>
+</ul>
+<p>Because each act is a separate build, I had to decide which act each tester played. I counted how often they died outside boss fights, as a rough signal of comfort with the game, and sent more comfortable players to later acts. The weakness is that deaths can come from confusing feedback as well as low skill. One tester lost most of his runs to axe parry timing, and some enemies showed no stealth indicator, so I would not use this signal alone again.</p>
+<p>Each session also had a survey component, using the developers' standard per-act questions. They were open-ended and answered in writing by a few players per act, so they gave me quotes and patterns, not numbers. Every report covered the same things: what the player liked most and least, what confused them, their suggestions, and whether the sneak, map, stamina and crafting systems were clear. Each report carries the build number, which the developers later asked for in all reports.</p>
+<h4><span>3</span>What players struggled with: puzzles and feedback</h4>
+<p>Feedback was the weaker side of the game, more than puzzle difficulty.</p>
+<ul>
+<li><strong>Pause menu.</strong> The cursor started on Load Game, a destructive action, instead of Resume Game.</li>
+<li><strong>Stealth.</strong> Some enemies showed no stealth indicator, and players got little signal when they were spotted.</li>
+<li><strong>Silent responses.</strong> In Act 3, an item used at the next spot gave no visual change, sound or response, so players could not tell whether they had the right place or the right item.</li>
+<li><strong>Teaching gap.</strong> 12 minutes passed between picking up the lantern and learning how to activate it.</li>
+<li><strong>What worked.</strong> Players singled out the Carbine file puzzle and the tap-to-enter safe codes.</li>
+</ul>
+<p>One tester skipped story content in Acts 3 to 5 because doors and key items were not gated in that build. He put it down to the build being unfinished.</p>
+<h4><span>4</span>What players struggled with: the map</h4>
+<ul>
+<li>Two players got lost in Act 3. The map did not show the Exit Door puzzle room, which the developers confirmed as a known issue.</li>
+<li>A later tester found the map clear overall but harder to read in Acts 4 and 5, where fewer landmarks gave him less to orient by.</li>
+<li>I have the least evidence on the fourth question, whether the map feels like part of the world, so I do not claim an answer to it.</li>
+</ul>
+<h4><span>5</span>A second job: checking the Portuguese version</h4>
+<p>The game ships in English and Brazilian Portuguese (PT-BR). Partway through, I recorded a 94-minute PT-BR playthrough and reviewed more than 1,100 frames from it, looking for text in the wrong language or cut off. That became 7 localization findings, each with a timestamp and steps to reproduce. One of them, PT-BR text appearing in the English interface, was a confirmed bug. Reviewing recordings frame by frame is also how the pause menu cursor finding surfaced.</p>
+<h4><span>6</span>What happened next</h4>
+<ul>
+<li>The Act 3 map now shows the missing room, with a [?] marker for unfinished business.</li>
+<li>The latest build's pause menu starts on Resume Game. The developers could not say whether my report prompted it, but agreed that Load Game as the first option invites accidental presses.</li>
+<li>The Act 2 cave collider and the Steam launch error were fixed within two days of the player's report. Each report went to the developers with the player's recordings and the build number.</li>
+<li>Three more bugs I confirmed went to them: PT-BR text in the English UI, keybind remapping that decoupled animation from door function, and reversed enemy audio spatialization.</li>
+<li>The developers called the missing response to an item in Act 3 fair feedback. They also said the safe combination, statue and lock puzzles can be solved from the in-game notes and have brute-force fallbacks so players cannot get locked out. That leaves one open question: whether players find and read those notes.</li>
+</ul>
+<h4><span>7</span>What I would do differently</h4>
+<ul>
+<li>Add a short self-reported experience question to the death-count routing, so it does not end up sorting players by how much the game confused them.</li>
+<li>Apply the recurring-findings rule earlier: flag an issue once, and if the team does not respond, move it to an appendix so the priority signal stays clear across acts.</li>
+</ul>
+</div>
       <div class="case-reflection">
             <div class="case-reflection-label">Reflection</div>
             <p>Working with a small studio taught me that the delivery of a finding matters as much as the finding itself. Framing research as serving the game, before testing even begins, and acknowledging design intent before describing where it broke down for players kept the relationship collaborative rather than adversarial, even when the news wasn't good.</p>
           </div>
           <div class="impact-row">
             <div class="ic"><div class="ic-n">7</div><div class="ic-d"><strong>Localization findings</strong> from a single-playthrough frame-by-frame audit, each with timestamps and reproduction steps.</div></div>
-            <div class="ic"><div class="ic-n">Same-Day</div><div class="ic-d"><strong>Developer escalation</strong> and review of a critical pause-menu finding.</div></div>
+            <div class="ic"><div class="ic-n">3 + 3</div><div class="ic-d"><strong>Issues fixed with the developers</strong> (Act 3 map, Act 2 cave collider, Steam launch error), plus 3 more confirmed bugs I escalated.</div></div>
             <div class="ic"><div class="ic-n">18K+</div><div class="ic-d"><strong>LinkedIn impressions</strong> on a post about the pause menu cursor finding, with engagement from AAA researchers.</div></div>
           </div>
         </div>
@@ -357,19 +416,43 @@
             <div><span class="case-role-label">Role</span><div class="case-role-val">Independent researcher: study scoping, survey design, recruitment, analysis, and findings report</div></div>
             <div><span class="case-role-label">Context</span><div class="case-context-val">Volunteer study I proposed to a small independent studio, run on the October 2026 demo of their upcoming platform game</div></div>
           </div>
-          <p class="case-desc">In May 2026 I offered Clockwork Acorn volunteer research on <strong>Feather's Edge</strong>, a platform game whose movement and combat scheme differs from most platformers. After a call with the studio's head in September, we settled on a one-off study of how new players learn the controls in the public demo, against a single build, with participation capped and recruitment from my own channels.</p>
-          <div class="four-qs">
-<div class="fq"><div class="fq-q">What decision was the study meant to inform?</div><div class="fq-a">Whether new players can work out an unusual movement and combat scheme without heavy tutorials. The studio's stated approach was to teach controls and goals and let players learn through play, and it had found the scheme worked less well for some enemies and for longer-term progression. The study asked what players learned by experimenting, what surprised them, and where they gave up.</div></div>
-<div class="fq"><div class="fq-q">What was in and out of scope?</div><div class="fq-a"><strong>In scope:</strong> the first-time experience of the October 2 demo build, covering the controls, movement, and combat rules. <strong>Out of scope:</strong> the input scheme itself, which the studio had locked, and any build other than the demo. The studio's own in-game survey already reached a wider audience, so mine was built to explain why patterns happen, not to measure how often.</div></div>
-<div class="fq"><div class="fq-q">What data did you collect and why?</div><div class="fq-a">A survey I designed, which the studio reviewed before launch and cleared as giving away nothing pre-release. Closed questions gave counts. Open questions, such as "What did you learn about fighting that the game never told you?", captured the rules players found on their own and the words they used for what surprised them.</div></div>
-<div class="fq"><div class="fq-q">How did you recruit, and what got in the way?</div><div class="fq-a">I posted the game's trailer in Reddit communities for indie games and Metroidvania-style games, and in some Discord channels. The studio's own community was small and had already been asked to complete the in-game survey, so we agreed I would source my own players, and I stopped engaging the studio's Discord when asked. The survey closed at 11 responses against a target of 15.</div></div>
-<div class="fq"><div class="fq-q">What did you find about movement?</div><div class="fq-a">Seven of 11 players said the jump did not behave as expected, though 9 of 11 rated the controls 4 or 5 for clarity in the first few minutes (mean 4.2). Only 4 said movement felt natural by the end of the first level. Five said later in the demo and 2 said never. Three players independently asked for a way to cancel a jump or release from a wall.</div></div>
-<div class="fq"><div class="fq-q">What did players learn without being told?</div><div class="fq-a">Four found on their own that dashing makes them immune to projectiles. Six described a rule tied to a single enemy type, and two players never worked out how to defeat one enemy and stopped playing there. Six said they knew why they took damage only some of the time, and nobody chose never.</div></div>
-<div class="fq"><div class="fq-q">Where did players stop, and what got in the way?</div><div class="fq-a">Two players finished the demo, five reported stopping early, and four left the question blank. Three of the five who stopped did so in the ice region. Three players also hit input problems on three different non-Xbox controllers. Only Xbox controllers are officially supported, so some of those may be known limits.</div></div>
-<div class="fq"><div class="fq-q">What happened next, and what would you do differently?</div><div class="fq-a">The findings report went to the studio on October 19. The studio head confirmed he had read it and said he would share it with the wider team. Next time I would ask every respondent the same questions: the question set changed between the first five responses and the last six, so several counts are out of 5 or 6 instead of 11. I would also recruit players new to platformers, since 9 of 11 knew the genre well and the study cannot speak to newcomers.</div></div>
-      </div>
-
-          <div class="case-reflection">
+          <dl class="cs-glance">
+<div><dt>The game</dt><dd>Feather's Edge is a platform game from Clockwork Acorn, a small independent studio. Its movement and combat scheme differs from most platformers, and the studio prefers to teach the controls briefly and let players learn through play.</dd></div>
+<div><dt>The question</dt><dd>Can new players work out that scheme on their own, what surprises them along the way, and where do they give up?</dd></div>
+<div><dt>My role</dt><dd>Independent researcher. I proposed the study, then scoped it, designed the survey, recruited players, analyzed the answers and wrote the report.</dd></div>
+<div><dt>What this can and cannot tell you</dt><dd>The survey closed at 11 respondents against a target of 15, all self-selected from online communities. That is too few to say how common any problem is, so I report counts, not percentages or averages. Read the findings as leads to check against the studio's larger in-game survey.</dd></div>
+</dl>
+<div class="cs-story">
+<h4><span>1</span>How the study came about</h4>
+<p>In May 2026 I offered Clockwork Acorn free research. After a call with the studio's head in September, we agreed on a one-off study of how new players learn the controls in the public demo (the October 2 build), with participation capped and players recruited from my own channels. The studio's own in-game survey already reached a wider audience, so mine was built to explain why patterns happen, not to measure how often.</p>
+<p><strong>In scope:</strong> the first-time experience of that demo: controls, movement and combat rules. <strong>Out of scope:</strong> the input scheme itself, which the studio had locked, and any other build.</p>
+<h4><span>2</span>How I ran it</h4>
+<ul>
+<li><strong>Survey design.</strong> I wrote a survey for the studio to review before launch. They cleared it as revealing nothing about unreleased content. Closed questions gave counts. Open questions, such as "What did you learn about fighting that the game never told you?", captured the rules players found on their own and the words they used for what surprised them.</li>
+<li><strong>Recruiting.</strong> I posted the game's trailer in Reddit communities for indie and Metroidvania-style games and in some Discord channels. The studio's own community was small and had already been asked to complete the in-game survey, so we agreed I would find my own players. I stopped engaging in the studio's Discord when asked.</li>
+<li><strong>Result.</strong> 11 responses against a target of 15.</li>
+</ul>
+<h4><span>3</span>What players told me</h4>
+<p><strong>Movement.</strong> 9 of 11 rated the controls clear in the first few minutes, yet 7 said the jump did not behave as they expected. They knew which button did what. The movement itself surprised them. Only 4 said movement felt natural by the end of the first level, 5 said later in the demo and 2 said never. Three players independently asked for a way to cancel a jump or release from a wall.</p>
+<p><strong>Rules they found on their own.</strong> 4 discovered that dashing makes them immune to projectiles. 6 described a rule tied to a single enemy type. Two players never worked out how to defeat one enemy and stopped playing there. 6 said they knew why they took damage only some of the time, and nobody chose never.</p>
+<p><strong>Where they stopped.</strong> 2 finished the demo, 5 said they stopped early and 4 left the question blank. 3 of the 5 who stopped did so in the ice region. Three players also hit input problems on three different non-Xbox controllers. Only Xbox controllers are officially supported, so some of those may be known limits.</p>
+<h4><span>4</span>What I would and would not conclude</h4>
+<ul>
+<li><strong>Worth following up:</strong> the gap between "the controls are clear" and "the jump surprised me", the cancel and wall-release requests, and the ice region as a place players quit.</li>
+<li><strong>Not safe to conclude:</strong> how many players overall share any of these problems. With 11 self-selected respondents, one or two people change a result.</li>
+<li><strong>Weak spots in my data:</strong> the question set changed between the first 5 responses and the last 6, so several counts are out of 5 or 6, not 11. And 9 of 11 knew the genre well, so the study says little about players new to platformers.</li>
+</ul>
+<h4><span>5</span>What happened next</h4>
+<p>The findings report went to the studio on October 19. The studio reviewed it and discussed it as a team. Their reply was that they had already identified almost all of it, so it gave them no new information to act on. That means this study did not change their plans. It also means the survey reached, on its own, problems the studio already knew about, which is some evidence that it pointed at real issues. I cannot claim an effect on the game.</p>
+<h4><span>6</span>What I would do differently</h4>
+<ul>
+<li>Ask the studio at the start which problems it already knows about, so the study targets what it does not.</li>
+<li>Ask every respondent the same questions, so every count has the same base.</li>
+<li>Recruit players new to platformers, not only genre veterans.</li>
+<li>Aim for a larger sample, or pair the survey with a few observed sessions, so patterns do not rest on one or two answers.</li>
+</ul>
+</div>
+      <div class="case-reflection">
             <div class="case-reflection-label">Reflection</div>
             <p>A self-selected sample of 11 cannot say how common a problem is. It can show what the problems look like and what players say about them, which is why the report gives counts instead of percentages and lists its limits. The studio's larger in-game survey can show whether the jump, dash, and ice region patterns hold at scale.</p>
           </div>
@@ -400,23 +483,42 @@
             <div><span class="case-role-label">Role</span><div class="case-role-val">Apprentice in Phase 1, then Co-Lead UX Researcher in Phase 2 (Mar to May 2023): one of 3 co-leads on an 8-person research team</div></div>
             <div><span class="case-role-label">Team Context</span><div class="case-context-val">Volunteer research team via Tech Fleet, working alongside the design, content, and product strategy teams</div></div>
           </div>
-          <p class="case-desc">Tech Fleet set out to build a second version of Kadena's blockchain explorer with three goals: an easy-mode interface, analytics for Kadena NFTs, and real-time trading tools. Phase 1 produced a competitive analysis, two exploratory interviews, and personas. <strong>The design team's first prototype was built around two personas, a rookie user and a returning user, without research behind them.</strong></p>
-          <p class="case-desc">I joined Phase 1 as an apprentice and stepped up to co-lead in Phase 2. Over eight weekly sprints, from March 20 to May 12, 2023, the research team recruited participants, ran interviews and usability sessions, and passed findings to the design team in small batches while the work continued.</p>
-          <div class="four-qs">
-            <div class="fq"><div class="fq-q">What decision was the research meant to inform, and what was in scope?</div><div class="fq-a">Phase 1 left the team with two exploratory interviews and two personas that the design prototype had not been built from. The design team needed <strong>first-hand evidence from crypto and NFT users</strong> to update those personas, and usability data to revise the MVP. <strong>In scope:</strong> interviews with experienced crypto and NFT traders and current Kadena users, plus moderated usability tests of the Blockchain Explorer and the NFT Analytics Tool, using tasks the design team handed off. <strong>Out of scope:</strong> new-to-crypto users, who were not recruited until Phase 3. Eight weekly sprints and a starting goal of 5 interviews set the size of the study.</div></div>
-            <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a">A competitive analysis of NFT analytics tools to find where the explorer could fill a gap. <strong>Nine interviews</strong> (6 participants experienced in crypto and NFT trading, 3 current Kadena users) to update the personas. <strong>Two rounds of moderated usability testing</strong>, first on the Blockchain Explorer and then on the NFT Analytics Tool, using tasks the design team handed off. Transcripts were coded in FigJam, and each interviewer and coder wrote a short proto-persona so the team could build personas together.</div></div>
-            <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a"><strong>Interviews:</strong> participants preferred mainstream explorers like Etherscan to verify tokens and transactions, used tools like CoinGecko for price data, and relied on social media for information behind their decisions. Their reasons for using Kadena were smart contracts, low gas fees, and community visibility. <strong>Round 1 (Blockchain Explorer):</strong> all 3 users completed every task step except one, which 2 of 3 completed. The dropdown menu went unused and mining terms confused people, while the familiar layout drew praise. <strong>Round 2 (NFT Analytics Tool):</strong> the Single Ease Question score was 6.7 of 7, and finding the NFT calendar was the main struggle.</div></div>
-            <div class="fq"><div class="fq-q">What got in the way?</div><div class="fq-a"><strong>Recruiting.</strong> Web3 users are wary of scams, and some people who shared their contact details later backed out. The team reached out to active Kadena users on Twitter and Discord and through friends and family, starting with a goal of 5 interviews. Tech Fleet's CXO advised that even one participant a week was valuable.</div></div>
-            <div class="fq"><div class="fq-q">What was your part?</div><div class="fq-a">I presented the <strong>NFT analytics competitive analysis</strong> at the Sprint 1 kickoff, contributed usability task ideas ahead of the joint task session with the design team, and took part in participant outreach. As one of 3 co-leads, I shared responsibility for the team's deliverables at the May 2023 Final Sprint Demo.</div></div>
-            <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">I would separate interviews and usability testing by default. We combined them in one session, which sounds efficient but can be too much for a participant with a tight schedule. Separate sessions suit those participants, and a combined session fits someone with a wide-open schedule. The team's retrospective also found that the combined format cut into the depth of the interviews. I would also have every team send members to other teams' meetings, since that kept the projects aligned.</div></div>
-          </div>
-          <div class="case-reflection">
+          <dl class="cs-glance">
+<div><dt>The project</dt><dd>Kadena K-Block Explorer V2 was a Tech Fleet volunteer project to build a second version of Kadena's blockchain explorer with three goals: an easy-mode interface, analytics for Kadena NFTs, and real-time trading tools. A blockchain explorer is a site where people look up transactions, tokens and wallets.</dd></div>
+<div><dt>The question</dt><dd>The first prototype rested on two personas and only two exploratory interviews. Could first-hand evidence from crypto and NFT users update those personas and show what to fix in the prototype?</dd></div>
+<div><dt>My role</dt><dd>Apprentice UX researcher in Phase 1 (October 2022 to March 2023), then one of 3 co-leads of an 8-person research team in Phase 2 (March to May 2023).</dd></div>
+<div><dt>What this can and cannot tell you</dt><dd>The interview and usability numbers are team results, and each usability round had only a few participants. They show where people struggled, not how often. I was a co-lead, not the sole researcher, and Phase 3 was run by a different team.</dd></div>
+</dl>
+<div class="cs-story">
+<h4><span>1</span>The problem</h4>
+<p>Phase 1 produced a competitive analysis, two exploratory interviews and personas, but the design team's first prototype was built around two personas, a rookie user and a returning user, with only those two interviews behind them. Web3 users are also wary of scams, which makes recruiting hard. Phase 2 had eight weekly sprints, from March 20 to May 12, 2023, to get first-hand evidence from crypto and NFT users and to test the prototype.</p>
+<h4><span>2</span>What I did in Phase 1</h4>
+<p>As an apprentice, I contributed to two competitive analyses (block explorers and trading analytics tools). I created a recruitment survey and flyer, and a chart of platforms for recruiting users of all levels. I ran in-depth interviews with mid-level users when time and material were limited, ran a Figma brainstorming session with all teams, and helped produce the affinity map and personas.</p>
+<h4><span>3</span>How Phase 2 ran</h4>
+<p>I stepped up to co-lead. The research team recruited participants, ran interviews and usability sessions, and passed findings to the design team in small batches while the work continued.</p>
+<ul>
+<li><strong>Methods.</strong> A competitive analysis of NFT analytics tools, to find where the explorer could fill a gap. Nine interviews, 6 with participants experienced in crypto and NFT trading and 3 with current Kadena users, to update the personas. Two rounds of moderated usability testing, first on the Blockchain Explorer and then on the NFT Analytics Tool, using tasks the design team handed off. Transcripts were coded in FigJam, and each interviewer and coder wrote a short proto-persona so the team could build personas together.</li>
+<li><strong>Recruiting.</strong> Some people who shared their contact details later backed out. The team reached out to active Kadena users on Twitter and Discord and through friends and family, starting with a goal of 5 interviews. Tech Fleet's CXO advised that even one participant a week was valuable. Interviews grew from 2 to 9.</li>
+<li><strong>Out of scope.</strong> New-to-crypto users, who were not recruited until Phase 3.</li>
+</ul>
+<p><strong>My part:</strong> I presented the NFT analytics competitive analysis at the Sprint 1 kickoff, contributed usability task ideas ahead of the joint task session with the design team, and contributed to recruiting through direct outreach. As one of 3 co-leads, I shared responsibility for the team's deliverables at the May 2023 Final Sprint Demo.</p>
+<h4><span>4</span>What we found</h4>
+<ul>
+<li><strong>Interviews.</strong> Participants preferred mainstream explorers like Etherscan to verify tokens and transactions, used tools like CoinGecko for price data, and relied on social media for the information behind their decisions. Their reasons for using Kadena were smart contracts, low gas fees and community visibility.</li>
+<li><strong>Round 1 (Blockchain Explorer).</strong> All 3 users completed every task step except one, which 2 of 3 completed. The dropdown menu went unused and mining terms confused people, while the familiar layout drew praise.</li>
+<li><strong>Round 2 (NFT Analytics Tool).</strong> The Single Ease Question score was 6.7 of 7, a team result, and finding the NFT calendar was the main struggle.</li>
+</ul>
+<h4><span>5</span>What happened next</h4>
+<p>Later Tech Fleet teams carried the work through Phases 3 and 4, and I was not on those teams. Phase 3 opened by reanalyzing the Phase 1 and 2 data to set its research goals. Its design team started from the Phase 2 prototype, ran usability tests on it, and rebuilt pages including the NFT dashboard, neighboring chains and wallet overview. Phase 2 had reached mostly experienced users, and Phase 3 recruited Newbies alongside two experience levels. Phase 3 also ran its own usability study and added a Resources page with a glossary and tooltips after its own testing found that blockchain terms confused many participants. That matches the mining-term confusion we saw in Phase 2 Round 1. By the end of Phase 3 the design team had a beta-launch-ready responsive web app handed off to developers, with a live site shown at the September 2023 demo. The front-end beta is publicly hosted at <a href="https://kblock-explorer.vercel.app/" target="_blank" style="color:var(--accent-ink);">kblock-explorer.vercel.app</a>; it still shows placeholder data because Phase 3 recommended that the next phase focus on backend development. Phase 3's research team recommended updating personas and testing updated screens next, and Phase 4 interviewed two beginner groups.</p>
+<h4><span>6</span>What I would do differently</h4>
+<ul>
+<li>Separate interviews and usability testing by default. We combined them in one session, which sounds efficient but can be too much for a participant with a tight schedule. Separate sessions suit those participants, and a combined session fits someone with a wide-open schedule. The team's retrospective also found that the combined format cut into the depth of the interviews.</li>
+<li>Have every team send members to other teams' meetings, since that kept the projects aligned.</li>
+</ul>
+</div>
+      <div class="case-reflection">
             <div class="case-reflection-label">Reflection</div>
             <p>I started this project doubting it. Several crypto companies closed while we worked, and researching a crypto product felt risky. Finding active communities across social media changed that: people were still busy with cryptocurrency, mining, and NFTs, and many were willing to talk with us and suggest improvements. Sitting in on other teams' meetings also paid off. Knowing what each team needed let us build parts of their tasks into our research, and it gave us direction when our own next steps were unclear. Completing two rounds of interviews and usability testing in eight weeks was a real accomplishment for the team.</p>
-          </div>
-          <div class="case-reflection">
-            <div class="case-reflection-label">What Happened Next</div>
-            <p>Later Tech Fleet teams carried the work through Phases 3 and 4. Phase 3 opened by reanalyzing the Phase 1 and 2 data to set its research goals. Its design team started from the Phase 2 prototype, ran usability tests on it, and rebuilt pages including the NFT dashboard, neighboring chains, and wallet overview. Phase 2 had reached mostly experienced users, and Phase 3 recruited Newbies alongside two experience levels. By the end of Phase 3 the design team had a beta-launch-ready responsive web app handed off to developers, with a live site shown at the September 2023 demo. The front-end beta is publicly hosted at <a href="https://kblock-explorer.vercel.app/" target="_blank" style="color:var(--accent2);">kblock-explorer.vercel.app</a>; it still shows placeholder data because Phase 3 recommended that the next phase focus on backend development. Phase 3 also ran its own usability study and added a Resources page with a glossary and tooltips to address the term confusion the research had been tracking since Phase 1. Phase 3's research team recommended updating personas and testing updated screens next, and Phase 4 interviewed two beginner groups.</p>
           </div>
           <div class="impact-row">
             <div class="ic"><div class="ic-n">9</div><div class="ic-d"><strong>Interviews</strong> with 6 participants experienced in crypto and NFT trading and 3 current Kadena users.</div></div>
@@ -430,10 +532,10 @@
       <div>
         <span class="work-badge bg">Independent Study &middot; Disney Speedstorm</span>
         <h3 class="work-title">Disney Speedstorm UX Research Study</h3>
-        <p class="work-desc">Independent observational study on a live-service mobile racing game. Five moderated think-aloud sessions across four countries surfaced a systemic onboarding gap around currency and reward systems.</p>
+        <p class="work-desc">Independent observational study on a live-service mobile racing game. Five unmoderated think-aloud sessions across three countries surfaced a recurring confusion around currency and reward systems.</p>
         <div class="work-outcomes">
           <div class="work-outcome"><strong>5</strong>Sessions</div>
-          <div class="work-outcome"><strong>4</strong>Countries</div>
+          <div class="work-outcome"><strong>3</strong>Countries</div>
           <div class="work-outcome"><strong>7</strong>Findings</div>
         </div>
         <div class="work-tags"><span class="mt">Think-Aloud Playtesting</span><span class="mt">Cross-Session Synthesis</span></div>
@@ -442,35 +544,63 @@
         <summary class="case-summary">View Full Case Study</summary>
         <div class="case-content">
           <div class="case-role-row">
-            <div><span class="case-role-label">Role</span><div class="case-role-val">Independent researcher: study design, participant recruitment, facilitation, and synthesis</div></div>
+            <div><span class="case-role-label">Role</span><div class="case-role-val">Independent researcher: study design, audience targeting, and cross-session synthesis</div></div>
             <div><span class="case-role-label">Context</span><div class="case-context-val">Independent observational study conducted via PlaytestCloud credits received upon completing Steve Bromley's Games User Research Fundamentals course</div></div>
           </div>
-          <p class="case-desc">An independent observational study on <strong>Disney Speedstorm</strong>, a live-service mobile racing game by Gameloft, conducted as a practical application of the Games User Research Fundamentals course. Five moderated think-aloud sessions across 4 countries, focused on new player onboarding, progression comprehension, and early-game friction.</p>
-          <div class="four-qs">
-            <div class="fq"><div class="fq-q">What decision was the study meant to inform?</div><div class="fq-a">No studio commissioned this study, so the question was mine, written as if for the game's product team: do new players understand what the in-game currencies and rewards are for, and does the early game teach them what to do next? Disney Speedstorm suited it because the brand has strong appeal but sits on a complex progression economy that new players meet from the first session.</div></div>
-<div class="fq"><div class="fq-q">What was in and out of scope?</div><div class="fq-a"><strong>In scope:</strong> new player onboarding, progression comprehension, and early-game friction. <strong>Out of scope:</strong> anything that needed studio access or internal data, such as analytics or balance numbers. With PlaytestCloud credits from the course and no studio access, I observed five new players and did not try to measure how common any problem is.</div></div>
-            <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a"><strong>Moderated think-aloud sessions</strong> via PlaytestCloud let me observe real new-player behavior without studio access. Five sessions across a diverse participant pool (ages 17-36, 4 countries) gave enough signal to identify cross-participant patterns. I developed a <strong>behavioral annotation system</strong> using tags to structure cross-session synthesis.</div></div>
-            <div class="fq"><div class="fq-q">What did you find?</div><div class="fq-a">The most consistent cross-participant finding was confusion around <strong>in-game currency and reward systems</strong>, flagged independently by 4 of 5 participants regardless of age or gaming experience. Onboarding clarity split clearly by player archetype: experienced kart-racing players found it sufficient; genre-unfamiliar players did not.</div></div>
-            <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">With more time I would have recruited specifically for Disney-primary players to better understand the experience gap for that audience, and designed a second evaluative round to test whether specific changes addressed the currency confusion finding.</div></div>
-<div class="fq"><div class="fq-q">What happened next?</div><div class="fq-a">The study produced a synthesis report with 7 prioritized findings and 5 design recommendations, linked below. No studio was involved, so the report is where the work ends, and I cannot say whether anything changed.</div></div>
-          
-      </div>
-          <div class="case-reflection">
+          <dl class="cs-glance">
+<div><dt>The game</dt><dd>Disney Speedstorm is a free-to-play kart racing game for mobile, made by Gameloft, with a complex progression system of currencies, shards and passes that new players meet from the first session.</dd></div>
+<div><dt>The question</dt><dd>Do new players understand what the in-game currencies and rewards are for, and does the early game teach them what to do next?</dd></div>
+<div><dt>My role</dt><dd>Independent researcher. No studio was involved. I designed the study, chose the participants and synthesized the sessions.</dd></div>
+<div><dt>What this can and cannot tell you</dt><dd>Five players is enough to see what confusion looks like and where it repeats. It is not enough to say how common it is, so I report counts and treat the results as patterns worth testing further.</dd></div>
+</dl>
+<div class="cs-story">
+<h4><span>1</span>Why I ran this study</h4>
+<p>I finished Steve Bromley's Games User Research Fundamentals course and received PlaytestCloud credits for completing it. I used them on a real game as a practical exercise. Because no studio commissioned the work, the question was mine, written as if for the game's product team.</p>
+<p><strong>In scope:</strong> new player onboarding, progression comprehension and early-game friction. <strong>Out of scope:</strong> anything that needed studio access or internal data, such as analytics or balance numbers.</p>
+<h4><span>2</span>How I ran it</h4>
+<p>Five new players recorded themselves playing and talking through what they were thinking, using PlaytestCloud. This is an unmoderated think-aloud method, so I could not ask follow-up questions in the moment. The players were aged 17 to 36 and lived in the US, Canada and the UK. That gave about 3.5 hours of footage. PlaytestCloud's AI-generated session summaries and annotation tags were my main data source, and I looked for patterns that recurred across sessions.</p>
+<h4><span>3</span>What players struggled with</h4>
+<ul>
+<li><strong>Currencies and rewards.</strong> 4 of 5 independently said they were confused about the in-game currencies, shards and reward systems, regardless of age or gaming experience. This was the most consistent finding.</li>
+<li><strong>Onboarding split by player type.</strong> Experienced kart-racing players found it sufficient. Players new to the genre were still "winging it" after 30 minutes.</li>
+<li><strong>Special skill.</strong> 2 of 5 struggled to understand it, even though the tutorial covered it.</li>
+<li><strong>Less Disney than expected.</strong> 2 felt the experience was not distinctively Disney.</li>
+</ul>
+<h4><span>4</span>What worked</h4>
+<ul>
+<li>All 5 praised the responsive controls and the visuals.</li>
+<li>Character upgrades, ranking rewards and the Golden Pass were named as strong motivators once players understood them.</li>
+</ul>
+<h4><span>5</span>What I would and would not conclude</h4>
+<ul>
+<li><strong>Worth testing further:</strong> whether the currency confusion holds with more players, and whether new-to-genre players really struggle more than experienced ones.</li>
+<li><strong>Not safe to conclude:</strong> how many players overall share the confusion. Four of five players in a small group can change with one or two different recruits.</li>
+<li><strong>Weak spot in my sample:</strong> 4 of 5 played 14 or more hours a week, and I did not recruit players who came to the game for Disney, so the experience of that audience is a gap.</li>
+</ul>
+<h4><span>6</span>What happened next</h4>
+<p>The study produced a synthesis report with 7 prioritized findings and 5 design recommendations, linked below. No studio was involved, so the report is where the work ends, and I cannot say whether anything changed.</p>
+<h4><span>7</span>What I would do differently</h4>
+<ul>
+<li>Recruit specifically for players who came for Disney, to understand the experience gap for that audience.</li>
+<li>Run a second round to test whether specific changes fix the currency confusion.</li>
+</ul>
+</div>
+      <div class="case-reflection">
             <div class="case-reflection-label">Reflection</div>
-            <p>Running an independent study on a live production game without studio access sharpened my ability to extract signal from purely observational methods. The most valuable outcome wasn't any single finding but the realization that cross-participant pattern recognition is where the real research judgment lives: one player struggling with currency is noise; four players independently flagging the same system is a finding worth acting on.</p>
+            <p>Running an independent study on a live production game without studio access sharpened my ability to extract signal from purely observational methods. The most valuable outcome wasn't any single finding but the realization that cross-participant pattern recognition is where the real research judgment lives: four of five players independently flagging the same system is a pattern worth testing with more people.</p>
           </div>
           <div class="impact-row">
-            <div class="ic"><div class="ic-n">5</div><div class="ic-d"><strong>Moderated think-aloud sessions</strong> across 4 countries, ranging in age and gaming experience.</div></div>
-            <div class="ic"><div class="ic-n">4 of 5</div><div class="ic-d"><strong>Participants independently flagged</strong> currency and reward system confusion, a systemic onboarding gap, not individual variance.</div></div>
+            <div class="ic"><div class="ic-n">5</div><div class="ic-d"><strong>Unmoderated think-aloud sessions</strong> across 3 countries, ranging in age and gaming experience.</div></div>
+            <div class="ic"><div class="ic-n">4 of 5</div><div class="ic-d"><strong>Participants independently flagged</strong> currency and reward system confusion, a pattern worth testing with a larger group.</div></div>
             <div class="ic"><div class="ic-n">7</div><div class="ic-d"><strong>Distinct findings</strong> synthesized across sessions, with 5 prioritized design recommendations.</div></div>
           </div>
-          <div class="s-tag" style="margin-bottom:.75rem;">Playtest Participants &middot; Ages 17-36 &middot; 4 Countries</div>
+          <div class="s-tag" style="margin-bottom:.75rem;">Playtest Participants &middot; Ages 17-36 &middot; 3 Countries</div>
           <div class="ptg">
-            <div class="pc"><div class="pc-n">Brandon</div><div class="pc-i">17 &middot; US &middot; 14h+/wk</div></div>
-            <div class="pc"><div class="pc-n">Naman</div><div class="pc-i">24 &middot; CA &middot; 8h/wk</div></div>
-            <div class="pc"><div class="pc-n">Shea</div><div class="pc-i">27 &middot; UK &middot; 14h+/wk</div></div>
-            <div class="pc"><div class="pc-n">Mathias</div><div class="pc-i">28 &middot; UK &middot; 14h+/wk</div></div>
-            <div class="pc"><div class="pc-n">Meagan</div><div class="pc-i">36 &middot; US &middot; 14h+/wk</div></div>
+            <div class="pc"><div class="pc-n">P1</div><div class="pc-i">US &middot; 14h+/wk</div></div>
+            <div class="pc"><div class="pc-n">P2</div><div class="pc-i">CA &middot; 8h/wk</div></div>
+            <div class="pc"><div class="pc-n">P3</div><div class="pc-i">UK &middot; 14h+/wk</div></div>
+            <div class="pc"><div class="pc-n">P4</div><div class="pc-i">UK &middot; 14h+/wk</div></div>
+            <div class="pc"><div class="pc-n">P5</div><div class="pc-i">US &middot; 14h+/wk</div></div>
           </div>
           <div class="findings-grid">
             <div class="fc"><div class="fl lp">Pain Point</div><div class="fc-t">Currency System Confusion</div><div class="fc-d">4 of 5 participants independently flagged confusion around in-game currencies, shards, and reward systems, the most consistent cross-session finding.</div></div>
@@ -482,7 +612,7 @@
           </div>
           <div class="stat-row">
             <div><div class="sn">5</div><div class="sl">Participants</div></div>
-            <div><div class="sn">4</div><div class="sl">Countries</div></div>
+            <div><div class="sn">3</div><div class="sl">Countries</div></div>
             <div><div class="sn">7</div><div class="sl">Findings</div></div>
             <div><div class="sn">~3.5hrs</div><div class="sl">Session Footage</div></div>
           </div>
@@ -491,9 +621,9 @@
             <div style="flex:1;min-width:240px;">
               <div class="artifact-label">Synthesis Report &middot; Full Artifact</div>
               <div class="artifact-title">Disney Speedstorm UX Research Synthesis Report</div>
-              <p class="artifact-desc">Cross-session synthesis report from 5 moderated think-aloud sessions (ages 17-36, 4 countries). Covers 7 prioritized findings, 5 design recommendations, a participant overview, methodology, and behavioral annotation tag summary.</p>
+              <p class="artifact-desc">Cross-session synthesis report from 5 unmoderated think-aloud sessions (ages 17-36, 3 countries). Covers 7 prioritized findings, 5 design recommendations, a participant overview, methodology, and annotation tag summary.</p>
             </div>
-            <a href="https://austinbaldi.github.io/Disney_Speedstorm_UX_Research_Synthesis.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.72rem;flex-shrink:0;align-self:center;">View Report &rarr;</a>
+            <a href="https://austinbaldi.github.io/Disney_Speedstorm_UX_Research_Synthesis.pdf" target="_blank" class="btn btn-outline-dark" style="font-size:.8rem;flex-shrink:0;align-self:center;">View Report &rarr;</a>
           </div>
         </div>
       </details>
@@ -502,9 +632,9 @@
       <div>
         <span class="work-badge bb">EdTech / Accessibility &middot; DFN</span>
         <h3 class="work-title">Dyslexia Foundation Nigeria, Accessibility Research</h3>
-        <p class="work-desc">Lead UX Researcher (volunteer, via Tech Fleet) on an open-source EdTech app supporting dyslexic students across West Africa, spanning multiple research phases from discovery through evaluation.</p>
+        <p class="work-desc">Co-Lead UX Researcher, Phase 2 (volunteer, via Tech Fleet), Sep to Nov 2024, on an open-source EdTech app supporting dyslexic students across West Africa. Prepared the student prototype for usability testing.</p>
         <div class="work-outcomes">
-          <div class="work-outcome"><strong>3+</strong>Research Phases</div>
+          <div class="work-outcome"><strong>6</strong>Researchers (2 leads)</div>
           <div class="work-outcome"><strong>Open Source</strong>Product</div>
         </div>
         <div class="work-tags"><span class="mt">Accessibility Research</span><span class="mt">EdTech</span><span class="mt">Lead Researcher</span></div>
@@ -513,19 +643,37 @@
         <summary class="case-summary">View Full Case Study</summary>
         <div class="case-content">
           <div class="case-role-row">
-            <div><span class="case-role-label">Role</span><div class="case-role-val">Lead UX Researcher (volunteer, via Tech Fleet): infrastructure, mixed-methods research, and synthesis</div></div>
-            <div><span class="case-role-label">Context</span><div class="case-context-val">Distributed volunteer research team supporting an open-source accessibility EdTech app for dyslexic students across West Africa</div></div>
+            <div><span class="case-role-label">Role</span><div class="case-role-val">Co-Lead UX Researcher (volunteer, via Tech Fleet), Phase 2: usability guide, screener survey, and recruitment flow</div></div>
+            <div><span class="case-role-label">Context</span><div class="case-context-val">Six-person volunteer research team (2 leads, 4 apprentices) working with two UX design teams and UX writing on an open-source accessibility EdTech app</div></div>
           </div>
-          <p class="case-desc">Multi-phase research engagement for an open-source EdTech app built to support dyslexic students in West Africa. Work spanned three-plus research phases over two and a half years, including discovery, competitive benchmarking, and evaluative testing with trainers, caregivers, and educators, alongside building the participant tracking and documentation infrastructure a distributed volunteer team needed to stay consistent.</p>
-          <div class="four-qs">
-            <div class="fq"><div class="fq-q">What decision was the research meant to inform, and what was in scope?</div><div class="fq-a">The product team needed to know who the app's users were and what they already used, how existing tools set the bar, and whether the app worked for the people around dyslexic students. Scope followed three phases, discovery, competitive benchmarking, and evaluative testing, with trainers, caregivers, and educators as the participant groups. Before any of that could matter, the team needed shared records, so building them came first.</div></div>
-            <div class="fq"><div class="fq-q">What methods did you use and why?</div><div class="fq-a">A mixed-methods approach across discovery, competitive benchmarking, and evaluative testing, chosen to match a team working with limited resources and inconsistent connectivity. Device and connectivity data (97.3% Android usage) anchored technical recommendations the product team could act on directly.</div></div>
-            <div class="fq"><div class="fq-q">What happened to the project?</div><div class="fq-a">After sustained progress across multiple research phases, communication with the project slowed and eventually stopped. I do not have full visibility into the cause. My best guess is a mix of general communication breakdown and a change in project leadership, where the incoming manager may not have had context on the work already completed.</div></div>
-            <div class="fq"><div class="fq-q">What would you do differently?</div><div class="fq-a">Build a lightweight handoff document as the work progresses, something a new stakeholder could read in ten minutes to get oriented on what has been tested, decided, and left open. I would also establish more than one point of contact on the organization's side, so a single personnel change does not leave the research thread with no one to follow up with.</div></div>
-          </div>
-          <div class="case-reflection">
+          <dl class="cs-glance">
+<div><dt>The project</dt><dd>An open-source dyslexia app for students in West Africa, built by Dyslexia Foundation Nigeria (DFN) with Tech Fleet volunteer teams. Earlier phases had defined the problem space and product goals. Phase 2 had to get the student prototype ready to test with children and their parents.</dd></div>
+<div><dt>The question</dt><dd>Was the student prototype ready to put in front of children? Could they sign up, log in and find a game on their own, and what would parents need in order to agree?</dd></div>
+<div><dt>My role</dt><dd>Co-Lead UX Researcher for Phase 2 (September to November 2024), one of 2 leads on a six-person research team with 4 apprentices, working alongside two UX design teams and UX writing.</dd></div>
+<div><dt>What this can and cannot tell you</dt><dd>This is a preparation phase. My work was the guide, the screener and the recruitment plan. Usability testing with students was planned for the final sprint, and I do not have its results.</dd></div>
+</dl>
+<div class="cs-story">
+<h4><span>1</span>The problem</h4>
+<p>The research team had no participant pool yet. Testing with children means parental consent, a confirmed testing location and confirmed device access, and all three were still open. The student persona carried over from Phase 1 and needed more research to be fully validated.</p>
+<p><strong>In scope:</strong> the student prototype first, then materials for educators. <strong>Out of scope:</strong> building the app itself.</p>
+<h4><span>2</span>What I did</h4>
+<ul>
+<li><strong>Usability testing guide.</strong> I drafted a hybrid guide that mixed interview questions with tasks (signing up, logging in, finding a game), written in kid-friendly language so children could follow it.</li>
+<li><strong>Screener survey.</strong> I refined the parent and student survey into a screener and added questions about technology access at home and at school, because devices were an open question.</li>
+<li><strong>Recruitment flow.</strong> I helped build a parent email, a consent form and a pre-test survey.</li>
+<li><strong>Persona check.</strong> I compared each student persona statement with earlier interviews, surveys, focus groups and desk research. It produced minor changes and a note that more research was needed.</li>
+<li><strong>Incentives.</strong> Offering payment was not an option, so I brainstormed alternatives such as workshops for parents and teachers through DFN or other experts.</li>
+</ul>
+<h4><span>3</span>What got in the way</h4>
+<p>There was no ready participant pool. The team was still reaching out to other dyslexia organizations and online groups for participants, and the guide and survey were ready before the participants were.</p>
+<h4><span>4</span>What happened next</h4>
+<p>The decks I have show testing materials for students under review with design and writing, and educator materials started, with usability testing planned for the final sprint. My phase ended in November 2024, and I do not have testing results to report.</p>
+<h4><span>5</span>What I would do differently</h4>
+<p>Start recruitment in the first sprint. Parental consent, a testing location and device access took the longest to settle.</p>
+</div>
+      <div class="case-reflection">
             <div class="case-reflection-label">Reflection</div>
-            <p>Research infrastructure is not just documentation for its own sake. It is what makes the work portable when the people around it change, which matters most in volunteer and nonprofit settings where turnover is common and institutional memory is thin. This project did not end the way I would have wanted, but it clarified what continuity actually requires.</p>
+            <p>Testing with children means consent, language, and device access have to be settled before the first session. That made the guide and the screener as important as the prototype itself.</p>
           </div>
         </div>
       </details>
@@ -553,11 +701,11 @@
   <div class="s-div"></div>
   <p class="contact-sub">If you are hiring for a games UX researcher, or you do games user research and have advice for someone earlier in the field, I would like to hear from you. A <strong>30-minute call</strong> is the easiest way to start.</p>
   <div class="contact-btns">
-    <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary" style="font-size:.8rem;">Book a Call</a>
-    <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="btn btn-outline-light" style="font-size:.8rem;">Download Resume</a>
+    <a href="https://calendly.com/ajonbaldi" target="_blank" class="btn btn-primary" style="font-size:.9rem;">Book a Call</a>
+    <a href="https://austinbaldi.github.io/Austin_Baldi_Resume.pdf" target="_blank" class="btn btn-outline-light" style="font-size:.9rem;">Download Resume</a>
   </div>
   <div class="contact-links">
-    <a href="mailto:ajonbaldi@gmail.com" class="cl">Email</a>
+    <a href="mailto:austinbaldi@outlook.com" class="cl">Email</a>
     <a href="https://www.linkedin.com/in/austinbaldi" target="_blank" class="cl">LinkedIn</a>
     <a href="https://calendly.com/ajonbaldi" target="_blank" class="cl">Calendly</a>
     <a href="#work" class="cl">Case Studies</a>
@@ -566,7 +714,7 @@
 
 <footer>
   <span>Austin Baldi | Games UX Researcher &middot; Raleigh, NC</span>
-  <span>Austin Baldi &middot; ajonbaldi@gmail.com</span>
+  <span>Austin Baldi &middot; austinbaldi@outlook.com</span>
 </footer>
 
 </body>
